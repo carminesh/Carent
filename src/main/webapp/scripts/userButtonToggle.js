@@ -1,18 +1,18 @@
 $(document).ready (
 	() => {
 		
-		$("#form-email").toggle();
-		$("#form-password").toggle();
+		$("#container-form-email").toggle();
+		$("#container-form-password").toggle();
 		
 		$("#modificaemailButton").click (
 			() => {
-				$("#form-email").toggle();
+				$("#container-form-email").toggle();
 			}
 		);
 		
 		$("#modificapassButton").click (
 			() => {
-				$("#form-password").toggle();
+				$("#container-form-password").toggle();
 			}
 		);
 	}
