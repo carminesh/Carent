@@ -1,0 +1,77 @@
+body {
+    background-color: #262a2e !important;
+
+}
+
+/*Navbar-section*/
+
+.navbar-nav {
+    margin-left: auto;
+    padding-top: 10px;
+}
+
+#navbarNavAltMarkup > div > a:nth-child(n) {
+    padding: 5px 20px;
+}
+
+.login-window, .registration-window {
+    padding-top: 150px;
+}
+
+
+#form-login {
+    width: 600px;
+    height: 600px;
+    padding-top: 80px;
+    background: #212529 !important;
+    border: 2px#00bf85 solid;
+    border-radius: 15px;
+    color: white;
+    font-size: 25px;
+}
+
+#form-registration {
+    width: 600px;
+    height: 800px;
+    padding-top: 80px;
+    background: #212529 !important;
+    border: 2px#00bf85 solid;
+    border-radius: 15px;
+    color: white;
+    font-size: 25px;
+}
+
+#title-window {
+    color: #00bf85 !important;
+    font-size: 50px;
+    padding-bottom: 20px;
+}
+
+#login-button, #registration-button{
+    border-radius: 15px !important;
+    background: #00bf85 !important;
+    border-color: #00bf85 !important;
+    width: 30%;
+    margin-top: 50px;
+}
+
+#login-button:hover, #registration-button:hover {
+    background: #015c40 !important;
+}
+
+#text-for-registration {
+    font-size: 20px;
+    margin-left: 50%;
+    padding-top: 15px;
+}
+
+#text-for-login {
+    font-size: 20px;
+    margin-left: 60%;
+    padding-top: 15px;
+}
+
+#text-for-registration a, #text-for-login a{
+    color: #015c40;
+    text-decoration: none;
+}

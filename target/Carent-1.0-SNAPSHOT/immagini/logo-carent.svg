@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="19px" viewBox="0 0 104 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo" transform="translate(-202.000000, -244.000000)" fill="#FFFFFF">
+            <g id="Group" transform="translate(202.000000, 238.000000)">
+                <text id="carent" font-family="ArialRoundedMTBold, Arial Rounded MT Bold" font-size="25" font-weight="normal">
+                    <tspan x="25" y="24">carent</tspan>
+                </text>
+                <circle id="Oval" cx="4" cy="21" r="3"></circle>
+                <circle id="Oval" cx="17" cy="21" r="3"></circle>
+                <path d="M3,11 C4.66666667,11 6.33333333,11 8,11 C9.19579402,11 9.5268825,14.3093504 13.1170844,16.7387796 C13.9282857,17.2877059 15.2671118,18.0669391 17.1335629,19.0764793 C17.4455637,19.2452036 17.5616803,19.6349178 17.3929304,19.9469048 C17.3176328,20.0861159 17.1935834,20.1926214 17.0445816,20.2459876 L15.6817595,20.7340932 C12.9314234,18.2446977 10.3708369,17 8,17 C6.33333333,17 4.66666667,17 3,17 C1.34314575,17 3.92827566e-14,15.6568542 3.90798505e-14,14 C3.88769443e-14,12.3431458 1.34314575,11 3,11 Z" id="Rectangle"></path>
+            </g>
+        </g>
+    </g>
+</svg>
