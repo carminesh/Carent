@@ -43,7 +43,7 @@
                 </button>
 
                 <div id="form-container-delete-car">
-                    <div id="form-remove-car">
+                    <div class="form">
                         <input type="text" id="deleted-car" placeholder="Veicolo da rimuovere">
                         <br>
                         <button type="button" class="btn btn-success" id="delete-car-button">Rimuovi</button>
@@ -60,7 +60,7 @@
                 </button>
 
                 <div id="form-container-delete-user">
-                    <div id="form-add-user">
+                    <div class="form">
                         <input type="email" id="deleted-user" placeholder="Utente da rimuovere">
                         <br>
                         <button type="button" class="btn btn-success" id="delete-user-button">Rimuovi</button>
@@ -76,7 +76,7 @@
                 </button>
 
                 <div id="form-container-add-car">
-                    <div id="form-add-car">
+                    <div class="form">
                         <input type="text" id="add-carr" placeholder="Veicolo da aggiungere">
                         <br>
                         <button type="button" class="btn btn-success" id="add-car-button">Aggiungi</button>

@@ -27,7 +27,6 @@ if (pass==null) {
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="scripts/carLoader.js"></script>
 
 </head>
 <body>
@@ -166,14 +165,53 @@ if (pass==null) {
 			<p>Scegli tra una vasta gamma di modelli a tua disposizione</p>
 
 		</div>
-		<div id="carouselExampleControls" class="carousel slide"
-			data-bs-ride="carousel">
+		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
 			<div class="row justify-content-center" id="card-row">
 				<div class="col-sm-12">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="container">
-								<div class="row justify-content-center riga"></div>
+								<div class="row justify-content-center">
+
+									<div class="col-sd-4 col-md-3">
+										<div class="card card-body">
+											<img class="img-fluid" src="immagini/bmw.svg">
+											<h5 class="card-title">Bmw i12</h5>
+											<p class="card-text">Some quick example text the bulk of the card's content.</p>
+											<a href="#" class="btn btn-success">Dettagli</a>
+										</div>
+									</div>
+
+									<div class="col-sd-4 col-md-3">
+										<div class="card card-body">
+											<img class="img-fluid" src="immagini/smart.svg">
+											<h5 class="card-title">Smart forTwo</h5>
+											<p class="card-text">Some quick example text the bulk of the card's content.</p>
+											<a href="#" class="btn btn-success">Dettagli</a>
+										</div>
+									</div>
+
+									<div class="col-sd-4 col-md-3">
+										<div class="card card-body">
+											<img class="img-fluid" src="immagini/fiat.svg">
+											<h5 class="card-title">Fiat 500</h5>
+											<p class="card-text">Some quick example text the bulk of the card's content.</p>
+											<a href="#" class="btn btn-success">Dettagli</a>
+										</div>
+									</div>
+
+									<div class="col-sd-4 col-md-3">
+										<div class="card card-body">
+											<img class="img-fluid" src="immagini/mercedes.svg">
+											<h5 class="card-title">Mercedes C</h5>
+											<p class="card-text">Some quick example text the bulk of the card's content.</p>
+											<a href="#" class="btn btn-success">Dettagli</a>
+										</div>
+									</div>
+
+
+								</div>
 							</div>
 						</div>
 						<div class="carousel-item">
@@ -183,8 +221,7 @@ if (pass==null) {
 										<div class="card card-body">
 											<img class="img-fluid" src="immagini/peugeot.svg">
 											<h5 class="card-title">Peugeot 208</h5>
-											<p class="card-text">Some quick example text the bulk of
-												the card's content.</p>
+											<p class="card-text">Some quick example text the bulk of the card's content.</p>
 											<a href="#" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
@@ -193,8 +230,7 @@ if (pass==null) {
 										<div class="card card-body">
 											<img class="img-fluid" src="immagini/opel.svg">
 											<h5 class="card-title">Opel Grandland</h5>
-											<p class="card-text">Some quick example text the bulk of
-												the card's content.</p>
+											<p class="card-text">Some quick example text the bulk of the card's content.</p>
 											<a href="#" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
@@ -203,8 +239,7 @@ if (pass==null) {
 										<div class="card card-body">
 											<img class="img-fluid" src="immagini/polo.svg">
 											<h5 class="card-title">Volswagen Polo</h5>
-											<p class="card-text">Some quick example text the bulk of
-												the card's content.</p>
+											<p class="card-text">Some quick example text the bulk of the card's content.</p>
 											<a href="#" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
@@ -213,8 +248,7 @@ if (pass==null) {
 										<div class="card card-body">
 											<img class="img-fluid" src="immagini/skoda.svg">
 											<h5 class="card-title">Skoda Octavia</h5>
-											<p class="card-text">Some quick example text the bulk of
-												the card's content.</p>
+											<p class="card-text">Some quick example text the bulk of the card's content.</p>
 											<a href="#" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
@@ -223,20 +257,18 @@ if (pass==null) {
 						</div>
 					</div>
 				</div>
+
 			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
 		</div>
 
-
-		<button class="carousel-control-prev" type="button"
-			data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button"
-			data-bs-target="#carouselExampleControls" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Next</span>
-		</button>
 	</div>
 
 	<!--Footer-->

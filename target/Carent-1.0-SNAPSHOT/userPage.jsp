@@ -80,7 +80,7 @@
             </div>
 
             <div id="container-form-email">
-                <div id="form-email">
+                <div class="form-email">
                     <input type="email" id="newemail" placeholder="Nuova email">
                     <button type="button" class="btn btn-success" id="emailchangebutton">Cambia</button>
                 </div>

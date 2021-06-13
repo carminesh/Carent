@@ -21,8 +21,44 @@ button {
 	margin-left: 100px;
 }
 
-#delete-user-button, #delete-car-button, #add-car-button {
+#add-car-button, #delete-user-button, #delete-car-button {
 	font-size: 16px !important;
+	margin-top: 20px;
+	background:#7A6A4D !important;
+	border-color: #C7B491 !important;
 	width: 100px;
 	height: 50px;
 }
+
+#delete-user-button, #delete-car-button {
+	background: #BF2900 !important;
+	border-color: #BF2900 !important;
+}
+
+#delete-user-button:hover, #delete-car-button:hover {
+	background:#731900 !important;
+}
+
+#delete-user-button:focus, #delete-car-button:focus, #add-car-button:focus, #delete-user-button:active, #delete-car-button:active, #add-car-button:active {
+	box-shadow: none;
+}
+
+
+
+#add-car-button:hover {
+	background:#C7B491 !important;
+
+}
+
+
+
+
+input {
+	height: 40px;
+	width: 340px;
+}
+
+#form-container-delete-car, #form-container-add-car, #form-container-delete-user {
+	margin-top: 20px;
+}
+

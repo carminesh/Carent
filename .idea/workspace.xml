@@ -9,33 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c740bcf0-b463-4742-aab0-bc7d11feecfc" name="Default Changelist" comment="First Commit">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Carent_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Carent_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_api_8_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ognl_ognl_3_1_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Carent.iml" afterDir="false" />
+    <list default="true" id="c740bcf0-b463-4742-aab0-bc7d11feecfc" name="Default Changelist" comment="First official commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/adminPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adminPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/adminStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/adminStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/userPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/adminPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/adminPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/css/adminStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/css/adminStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/userPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/userPage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +195,7 @@
       <workItem from="1623584720808" duration="1049000" />
       <workItem from="1623585974936" duration="276000" />
       <workItem from="1623586280580" duration="159000" />
-      <workItem from="1623586636357" duration="5731000" />
+      <workItem from="1623586636357" duration="7548000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1623592832049</created>
@@ -223,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623592832049</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First official commit">
+      <created>1623593281541</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623593281541</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +230,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
+    <MESSAGE value="First official commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First official commit" />
   </component>
 </project>
