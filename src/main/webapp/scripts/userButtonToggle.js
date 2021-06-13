@@ -6,13 +6,19 @@ $(document).ready (
 		
 		$("#modificaemailButton").click (
 			() => {
-				$("#container-form-email").toggle();
+				if (!$("#container-form-email").is(":visible"))
+					$("#container-form-email").fadeIn();
+				else
+					$("#container-form-email").fadeOut();
 			}
 		);
 		
 		$("#modificapassButton").click (
 			() => {
-				$("#container-form-password").toggle();
+				if (!$("#container-form-password").is(":visible"))
+					$("#container-form-password").fadeIn();
+				else
+					$("#container-form-password").fadeOut();
 			}
 		);
 	}
