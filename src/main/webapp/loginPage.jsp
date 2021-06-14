@@ -67,19 +67,19 @@
 <div class="container">
     <div class="login-window">
 
-        <div id="esito" style="color:white;">
-            <% if (esito!=null) { %> <%=esito%> <% } %>
-        </div>
-
-        <div id="errore" style="color:white;">
-            <% if (error!=null) { %> <%=error%> <% } %>
-        </div>
 
         <div class="container justify-content-center">
             <div class="row justify-content-center">
                 <form id="form-login" method="post" action="login">
                     <div class="row justify-content-center" id="row-email">
                         <div class="row text-center">
+                            <div id="esito">
+                                <% if (esito!=null) { %> <%=esito%> <% } %>
+                            </div>
+
+                            <div id="errore">
+                                <% if (error!=null) { %> <%=error%> <% } %>
+                            </div>
                             <h2 id="title-window">Accedi al servizio</h2>
                         </div>
                         <div class="col-sm-10 col-md-6" id="email-input">

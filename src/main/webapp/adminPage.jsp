@@ -28,6 +28,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="scripts/adminScripts.js"></script>
     <script src="scripts/adminButtonToggle.js"></script>
+    <script src="scripts/carLoader.js"></script>
 
 </head>
 
@@ -56,6 +57,9 @@
                         <br>
                         <button type="button" class="btn btn-success" id="delete-car-button">Rimuovi</button>
                     </div>
+
+                    <div id="result-car-removal-div"></div>
+
                 </div>
 
             </div>
@@ -72,6 +76,9 @@
                         <input type="email" id="deleted-user" placeholder="Email dell'utente da rimuovere">
                         <br>
                         <button type="button" class="btn btn-success" id="delete-user-button">Rimuovi</button>
+
+                        <div id="result-user-div"></div>
+
                     </div>
                 </div>
 
@@ -82,6 +89,8 @@
                 <button type="button" class="btn btn-success" id="add-car">
                     Aggiungi Veicolo <i class="fas fa-plus"></i>
                 </button>
+
+
 
                 <div id="form-container-add-car">
                     <div class="form">
@@ -102,6 +111,9 @@
 
                         <button type="button" class="btn btn-success" id="add-car-button">Aggiungi</button>
                     </div>
+
+                    <div id="result-car-add-div"></div>
+
                 </div>
 
             </div>
@@ -115,12 +127,15 @@
                 <div id="form-container-add-car-image">
                     <div class="form">
                         <form enctype="multipart/form-data" action="imgupload" method="POST" onsubmit="return targaValida()">
-                            <input type="file" id="img-form" name="car-image" accept=".jpg" required>
+                            <input type="file" id="img-form" name="car-image" accept=".svg" required>
                             <br>
                             <input type="text" id="add-plate" name="targaPerFoto" placeholder="Targa veicolo" required>
                             <br>
                             <input type="submit" id="add-photo-button" value="Aggiungi">
                         </form>
+
+                        <div id="result-add-car-image-div"></div>
+
                     </div>
                 </div>
 

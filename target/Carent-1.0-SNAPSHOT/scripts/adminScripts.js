@@ -2,10 +2,9 @@ $(document).ready (
     () => {
         $("#delete-car-button").click (
             () => {
-                alert("Sono entrato nello script Cancella Veicolo");
                 var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/
                 if ($("#deleted-car").val().match(targaRegex)) {
-                    alert("La targa è corretta!!");
+
                     $.ajax (
                         {
                                 url: "adminaction",
@@ -15,25 +14,28 @@ $(document).ready (
                                     plate: $("#deleted-car").val()
                                 },
                                 success: function (data) {
-                                    $("#esito-div").html(data)
+                                    $("#result-car-removal-div").html(createOutcome(data, "success"));
+                                    setTimeout(() => $("#result-car-removal-div").html(""), 1500);
                                 },
                                 error: function () {
-                                    alert("Errore nella chiamata AJAX");
-                                    $("#esito-div").html("Impossibile rimuovere il veicolo");
+                                    $("#result-car-removal-div").html(createOutcome("Operazione non riuscita", "unsuccess"));
+                                    setTimeout(() => $("#result-car-removal-div").html(""), 1500);
                             }
                         }
                     )
                 } else {
-                    alert("La targa non è corretta!!");
+                    $("#result-car-removal-div").html(createOutcome("Operazione non riuscita", "unsuccess"));
+                    setTimeout(() => $("#result-car-removal-div").html(""), 1500);
                 }
             }
         );
 
         $("#delete-user-button").click (
             () => {
-                alert("Sono entrato nello script Cancella utente");
                 var emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                 if ($("#deleted-user").val().match(emailregex)) {
+
+
                     $.ajax (
                         {
                             url: "adminaction",
@@ -43,25 +45,25 @@ $(document).ready (
                                 email: $("#deleted-user").val()
                             },
                             success: function (data) {
-                                alert("Servlet terminata!");
-                                $("#esito-div").html(data);
+                                $("#result-user-div").html(createOutcome(data, "success"))
+                                setTimeout(() => $("#result-user-div").html(""), 1500);
                             },
                             error: function () {
-                                alert("Errore nella chiamata AJAX");
-                                $("#esito-div").html("Impossibile eliminare l'utente");
+                                $("#result-user-div").html(createOutcome("Operazione non riuscita", "unsuccess"))
+                                setTimeout(() => $("#result-user-div").html(""), 1500);
                             }
                         }
                     )
 
                 } else {
-                    alert("Indirizzo email non valido!!");
+                    $("#result-user-div").html(createOutcome("Operazione non riuscita", "unsuccess"))
+                    setTimeout(() => $("#result-user-div").html(""), 1500);
                 }
             }
         );
 
         $("#add-car-button").click (
             () => {
-                alert("Sono entrato nello script Aggiungi veicolo");
                 var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/
                 var textAndNumbersRegex = /^[a-zA-Z0-9 ]+$/
                 var textRegex = /^[a-zA-Z]+$/
@@ -89,12 +91,12 @@ $(document).ready (
                                                         mileage: $("#add-car-mileage").val()
                                                     },
                                                     success: function(data) {
-                                                        alert("Servlet terminata");
-                                                        $("#esito-div").html(data);
+                                                        $("#result-car-add-div").load("successfulOperationComponent.jsp");
+                                                        setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                                     },
                                                     error: function () {
-                                                        alert("Errore nella chiamata AJAX...");
-                                                        $("#esito-div").html("Impossibile aggiungere il veicolo...");
+                                                        $("#result-car-add-div").load("unsuccessfulOperationComponent.jsp");
+                                                        setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                                     }
                                                 }
                                             )
@@ -124,13 +126,25 @@ $(document).ready (
     }
 );
 
+function createOutcome(data, type) {
+    return "<div id=\"alert-"+type+"\">\n" +
+        "    <div>\n" +
+        "        <i class=\"fas fa-check-square\"></i>\n" +
+        "        <label id=\"result-label\">"+data+"</label>\n" +
+        "    </div>\n" +
+        "</div>";
+}
+
 function targaValida() {
-    alert("Validando la targa...");
     var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/
-    if ($("#add-plate").val().match(targaRegex))
+    if ($("#add-plate").val().match(targaRegex)) {
+        $("#result-add-car-image-div").load("successfulOperationComponent.jsp");
+        setTimeout(() => $("#result-add-car-image-div").html(""), 1500);
         return true;
-    else {
-        alert("Inserisci una targa valida!!");
+    } else {
+        $("#result-add-car-image-div").load("unsuccessfulOperationComponent.jsp");
+        setTimeout(() => $("#result-add-car-image-div").html(""), 1500);
         return false;
     }
 }
+

@@ -26,14 +26,22 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="scripts/adminScripts.js"></script>
     <script src="scripts/adminButtonToggle.js"></script>
+    <script src="scripts/carLoader.js"></script>
 
 </head>
 
 <body>
 
+    <div class="container-fluid" id="welcome-container">
+        <img src="immagini/logo-carent.svg" alt="logo" id="logo">
+        <h2 id="title-role">Admin ${admin.getName()} - Pannello di Controllo</h2>
+        <form action="logout" method="GET">
+            <button type="submit" id="logout-button" class="btn btn-success"><i class="fas fa-sign-out-alt"></i></button>
+        </form>
+    </div>
 
-    <h2 id="title-role">Admin ${admin.getName()} - Pannello di Controllo</h2>
 
     <div class="container-fluid" id="upper-container">
         <div class="row  align-items-start-center" id="row1">
@@ -49,6 +57,9 @@
                         <br>
                         <button type="button" class="btn btn-success" id="delete-car-button">Rimuovi</button>
                     </div>
+
+                    <div id="result-car-removal-div"></div>
+
                 </div>
 
             </div>
@@ -65,6 +76,9 @@
                         <input type="email" id="deleted-user" placeholder="Email dell'utente da rimuovere">
                         <br>
                         <button type="button" class="btn btn-success" id="delete-user-button">Rimuovi</button>
+
+                        <div id="result-user-div"></div>
+
                     </div>
                 </div>
 
@@ -75,6 +89,8 @@
                 <button type="button" class="btn btn-success" id="add-car">
                     Aggiungi Veicolo <i class="fas fa-plus"></i>
                 </button>
+
+
 
                 <div id="form-container-add-car">
                     <div class="form">
@@ -95,6 +111,9 @@
 
                         <button type="button" class="btn btn-success" id="add-car-button">Aggiungi</button>
                     </div>
+
+                    <div id="result-car-add-div"></div>
+
                 </div>
 
             </div>
@@ -107,11 +126,16 @@
 
                 <div id="form-container-add-car-image">
                     <div class="form">
-                        <form>
-                            <input type="file" id="img-form" name="img" accept="image/*">
+                        <form enctype="multipart/form-data" action="imgupload" method="POST" onsubmit="return targaValida()">
+                            <input type="file" id="img-form" name="car-image" accept=".svg" required>
+                            <br>
+                            <input type="text" id="add-plate" name="targaPerFoto" placeholder="Targa veicolo" required>
                             <br>
                             <input type="submit" id="add-photo-button" value="Aggiungi">
                         </form>
+
+                        <div id="result-add-car-image-div"></div>
+
                     </div>
                 </div>
 

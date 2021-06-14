@@ -122,3 +122,29 @@ input {
 	margin-top: 30px !important;
 	color: white;
 }
+
+#alert-success {
+	display: flex;
+	margin-top: 10px;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	background: #00bf85;
+	opacity: 0.8;
+	border-radius: 5px;
+	width: 280px !important;
+	height: 50px !important;
+}
+
+#alert-unsuccess {
+	display: flex;
+	margin-top: 10px;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	background: #BF2900;
+	opacity: 0.8;
+	border-radius: 5px;
+	width: 280px !important;
+	height: 50px !important;
+}

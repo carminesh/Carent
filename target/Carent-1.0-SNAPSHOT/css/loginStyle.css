@@ -75,3 +75,13 @@ body {
     color: #015c40;
     text-decoration: none;
 }
+
+#esito {
+    color: #00bf85;
+    margin-bottom: 10px !important;
+}
+
+#errore {
+    color: #c1aa7e;
+    margin-bottom: 10px !important;
+}

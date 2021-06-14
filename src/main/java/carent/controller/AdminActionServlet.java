@@ -30,11 +30,15 @@ public class AdminActionServlet extends HttpServlet {
                         CarModelDS carmodelds = new CarModelDS(ds);
                         if (carmodelds.doDelete(plateToDelete))
                             response.getWriter().print("Veicolo eliminato con successo");
-                        else
+                        else {
                             response.getWriter().print("Impossibile eliminare il veicolo");
+                            response.setStatus(400);
+                        }
+
                     }
                 } catch (SQLException e) {
                     response.getWriter().print("Impossibile eliminare il veicolo...");
+                    response.setStatus(400);
                     e.printStackTrace();
                 }
                 break;
@@ -64,10 +68,12 @@ public class AdminActionServlet extends HttpServlet {
                             response.getWriter().print("Veicolo aggiunto con successo");
                         } else {
                             response.getWriter().print("Impossibile aggiungere il veicolo...");
+                            response.setStatus(400);
                         }
                     }
                 } catch (SQLException e) {
                     response.getWriter().print("Impossibile aggiungere il veicolo...");
+                    response.setStatus(400);
                 }
 
                 break;
@@ -77,12 +83,14 @@ public class AdminActionServlet extends HttpServlet {
                     String emailToDelete = (String) request.getParameter("email");
                     UserModelDS usermodelds = new UserModelDS(ds);
                     if (usermodelds.removeUser(emailToDelete)) {
-                        response.getWriter().print("Utente eliminato con successo!!");
+                        response.getWriter().print("Utente eliminato con successo!");
                     } else {
-                        response.getWriter().print("Impossibile eliminare l'utente...");
+                        response.getWriter().print("Impossibile eliminare l'utente");
+                        response.setStatus(400);
                     }
                 } catch (SQLException e) {
-                    response.getWriter().print("Impossibile eliminare l'utente...");
+                    response.getWriter().print("Impossibile eliminare l'utente");
+                    response.setStatus(400);
                     e.printStackTrace();
                 }
                 break;
