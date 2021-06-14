@@ -32,8 +32,14 @@
 
 <body>
 
+    <div class="container-fluid" id="welcome-container">
+        <img src="immagini/logo-carent.svg" alt="logo" id="logo">
+        <h2 id="title-role">Admin ${admin.getName()} - Pannello di Controllo</h2>
+        <form action="logout" method="GET">
+            <button type="submit" id="logout-button" class="btn btn-success"><i class="fas fa-sign-out-alt"></i></button>
+        </form>
+    </div>
 
-    <h2 id="title-role">Admin ${admin.getName()} - Pannello di Controllo</h2>
 
     <div class="container-fluid" id="upper-container">
         <div class="row  align-items-start-center" id="row1">
@@ -109,6 +115,8 @@
                     <div class="form">
                         <form>
                             <input type="file" id="img-form" name="img" accept="image/*">
+                            <br>
+                            <input type="text" id="add-plate-" placeholder="Targa veicolo">
                             <br>
                             <input type="submit" id="add-photo-button" value="Aggiungi">
                         </form>

@@ -4,6 +4,32 @@ body {
     background-color: #262a2e !important;
 }
 
+#welcome-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	background: #212529;
+}
+
+#logout-button {
+	margin-top: 65px;
+	margin-left: 50px;
+	width: 60px;
+	height: 60px;
+	background: #58756D !important;
+	border-color: #58756D !important;
+	border-radius: 10px;
+}
+
+#logout-button:hover {
+	background: #00bf85 !important;
+}
+
+#logout-logo {
+	font-size: 40px;
+	color: white;
+}
+
 #upper-container {
 	width: 102%;
 	margin-left: 20px;
@@ -14,10 +40,15 @@ body {
 	margin-top: 20px;
 }
 
+#logo {
+	margin-left: 30px;
+	width: 180px;
+	height: 180px;
+}
 
 #title-role {
 	margin-left: 35px;
-	margin-top: 50px;
+	margin-top: 73px;
 	color: white;
 }
 
@@ -74,7 +105,7 @@ input {
 #add-photo-button {
 	width: 100px;
 	height: 50px;
-	margin-top: 10px;
+	margin-top: 20px !important;
 	background:#7A6A4D !important;
 	border-color: #C7B491 !important;
 	border-style: solid;
@@ -88,6 +119,6 @@ input {
 }
 
 #img-form {
-	margin-top: 20px;
+	margin-top: 30px !important;
 	color: white;
 }
