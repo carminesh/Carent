@@ -114,10 +114,10 @@
 
                 <div id="form-container-add-car-image">
                     <div class="form">
-                        <form>
-                            <input type="file" id="img-form" name="img" accept="image/*">
+                        <form enctype="multipart/form-data" action="imgupload" method="POST" onsubmit="return targaValida()">
+                            <input type="file" id="img-form" name="car-image" accept=".jpg" required>
                             <br>
-                            <input type="text" id="add-plate-" placeholder="Targa veicolo">
+                            <input type="text" id="add-plate" name="targaPerFoto" placeholder="Targa veicolo" required>
                             <br>
                             <input type="submit" id="add-photo-button" value="Aggiungi">
                         </form>
