@@ -4,8 +4,15 @@ body {
     background-color: #262a2e !important;
 }
 
+#upper-container {
+	width: 102%;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+
 #title-role {
-	margin-left: 110px;
+	margin-left: 35px;
 	margin-top: 50px;
 	color: white;
 }
@@ -31,19 +38,17 @@ button {
 }
 
 #delete-user-button, #delete-car-button {
-	background: #BF2900 !important;
-	border-color: #BF2900 !important;
+	background: #982200 !important;
+	border-color: #BF2900  !important;
 }
 
 #delete-user-button:hover, #delete-car-button:hover {
-	background:#731900 !important;
+	background:#BF2900 !important;
 }
 
 #delete-user-button:focus, #delete-car-button:focus, #add-car-button:focus, #delete-user-button:active, #delete-car-button:active, #add-car-button:active {
 	box-shadow: none;
 }
-
-
 
 #add-car-button:hover {
 	background:#C7B491 !important;
@@ -52,10 +57,30 @@ button {
 
 input {
 	height: 40px;
-	width: 340px;
+	width: 380px;
 }
 
 #form-container-delete-car, #form-container-add-car, #form-container-delete-user {
 	margin-top: 20px;
 }
 
+#add-photo-button {
+	width: 100px;
+	height: 50px;
+	margin-top: 10px;
+	background:#7A6A4D !important;
+	border-color: #C7B491 !important;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 5px;
+	color: white;
+}
+
+#add-photo-button:hover {
+	background:#C7B491 !important;
+}
+
+#img-form {
+	margin-top: 20px;
+	color: white;
+}

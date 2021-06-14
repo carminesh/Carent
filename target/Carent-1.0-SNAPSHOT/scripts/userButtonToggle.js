@@ -1,18 +1,24 @@
 $(document).ready (
 	() => {
 		
-		$("#form-email").toggle();
-		$("#form-password").toggle();
+		$("#container-form-email").toggle();
+		$("#container-form-password").toggle();
 		
 		$("#modificaemailButton").click (
 			() => {
-				$("#form-email").toggle();
+				if (!$("#container-form-email").is(":visible"))
+					$("#container-form-email").fadeIn();
+				else
+					$("#container-form-email").fadeOut(0.4);
 			}
 		);
 		
 		$("#modificapassButton").click (
 			() => {
-				$("#form-password").toggle();
+				if (!$("#container-form-password").is(":visible"))
+					$("#container-form-password").fadeIn();
+				else
+					$("#container-form-password").fadeOut(0.4);
 			}
 		);
 	}
