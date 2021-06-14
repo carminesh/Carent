@@ -97,7 +97,7 @@ i {
 #newemail, #newpass, #oldpass {
 	margin-left: 10px !important;
 	margin-top: 15px !important;
-	border-radius: 10px;
+	border-radius: 5px;
 	border-style: none;
 	height: 40px;
 	width: 300px;
