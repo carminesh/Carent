@@ -9,7 +9,7 @@ $(document).ready (
 				if (!$("#container-form-email").is(":visible"))
 					$("#container-form-email").fadeIn();
 				else
-					$("#container-form-email").fadeOut();
+					$("#container-form-email").fadeOut(0.4);
 			}
 		);
 		
@@ -18,7 +18,7 @@ $(document).ready (
 				if (!$("#container-form-password").is(":visible"))
 					$("#container-form-password").fadeIn();
 				else
-					$("#container-form-password").fadeOut();
+					$("#container-form-password").fadeOut(0.4);
 			}
 		);
 	}

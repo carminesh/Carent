@@ -35,7 +35,7 @@
     <h2 id="title-role">Admin ${admin.getName()} - Pannello di Controllo</h2>
 
     <div class="container-fluid" id="button-container">
-        <div class="row  align-items-center" id="row1">
+        <div class="row  align-items-start-center" id="row1">
 
             <div class="col-4" id="column1">
                 <button type="button" class="btn btn-success" id="delete-car">
@@ -44,7 +44,7 @@
 
                 <div id="form-container-delete-car">
                     <div class="form">
-                        <input type="text" id="deleted-car" placeholder="Veicolo da rimuovere">
+                        <input type="text" id="deleted-car" placeholder="Targa del veicolo da rimuovere">
                         <br>
                         <button type="button" class="btn btn-success" id="delete-car-button">Rimuovi</button>
                     </div>
@@ -61,7 +61,7 @@
 
                 <div id="form-container-delete-user">
                     <div class="form">
-                        <input type="email" id="deleted-user" placeholder="Utente da rimuovere">
+                        <input type="email" id="deleted-user" placeholder="Email dell'utente da rimuovere">
                         <br>
                         <button type="button" class="btn btn-success" id="delete-user-button">Rimuovi</button>
                     </div>
@@ -77,8 +77,21 @@
 
                 <div id="form-container-add-car">
                     <div class="form">
-                        <input type="text" id="add-carr" placeholder="Veicolo da aggiungere">
+                        <input type="text" id="add-car-plate" placeholder="Targa veicolo">
                         <br>
+                        <input type="text" id="add-car-brand" placeholder="Marca veicolo">
+                        <br>
+                        <input type="text" id="add-car-model" placeholder="Modello veicolo">
+                        <br>
+                        <input type="text" id="add-car-power" placeholder="Potenza veicolo">
+                        <br>
+                        <input type="text" id="add-car-fuel" placeholder="Alimentazione veicolo">
+                        <br>
+                        <input type="text" id="add-car-year" placeholder="Anno immatricolazione veicolo">
+                        <br>
+                        <input type="text" id="add-car-mileage" placeholder="Chilometraggio veicolo">
+                        <br>
+
                         <button type="button" class="btn btn-success" id="add-car-button">Aggiungi</button>
                     </div>
                 </div>
