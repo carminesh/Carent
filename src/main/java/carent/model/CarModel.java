@@ -8,9 +8,9 @@ public interface CarModel<T> {
 	
 	public Collection<T> doRetrieveAll (String order) throws SQLException;
 	
-	public void doSave (T item) throws SQLException;
+	public boolean doSave (T item) throws SQLException;
 	
 	public void doUpdate (T item) throws SQLException;
 	
-	public void doDelete (String code) throws SQLException;
+	public boolean doDelete (String code) throws SQLException;
 }

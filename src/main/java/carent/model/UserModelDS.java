@@ -181,4 +181,25 @@ public class UserModelDS implements UserModel<UserBean> {
 
 	//Vanno aggiunte le funzioni per poter effettuare modifiche ai dati anagrafici
 
+	public boolean removeUser (String email) throws SQLException {
+		Utility.print("Provando a cancellare l'utente...");
+		Connection con = null;
+		PreparedStatement pst = null;
+		try {
+			con = ds.getConnection();
+			pst = con.prepareStatement("DELETE FROM utente WHERE email=?");
+			pst.setString(1, email);
+			Utility.print(pst.toString());
+			int ris = pst.executeUpdate();
+			return ris>0;
+		} finally {
+			try {
+				if (pst!=null)
+					pst.close();
+			} finally {
+				if (con!=null)
+					con.close();
+			}
+		}
+	}
 }

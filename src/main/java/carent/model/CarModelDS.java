@@ -28,8 +28,8 @@ public class CarModelDS implements CarModel<CarBean> {
 		try {
 			con = ds.getConnection();
 			pst = con.prepareStatement("SELECT * FROM ? WHERE targa = ?");
-			pst.setString(0, TABLE_NAME);
-			pst.setString(1, code);
+			pst.setString(1, TABLE_NAME);
+			pst.setString(2, code);
 			Utility.print("doRetrieveByKey: "+pst.toString());
 			rs = pst.executeQuery();
 			if (rs.next()) {
@@ -101,7 +101,7 @@ public class CarModelDS implements CarModel<CarBean> {
 	}
 
 	@Override
-	public void doSave(CarBean item) throws SQLException {
+	public boolean doSave(CarBean item) throws SQLException {
 		Connection con = null;
 		PreparedStatement pst = null;
 		try {
@@ -114,7 +114,8 @@ public class CarModelDS implements CarModel<CarBean> {
 			pst.setInt(5, item.getPotenza());
 			pst.setInt(6, item.getAnnoImmatricolazione());
 			pst.setInt(7, item.getChilometraggio());
-			pst.executeUpdate();
+			int ris = pst.executeUpdate();
+			return ris>0;
 		} finally {
 			try {
 				if (pst!=null)
@@ -156,14 +157,15 @@ public class CarModelDS implements CarModel<CarBean> {
 	}
 
 	@Override
-	public void doDelete(String code) throws SQLException {
+	public boolean doDelete(String code) throws SQLException {
 		Connection con = null;
 		PreparedStatement pst = null;
 		try {
 			con = ds.getConnection();
 			pst = con.prepareStatement("DELETE FROM veicolo WHERE targa=?");
 			pst.setString(1, code);
-			pst.executeUpdate();
+			int ris = pst.executeUpdate();
+			return ris>0;
 		} finally {
 			try {
 				if (pst!=null)
