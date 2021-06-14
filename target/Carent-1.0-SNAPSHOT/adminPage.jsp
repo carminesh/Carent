@@ -38,7 +38,7 @@
     <div class="container-fluid" id="upper-container">
         <div class="row  align-items-start-center" id="row1">
 
-            <div class="col-3" id="column1">
+            <div class="col-lg-3 col-md-6 col-sm-12" id="column1">
                 <button type="button" class="btn btn-success" id="delete-car">
                 Elimina Veicolo <i class="fas fa-trash-alt"></i>
                 </button>
@@ -55,7 +55,7 @@
 
 
 
-            <div class="col-3" id="column2">
+            <div class="col-lg-3 col-md-6 col-sm-12" id="column2">
                 <button type="button" class="btn btn-success" id="delete-user">
                     Elimina Utente <i class="fas fa-user-slash"></i>
                 </button>
@@ -71,7 +71,7 @@
             </div>
 
 
-            <div class="col-3" id="column3">
+            <div class="col-lg-3 col-md-6 col-sm-12" id="column3">
                 <button type="button" class="btn btn-success" id="add-car">
                     Aggiungi Veicolo <i class="fas fa-plus"></i>
                 </button>
@@ -100,7 +100,7 @@
             </div>
 
 
-            <div class="col-3" id="column4">
+            <div class="col-lg-3 col-md-6 col-sm-12" id="column4">
                 <button type="button" class="btn btn-success" id="add-car-image">
                     Aggiungi foto veicolo <i class="fas fa-file-image"></i>
                 </button>
