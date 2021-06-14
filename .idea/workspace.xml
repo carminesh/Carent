@@ -11,8 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c740bcf0-b463-4742-aab0-bc7d11feecfc" name="Default Changelist" comment="Admin page UI update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/adminStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/adminStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/css/userStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/css/userStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,17 +63,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -203,7 +190,7 @@
       <workItem from="1623585974936" duration="276000" />
       <workItem from="1623586280580" duration="159000" />
       <workItem from="1623586636357" duration="7863000" />
-      <workItem from="1623672396232" duration="5582000" />
+      <workItem from="1623672396232" duration="5619000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1623592832049</created>
@@ -261,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623678857286</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Admin page - implementation of new button animations with js (V3)">
+      <created>1623678921363</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1623678921363</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
