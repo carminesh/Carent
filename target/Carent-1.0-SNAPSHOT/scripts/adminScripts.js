@@ -171,11 +171,9 @@ function load (loaditem,destinationDiv) {
                 actiontype: loaditem
             },
             success: function(data) {
-                alert("Servlet terminata con successo");
                 $(destinationDiv).html(data);
             },
             error: function () {
-                alert("Errore nella servlet di caricamento...");
             }
         }
     )

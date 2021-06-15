@@ -7,6 +7,7 @@ $(document).ready (
         $("#table-container1").toggle();
         $("#table-container2").toggle();
         $("#table-container3").toggle();
+        $("#form-container-delete-rent").toggle();
 
         $("#delete-car").click (
             () => {
@@ -74,6 +75,15 @@ $(document).ready (
                     $("#table-container3").fadeIn();
                 } else
                     $("#table-container3").fadeOut(0.4);
+            }
+        );
+
+        $("#rent-delete-button").click (
+            () => {
+                if (!$("#form-container-delete-rent").is(":visible")) {
+                    $("#form-container-delete-rent").fadeIn();
+                } else
+                    $("#form-container-delete-rent").fadeOut(0.4);
             }
         );
     }

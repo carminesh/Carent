@@ -17,16 +17,15 @@ body {
 
 #logout-button {
 	margin-top: 65px;
-	margin-left: 50px;
 	width: 60px;
 	height: 60px;
-	background: #58756D !important;
-	border-color: #58756D !important;
+	background: #596A7A !important;
+	border-color: #596A7A !important;
 	border-radius: 10px;
 }
 
 #logout-button:hover {
-	background: #00bf85 !important;
+	background: #72767A !important;
 }
 
 #logout-logo {
@@ -35,20 +34,14 @@ body {
 }
 
 #upper-container, #info-container {
+	margin-top: 40px;
 	width: 100%;
-	margin-left: 20px;
-	margin-top: 20px;
-}
-
-
-
-#column1, #column2, #column3, #column4 {
-	margin-top: 20px;
+	margin-left: 30px;
 }
 
 #row2 {
 	margin-top: 50px;
-	margin-left: 10px;
+
 }
 
 
@@ -71,7 +64,7 @@ button {
 }
 
 
-#add-car-button, #delete-user-button, #delete-car-button {
+#add-car-button, #delete-user-button, #delete-car-button, #delete-rent-button {
 	font-size: 16px !important;
 	margin-top: 20px;
 	background:#7A6A4D !important;
@@ -80,16 +73,16 @@ button {
 	height: 50px;
 }
 
-#delete-user-button, #delete-car-button {
+#delete-user-button, #delete-car-button, #delete-rent-button {
 	background: #982200 !important;
 	border-color: #BF2900  !important;
 }
 
-#delete-user-button:hover, #delete-car-button:hover {
+#delete-user-button:hover, #delete-car-button:hover, #delete-rent-button:hover {
 	background:#BF2900 !important;
 }
 
-#delete-user-button:focus, #delete-car-button:focus, #add-car-button:focus, #delete-user-button:active, #delete-car-button:active, #add-car-button:active {
+#delete-user-button:focus, #delete-car-button:focus, #add-car-button:focus, #delete-rent-button:focus, #delete-user-button:active, #delete-car-button:active, #add-car-button:active, #delete-rent-button:active {
 	box-shadow: none;
 }
 
@@ -106,7 +99,8 @@ input {
 	margin-top: 10px !important;
 }
 
-#form-container-delete-car, #form-container-add-car, #form-container-delete-user {
+
+#form-container-delete-car, #form-container-add-car, #form-container-delete-user, #form-container-delete-rent  {
 	margin-top: 20px;
 }
 
@@ -165,6 +159,17 @@ input {
 	margin-top: 40px;
 	width: 96%;
 	height: 400px;
-	background: white;
-	border-radius: 5px;
+}
+
+#user-list-button, #car-list-button, #rent-list-button {
+	background: #596A7A;
+	border-color: #596A7A;
+}
+
+#user-list-button:hover, #car-list-button:hover, #rent-list-button:hover {
+	background: #72767A;
+}
+
+#user-list-button:focus, #car-list-button:focus, #rent-list-button:focus, #user-list-button:active, #car-list-button:active, #rent-list-button:active {
+	box-shadow: none;
 }
