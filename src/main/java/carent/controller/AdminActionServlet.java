@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 
 //@WebServlet(name = "AdminActionServlet", value = "/AdminActionServlet")
-@WebServlet("/adminaction")
+@WebServlet("/admin/action")
 public class AdminActionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

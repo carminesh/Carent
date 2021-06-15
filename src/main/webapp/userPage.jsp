@@ -7,7 +7,7 @@
     String fromServlet = (String) request.getAttribute("fromServlet");
     if (fromServlet == null) {
         Utility.print("Devi prima passare per la servlet");
-        response.sendRedirect(response.encodeRedirectURL("/CarentNew/userpage"));
+        response.sendRedirect(response.encodeRedirectURL("user/page"));
         return;
     } else {
         Utility.print("Sei passato per la servlet");
@@ -20,7 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-    <link href="css/userStyle.css" rel="stylesheet"/>
+    <link href="<%=application.getContextPath()+"/css/userStyle.css"%>" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -30,8 +30,8 @@
             integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
             crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="scripts/change.js"></script>
-    <script src="scripts/userButtonToggle.js"></script>
+    <script src="<%=application.getContextPath()+"/scripts/change.js"%>"></script>
+    <script src="<%=application.getContextPath()+"/scripts/userButtonToggle.js"%>"></script>
 </head>
 <body>
 
@@ -41,7 +41,7 @@
         class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark navbar-collapse">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.jsp"> <img
-                src="immagini/logo-carent.svg" alt="logo" id="logo">
+                src="<%=application.getContextPath()+"/immagini/logo-carent.svg"%>" alt="logo" id="logo">
         </a>
 
 
@@ -56,7 +56,7 @@
             <div class="navbar-nav">
                 <a class="nav-link" href="#">Home</a> <a class="nav-link" href="#">Veicoli</a>
                 <a class="nav-link" href="#">Contatti</a>
-                <form action="logout" method="GET">
+                <form action="<%=application.getContextPath()+"/logout"%>" method="GET">
                     <input id="logout-button" type="submit" value="Logout" class="btn btn-success">
                 </form>
             </div>
@@ -68,7 +68,7 @@
     <div class="row  align-items-center" id="row1">
         <div class="col-lg-4 col-sm-12" id="column1">
             <figure class="figure">
-                <img src="immagini/avatar.svg" class="figure-img img-fluid rounded"
+                <img src="<%=application.getContextPath()+"/immagini/avatar.svg"%>" class="figure-img img-fluid rounded"
                      alt="profile-icon">
             </figure>
 

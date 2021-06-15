@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Servlet implementation class UserPageServlet
  */
-@WebServlet("/userpage")
+@WebServlet("/user/page")
 public class UserPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

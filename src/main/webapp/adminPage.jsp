@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" import="java.util.*,carent.model.*" %>
+<%@ page import="carent.utils.Utility" %>
 <!DOCTYPE html>
 
 <%
-    UserBean user = (UserBean) session.getAttribute("admin");
-    if (user == null) {
-        response.sendRedirect(response.encodeRedirectURL("/CRStorage/loginPage.jsp"));
+    String pass = (String) request.getAttribute("pass");
+    if (pass==null) {
+        Utility.print("Giusto un secondo...");
+        response.sendRedirect(response.encodeRedirectURL("admin/page"));
     }
 %>
 
@@ -16,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carent - Admin Panel</title>
-    <link href="css/adminStyle.css" rel="stylesheet"/>
+    <link href="<%= application.getContextPath()+"/css/adminStyle.css"%>" rel="stylesheet"/>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
@@ -26,18 +28,17 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="scripts/adminScripts.js"></script>
-    <script src="scripts/adminButtonToggle.js"></script>
-    <script src="scripts/carLoader.js"></script>
+    <script src="<%= application.getContextPath()+"/scripts/adminScripts.js"%>"></script>
+    <script src="<%= application.getContextPath()+"/scripts/adminButtonToggle.js"%>"></script>
 
 </head>
 
 <body>
 
     <div class="container-fluid" id="welcome-container">
-        <img src="immagini/logo-carent.svg" alt="logo" id="logo">
+        <img src="<%=application.getContextPath()+"/immagini/logo-carent.svg"%>" alt="logo" id="logo">
         <h2 id="title-role">Admin ${admin.getName()} - Pannello di Controllo</h2>
-        <form action="logout" method="GET">
+        <form action=<%=application.getContextPath()+"/logout"%>> method="GET">
             <button type="submit" id="logout-button" class="btn btn-success"><i class="fas fa-sign-out-alt"></i></button>
         </form>
     </div>

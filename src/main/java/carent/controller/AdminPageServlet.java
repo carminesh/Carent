@@ -16,7 +16,7 @@ import java.sql.SQLException;
 /**
  * Servlet implementation class AdminPageServlet
  */
-@WebServlet("/admin/AdminPageServlet")
+@WebServlet("/admin/page")
 public class AdminPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -25,17 +25,9 @@ public class AdminPageServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DataSource ds = (DataSource) this.getServletContext().getAttribute("DataSource");
-		CarModelDS carModel = new CarModelDS(ds);
-		try {
-			
-			request.setAttribute("veicoli", carModel.doRetrieveAll(request.getParameter("ordinamento")));
-		} catch (SQLException e) {
-			Utility.print(e);
-			request.setAttribute("error",e.getMessage());
-			//In questo modo nella JSP, se esiste questa variabile scriveremo l'errore nella JSP
-		}
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/AdminPage.jsp");
+    	Utility.print("Sono entrato nella servlet AdminPage");
+		request.setAttribute("pass","enabled");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/adminPage.jsp");
 		dispatcher.forward(request, response);
 	}
 

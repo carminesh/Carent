@@ -43,10 +43,11 @@ public class LoginServletDBAccess extends HttpServlet {
 						return;
 					} else {
 						HttpSession session = request.getSession(true);
-						session.setAttribute("admin", userbean);
+						session.setAttribute("utente", userbean);
 						session.setMaxInactiveInterval(2*60*60);
 						System.out.print("Login come ADMIN");
 						getServletContext().getRequestDispatcher("/adminPage.jsp").forward(request, response);
+						return;
 					}
 				} else {
 					request.setAttribute("error", "Password errata, riprovare");

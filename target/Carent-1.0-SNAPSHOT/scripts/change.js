@@ -7,7 +7,7 @@ $(document).ready(
 				if ($("#newemail").val().match(emailregex)) {
 
 					$.ajax ({
-						url: "usersettings",
+						url: "settings",
 						type: "POST",
 						data: {
 							changetype: "email",
@@ -37,7 +37,7 @@ $(document).ready(
 				var passwordregex = /^[0-9a-zA-Z]+$/
 				if ($("#newpass").val().match(passwordregex) && $("#oldpass").val().match(passwordregex)) {
 					$.ajax({
-						url: "usersettings",
+						url: "settings",
 						type: "POST",
 						data: {
 							changetype: "pass",
@@ -60,28 +60,25 @@ $(document).ready(
 				}
 			}
 		);
+
+		$.ajax(
+			{
+				url: "settings",
+				type: "POST",
+				data: {
+					changetype: "rentload",
+					email: $("#currentemail").text()
+				},
+				success: function (data) {
+					$("#early-rents-list").html(data)
+				},
+				error: function () {
+					alert("Errore nel caricamento degli ultimi noleggi");
+				}
+			}
+		)
 	}
 )
-
-
-$.ajax(
-	{
-		url: "usersettings",
-		type: "POST",
-		data: {
-			changetype: "rentload",
-			email: $("#currentemail").text()
-		},
-		success: function (data) {
-			$("#early-rents-list").html(data)
-		},
-		error: function () {
-			alert("Errore nel caricamento degli ultimi noleggi");
-		}
-	}
-)
-
-
 
 function createOutcome(data, type, icon) {
 	return "<div id=\"alert-"+type+"\">\n" +

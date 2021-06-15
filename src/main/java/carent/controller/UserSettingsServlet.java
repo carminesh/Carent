@@ -21,7 +21,7 @@ import java.util.Collection;
 /**
  * Servlet implementation class UserSettingsServlet
  */
-@WebServlet("/usersettings")
+@WebServlet("/user/settings")
 public class UserSettingsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

@@ -7,7 +7,7 @@ $(document).ready (
 
                     $.ajax (
                         {
-                            url: "adminaction",
+                            url: "action",
                             type: "POST",
                             data: {
                                 actiontype: "removecar",
@@ -39,7 +39,7 @@ $(document).ready (
 
                     $.ajax (
                         {
-                            url: "adminaction",
+                            url: "action",
                             type: "POST",
                             data : {
                                 actiontype: "removeuser",
@@ -80,7 +80,7 @@ $(document).ready (
                                         if ($("#add-car-mileage").val().match(numRegex)) {
                                             $.ajax(
                                                 {
-                                                    url: "adminaction",
+                                                    url: "action",
                                                     type: "POST",
                                                     data: {
                                                         actiontype: "addcar",
@@ -165,7 +165,7 @@ function targaValida() {
 function load (loaditem,destinationDiv) {
     $.ajax  (
         {
-            url: "adminaction",
+            url: "action",
             type: "POST",
             data: {
                 actiontype: loaditem

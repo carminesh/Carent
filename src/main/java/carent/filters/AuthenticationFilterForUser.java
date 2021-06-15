@@ -23,18 +23,18 @@ public class AuthenticationFilterForUser implements Filter {
 			if (session!=null) {
 				UserBean user = (UserBean) session.getAttribute("utente");
 				if (user==null) {
-					hresponse.sendRedirect(hrequest.getContextPath()+"/welcomePage.jsp");
+					hresponse.sendRedirect(hrequest.getContextPath()+"/loginPage.jsp");
 					return;
 				}
 				if (user.getRole().equals("userrole")) {
 					Utility.print("Ok tutto apposto sei un utente");
 					chain.doFilter(request,response);
 				} else {
-					hresponse.sendRedirect(hrequest.getContextPath()+"/welcomePage.jsp");
+					hresponse.sendRedirect(hrequest.getContextPath()+"/loginPage.jsp");
 					return;
 				}
 			} else {
-				hresponse.sendRedirect(hrequest.getContextPath()+"/welcomePage.jsp");
+				hresponse.sendRedirect(hrequest.getContextPath()+"/loginPage.jsp");
 				return;
 			}
 		}
