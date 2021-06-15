@@ -16,6 +16,7 @@ $(document).ready (
                             success: function (data) {
                                 $("#result-car-removal-div").html(createOutcome(data, "success", "check-square"));
                                 setTimeout(() => $("#result-car-removal-div").html(""), 1500);
+                                load("loadcars","#car-list-div");
                             },
                             error: function (xhr, ajaxOptions, thrownError) {
                                 $("#result-car-removal-div").html(createOutcome(xhr.responseText, "unsuccess", "bomb"));
@@ -47,6 +48,7 @@ $(document).ready (
                             success: function (data) {
                                 $("#result-user-div").html(createOutcome(data, "success", "check-square"))
                                 setTimeout(() => $("#result-user-div").html(""), 1500);
+                                load("loadusers","#user-list-div");
                             },
                             error: function (xhr, ajaxOptions, thrownError) {
                                 $("#result-user-div").html(createOutcome(xhr.responseText, "unsuccess", "bomb"))
@@ -93,6 +95,7 @@ $(document).ready (
                                                     success: function(data) {
                                                         $("#result-car-add-div").html(createOutcome(data,"success", "check-square"))
                                                         setTimeout(() => $("#result-car-add-div").html(""), 1500);
+                                                        load("loadcars","#car-list-div");
                                                     },
                                                     error: function (xhr, ajaxOptions, thrownError) {
                                                         $("#result-car-add-div").html(createOutcome(xhr.responseText,"unsuccess", "bomb"))
@@ -130,6 +133,10 @@ $(document).ready (
                 }
             }
         )
+
+        load("loadusers","#user-list-div");
+        load("loadcars","#car-list-div");
+        load("loadrents","#rent-list-div");
     }
 );
 
@@ -153,5 +160,24 @@ function targaValida() {
         setTimeout(() => $("#result-add-car-image-div").html(""), 1500);
         return false;
     }
+}
+
+function load (loaditem,destinationDiv) {
+    $.ajax  (
+        {
+            url: "adminaction",
+            type: "POST",
+            data: {
+                actiontype: loaditem
+            },
+            success: function(data) {
+                alert("Servlet terminata con successo");
+                $(destinationDiv).html(data);
+            },
+            error: function () {
+                alert("Errore nella servlet di caricamento...");
+            }
+        }
+    )
 }
 

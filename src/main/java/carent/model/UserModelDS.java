@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.LinkedList;
+
 import carent.utils.PasswordHasher;
 
 import javax.sql.DataSource;
@@ -234,5 +237,38 @@ public class UserModelDS implements UserModel<UserBean> {
 			return true;
 		else
 			return false;
+	}
+
+	public Collection<UserBean> fetchAllUsers () throws SQLException {
+		Collection<UserBean> list = new LinkedList<UserBean>();
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			con = ds.getConnection();
+			pst = con.prepareStatement("SELECT * FROM utente");
+			rs = pst.executeQuery();
+			UserBean bean;
+			while (rs.next()) {
+				bean = new UserBean();
+				bean.setUserCode(rs.getInt("userCode"));
+				bean.setEmail(rs.getString("email"));
+				bean.setPasswd(rs.getString("password"));
+				bean.setRole(rs.getString("role"));
+				bean.setName(rs.getString("name"));
+				bean.setSurname(rs.getString("surname"));
+				bean.setPhone(rs.getString("phone"));
+				list.add(bean);
+			}
+			return list;
+		} finally {
+			try {
+				if (pst!=null)
+					pst.close();
+			} finally {
+				if (con!=null)
+					con.close();
+			}
+		}
 	}
 }

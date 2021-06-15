@@ -1,8 +1,6 @@
 package carent.controller;
 
-import carent.model.CarModelDS;
-import carent.model.UserModelDS;
-import carent.model.CarBean;
+import carent.model.*;
 import carent.utils.Utility;
 
 import javax.servlet.*;
@@ -11,6 +9,7 @@ import javax.servlet.annotation.*;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collection;
 
 //@WebServlet(name = "AdminActionServlet", value = "/AdminActionServlet")
 @WebServlet("/adminaction")
@@ -20,7 +19,8 @@ public class AdminActionServlet extends HttpServlet {
         System.out.println("Entrato in admin actions servlet");
         String actiontype = (String) request.getParameter("actiontype");
         DataSource ds = (DataSource) this.getServletContext().getAttribute("DataSource");
-        switch (actiontype) {
+        RequestDispatcher dispatcher;
+                switch (actiontype) {
             case "removecar":
                 Utility.print("Provando ad eliminare il veicolo...");
                 try {
@@ -151,6 +151,53 @@ public class AdminActionServlet extends HttpServlet {
                 } catch (SQLException e) {
                     response.getWriter().print("Errore DB");
                     response.setStatus(400);
+                    e.printStackTrace();
+                }
+                break;
+            case "loadusers":
+                Utility.print("Provando a caricare gli utenti...");
+                UserModelDS userLoader = new UserModelDS(ds);
+                try {
+                    Collection<UserBean> userList = userLoader.fetchAllUsers();
+                    request.setAttribute("userList",userList);
+                    Utility.print("Ho settato l'attributo userList nella servlet");
+                    Utility.print(userList.toString());
+                    dispatcher = this.getServletContext().getRequestDispatcher("/userListComponent.jsp");
+                    Utility.print("Eseguendo il dispatching");
+                    dispatcher.forward(request,response);
+                    return;
+                } catch (SQLException e) {
+                    Utility.print("Impossibile prelevare gli utenti...");
+                    e.printStackTrace();
+                }
+
+                break;
+            case "loadcars":
+                Utility.print("Provando a caricare le auto...");
+                CarModelDS carLoader = new CarModelDS(ds);
+                try {
+                    Collection<CarBean> carList = carLoader.doRetrieveAll(null);
+                    request.setAttribute("carList",carList);
+                    dispatcher = this.getServletContext().getRequestDispatcher("/carListComponent.jsp");
+                    dispatcher.forward(request,response);
+                    return;
+                } catch (SQLException e) {
+                    Utility.print("Impossibile prelevare le auto...");
+                    e.printStackTrace();
+                }
+                break;
+            case "loadrents":
+                Utility.print("Provando a caricare i noleggi...");
+                RentModelDS rentLoader = new RentModelDS(ds);
+                try {
+                    Collection<RentBean> rentList = rentLoader.fetchAllRents();
+                    request.setAttribute("rentList",rentList);
+                    Utility.print(rentList.toString());
+                    dispatcher = this.getServletContext().getRequestDispatcher("/rentListComponent.jsp");
+                    dispatcher.forward(request,response);
+                    return;
+                } catch (SQLException e) {
+                    Utility.print("Impossibile prelevare le auto...");
                     e.printStackTrace();
                 }
                 break;

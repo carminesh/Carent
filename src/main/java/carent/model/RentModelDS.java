@@ -54,4 +54,36 @@ public class RentModelDS {
             }
         }
     }
+
+    public Collection<RentBean> fetchAllRents () throws SQLException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Collection<RentBean> lista = new LinkedList<RentBean>();
+        try {
+            con = ds.getConnection();
+            pst = con.prepareStatement("SELECT * FROM noleggio");
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                RentBean bean = new RentBean();
+                bean.setRentCode(rs.getInt("rentCode"));
+                bean.setUserCode(rs.getInt("userCode"));
+                bean.setTarga(rs.getString("targa"));
+                bean.setDaData(rs.getString("daData"));
+                bean.setaData(rs.getString("aData"));
+                bean.setPrezzo(rs.getDouble("prezzo"));
+                lista.add(bean);
+            }
+            return lista;
+        } finally {
+            try {
+                if (pst!=null)
+                    pst.close();
+            } finally {
+                if (con!=null)
+                    con.close();
+            }
+        }
+    }
 }
