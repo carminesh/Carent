@@ -3,6 +3,7 @@ package carent.model;
 import carent.utils.Utility;
 
 import javax.sql.DataSource;
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -214,4 +215,53 @@ public class CarModelDS implements CarModel<CarBean> {
 		
 	}
 
+	public boolean plateExists (String plate) throws SQLException {
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			con = ds.getConnection();
+			pst = con.prepareStatement("SELECT * FROM veicolo WHERE targa=?");
+			pst.setString(1,plate);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		} finally {
+			try {
+				if (pst!=null)
+					pst.close();
+			} finally {
+				if (con!=null)
+					con.close();
+			}
+		}
+	}
+
+	public boolean hasRents (String plate) throws SQLException {
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			con = ds.getConnection();
+			pst = con.prepareStatement("SELECT * FROM veicolo v NATURAL JOIN noleggio n WHERE v.targa=?");
+			pst.setString(1,plate);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		} finally {
+			try {
+				if (pst!=null)
+					pst.close();
+			} finally {
+				if (con!=null)
+					con.close();
+			}
+		}
+	}
 }

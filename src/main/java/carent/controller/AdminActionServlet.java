@@ -3,6 +3,7 @@ package carent.controller;
 import carent.model.CarModelDS;
 import carent.model.UserModelDS;
 import carent.model.CarBean;
+import carent.utils.Utility;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,29 +22,49 @@ public class AdminActionServlet extends HttpServlet {
         DataSource ds = (DataSource) this.getServletContext().getAttribute("DataSource");
         switch (actiontype) {
             case "removecar":
-                System.out.println("Eliminando veicolo...");
+                Utility.print("Provando ad eliminare il veicolo...");
                 try {
                     String plateToDelete = (String) request.getParameter("plate");
                     if (plateToDelete==null || plateToDelete.equals("")) {
                         response.getWriter().print("Parametri invalidi");
+                        response.setStatus(400);
                     } else {
                         CarModelDS carmodelds = new CarModelDS(ds);
-                        if (carmodelds.doDelete(plateToDelete))
-                            response.getWriter().print("Veicolo eliminato con successo");
-                        else {
-                            response.getWriter().print("Impossibile eliminare il veicolo");
+
+                        //Controllare se tale targa esiste
+                        if (carmodelds.plateExists(plateToDelete)) {
+
+                            //Controllare se l'auto è coinvolta in noleggi
+
+                            if (!carmodelds.hasRents(plateToDelete)) {
+                                if (carmodelds.doDelete(plateToDelete)) {
+                                    Utility.print("Veicolo eliminato con successo");
+                                    response.getWriter().print("Veicolo eliminato con successo");
+                                }
+                                else {
+                                    Utility.print("Impossibile eliminare il veicolo");
+                                    response.getWriter().print("Impossibile eliminare il veicolo");
+                                    response.setStatus(400);
+                                }
+                            } else {
+                                Utility.print("Coinvolta in noleggi");
+                                response.getWriter().print("Coinvolta in noleggi");
+                                response.setStatus(400);
+                            }
+                        } else {
+                            Utility.print("Targa non esistente");
+                            response.getWriter().print("Targa non esistente");
                             response.setStatus(400);
                         }
-
                     }
                 } catch (SQLException e) {
-                    response.getWriter().print("Impossibile eliminare il veicolo...");
+                    response.getWriter().print("Errore DB");
                     response.setStatus(400);
                     e.printStackTrace();
                 }
                 break;
             case "addcar":
-                System.out.println("Aggiungendo veicolo...");
+                System.out.println("Provando ad aggiungere il veicolo...");
                 try {
                     String newPlate = (String) request.getParameter("plate");
                     String newBrand = (String) request.getParameter("brand");
@@ -56,40 +77,79 @@ public class AdminActionServlet extends HttpServlet {
                         response.getWriter().print("Parametri invalidi");
                     } else {
                         CarModelDS carAdder = new CarModelDS(ds);
-                        CarBean toAdd = new CarBean();
-                        toAdd.setTarga(newPlate);
-                        toAdd.setMarca(newBrand);
-                        toAdd.setModello(newModel);
-                        toAdd.setPotenza(Integer.parseInt(newPowerString));
-                        toAdd.setAlimentazione(newFuel);
-                        toAdd.setAnnoImmatricolazione(Integer.parseInt(newYearString));
-                        toAdd.setChilometraggio(Integer.parseInt(newMileageString));
-                        if (carAdder.doSave(toAdd)) {
-                            response.getWriter().print("Veicolo aggiunto con successo");
+
+                        //Controllare se tale targa già esiste
+                        if (!carAdder.plateExists(newPlate)) {
+                            CarBean toAdd = new CarBean();
+                            toAdd.setTarga(newPlate);
+                            toAdd.setMarca(newBrand);
+                            toAdd.setModello(newModel);
+                            toAdd.setPotenza(Integer.parseInt(newPowerString));
+                            toAdd.setAlimentazione(newFuel);
+                            toAdd.setAnnoImmatricolazione(Integer.parseInt(newYearString));
+                            toAdd.setChilometraggio(Integer.parseInt(newMileageString));
+                            if (carAdder.doSave(toAdd)) {
+                                Utility.print("Veicolo aggiunto con successo");
+                                response.getWriter().print("Veicolo aggiunto con successo");
+                            } else {
+                                Utility.print("Impossibile aggiungere il veicolo");
+                                response.getWriter().print("Impossibile aggiungere il veicolo...");
+                                response.setStatus(400);
+                            }
                         } else {
-                            response.getWriter().print("Impossibile aggiungere il veicolo...");
+                            Utility.print("Targa già esistente...");
+                            response.getWriter().print("Targa gi&aacute; esistente");
                             response.setStatus(400);
                         }
                     }
                 } catch (SQLException e) {
-                    response.getWriter().print("Impossibile aggiungere il veicolo...");
+                    response.getWriter().print("Errore DB");
                     response.setStatus(400);
                 }
 
                 break;
             case "removeuser":
-                System.out.println("Eliminando utente...");
+                System.out.println("Provando ad eliminare l'utente...");
                 try {
                     String emailToDelete = (String) request.getParameter("email");
                     UserModelDS usermodelds = new UserModelDS(ds);
-                    if (usermodelds.removeUser(emailToDelete)) {
-                        response.getWriter().print("Utente eliminato con successo!");
+
+                    //Controllare se l'utente esiste
+                    if (usermodelds.userExists(emailToDelete)) {
+
+                        //Controllare se l'utente è coinvolto in noleggi
+
+                        if (!usermodelds.hasRents(emailToDelete)) {
+
+                            //Controllare se l'utente è admin
+
+                            if (!usermodelds.isAdmin(emailToDelete)) {
+                                if (usermodelds.removeUser(emailToDelete)) {
+                                    Utility.print("Utente "+emailToDelete+" eliminato con successo!!");
+                                    response.getWriter().print("Utente eliminato con successo!");
+                                } else {
+                                    Utility.print("Impossibile eliminare "+emailToDelete);
+                                    response.getWriter().print("Impossibile eliminare l'utente");
+                                    response.setStatus(400);
+                                }
+                            } else {
+                                Utility.print("L'utente è admin!");
+                                response.getWriter().print("Impossibile rimuovere un admin");
+                                response.setStatus(400);
+                            }
+                        } else {
+                            Utility.print("L'utente "+emailToDelete+" è coinvolto in noleggi");
+                            response.getWriter().print("Coinvolto in noleggi");
+                            response.setStatus(400);
+                        }
                     } else {
-                        response.getWriter().print("Impossibile eliminare l'utente");
+                        Utility.print("L'utente"+emailToDelete+" non esiste...");
+                        response.getWriter().print("L'utente non esiste");
                         response.setStatus(400);
                     }
+
                 } catch (SQLException e) {
-                    response.getWriter().print("Impossibile eliminare l'utente");
+                    response.getWriter().print("Errore DB");
                     response.setStatus(400);
                     e.printStackTrace();
                 }

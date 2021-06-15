@@ -7,19 +7,19 @@ $(document).ready (
 
                     $.ajax (
                         {
-                                url: "adminaction",
-                                type: "POST",
-                                data: {
-                                    actiontype: "removecar",
-                                    plate: $("#deleted-car").val()
-                                },
-                                success: function (data) {
-                                    $("#result-car-removal-div").html(createOutcome(data, "success"));
-                                    setTimeout(() => $("#result-car-removal-div").html(""), 1500);
-                                },
-                                error: function () {
-                                    $("#result-car-removal-div").html(createOutcome("Operazione non riuscita", "unsuccess"));
-                                    setTimeout(() => $("#result-car-removal-div").html(""), 1500);
+                            url: "adminaction",
+                            type: "POST",
+                            data: {
+                                actiontype: "removecar",
+                                plate: $("#deleted-car").val()
+                            },
+                            success: function (data) {
+                                $("#result-car-removal-div").html(createOutcome(data, "success"));
+                                setTimeout(() => $("#result-car-removal-div").html(""), 1500);
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                $("#result-car-removal-div").html(createOutcome(xhr.responseText, "unsuccess"));
+                                setTimeout(() => $("#result-car-removal-div").html(""), 1500);
                             }
                         }
                     )
@@ -48,8 +48,8 @@ $(document).ready (
                                 $("#result-user-div").html(createOutcome(data, "success"))
                                 setTimeout(() => $("#result-user-div").html(""), 1500);
                             },
-                            error: function () {
-                                $("#result-user-div").html(createOutcome("Operazione non riuscita", "unsuccess"))
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                $("#result-user-div").html(createOutcome(xhr.responseText, "unsuccess"))
                                 setTimeout(() => $("#result-user-div").html(""), 1500);
                             }
                         }
@@ -91,35 +91,42 @@ $(document).ready (
                                                         mileage: $("#add-car-mileage").val()
                                                     },
                                                     success: function(data) {
-                                                        $("#result-car-add-div").load("successfulOperationComponent.jsp");
+                                                        $("#result-car-add-div").html(createOutcome(data,"success"))
                                                         setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                                     },
-                                                    error: function () {
-                                                        $("#result-car-add-div").load("unsuccessfulOperationComponent.jsp");
+                                                    error: function (xhr, ajaxOptions, thrownError) {
+                                                        $("#result-car-add-div").html(createOutcome(xhr.responseText,"unsuccess"))
                                                         setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                                     }
                                                 }
                                             )
                                         } else {
-                                            alert("Chilometraggio non valido!!");
+                                            $("#result-car-add-div").html(createOutcome("Chilometraggio non valido","unsuccess"))
+                                            setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                         }
                                     } else {
-                                        alert("Anno non valido!!")
+                                        $("#result-car-add-div").html(createOutcome("Anno non valido","unsuccess"))
+                                        setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                     }
                                 } else {
-                                    alert("Alimentazione non valida!!");
+                                    $("#result-car-add-div").html(createOutcome("Alimentazione non valida","unsuccess"))
+                                    setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                 }
                             } else {
-                                alert("Potenza non valida!!");
+                                $("#result-car-add-div").html(createOutcome("Potenza non valida","unsuccess"))
+                                setTimeout(() => $("#result-car-add-div").html(""), 1500);
                             }
                         } else {
-                            alert("Modello non valido!!");
+                            $("#result-car-add-div").html(createOutcome("Modello non valido","unsuccess"))
+                            setTimeout(() => $("#result-car-add-div").html(""), 1500);
                         }
                     } else {
-                        alert("Marca non valida!!");
+                        $("#result-car-add-div").html(createOutcome("Marca non valida","unsuccess"))
+                        setTimeout(() => $("#result-car-add-div").html(""), 1500);
                     }
                 } else {
-                    alert("Targa non valida!");
+                    $("#result-car-add-div").html(createOutcome("Targa non valida","unsuccess"))
+                    setTimeout(() => $("#result-car-add-div").html(""), 1500);
                 }
             }
         )

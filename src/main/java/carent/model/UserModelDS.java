@@ -18,7 +18,7 @@ public class UserModelDS implements UserModel<UserBean> {
 	}
 
 	@Override
-	public UserBean fetchUser(String username) throws SQLException {
+	public UserBean fetchUser(String email) throws SQLException {
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
@@ -27,7 +27,7 @@ public class UserModelDS implements UserModel<UserBean> {
 		try {
 			con = ds.getConnection();
 			pst = con.prepareStatement("SELECT * FROM utente WHERE email=?");
-			pst.setString(1,username);
+			pst.setString(1,email);
 			Utility.print(pst.toString());
 			rs = pst.executeQuery();
 			if (rs.next()) {
@@ -201,5 +201,38 @@ public class UserModelDS implements UserModel<UserBean> {
 					con.close();
 			}
 		}
+	}
+
+	public boolean hasRents (String email) throws SQLException {
+		Utility.print("Controllando vincoli sull'utente");
+		Connection con = null;
+		PreparedStatement pst = null;
+		try {
+			con = ds.getConnection();
+			pst = con.prepareStatement("SELECT * FROM utente u NATURAL JOIN noleggio n WHERE u.email=?");
+			pst.setString(1,email);
+			ResultSet rs = pst.executeQuery();
+			if (rs.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		} finally {
+			try {
+				if (pst!=null)
+					pst.close();
+			} finally {
+				if (con!=null)
+					con.close();
+			}
+		}
+	}
+
+	public boolean isAdmin (String email) throws SQLException {
+		UserBean user = this.fetchUser(email);
+		if (user.getRole().equals("adminrole"))
+			return true;
+		else
+			return false;
 	}
 }
