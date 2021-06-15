@@ -1,9 +1,12 @@
 package carent.controller;
 
+import carent.model.RentBean;
+import carent.model.RentModelDS;
 import carent.model.UserBean;
 import carent.model.UserModelDS;
 import carent.utils.Utility;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,11 +16,12 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collection;
 
 /**
  * Servlet implementation class UserSettingsServlet
  */
-@WebServlet("/change")
+@WebServlet("/usersettings")
 public class UserSettingsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -46,9 +50,12 @@ public class UserSettingsServlet extends HttpServlet {
 					bean.setEmail(newemail);
 					session.setAttribute("utente", bean);
 				} else {
+					response.getWriter().print("Email non modificata");
 					response.setStatus(400);
 				}
 			} catch (SQLException e) {
+				response.getWriter().print("Impossibile eseguire l'operazione");
+				response.setStatus(400);
 				e.printStackTrace();
 			}
 			
@@ -61,7 +68,11 @@ public class UserSettingsServlet extends HttpServlet {
 				String newpassword = (String) request.getParameter("newpass");
 				Utility.print(currentemail+" "+oldpassword+" "+newpassword);
 				try {
-					if (!usermodelds.wrongPassword(currentemail, oldpassword)) {
+
+					if(oldpassword.equals(newpassword)) {
+						response.getWriter().print("La password deve essere diversa");
+						response.setStatus(400);
+					} else if (!usermodelds.wrongPassword(currentemail, oldpassword)) {
 						if (usermodelds.changePassword(currentemail, newpassword)) {
 							response.getWriter().print("Password modificata con successo");
 							UserBean bean = new UserBean();
@@ -70,19 +81,47 @@ public class UserSettingsServlet extends HttpServlet {
 							bean.setPasswd(newpassword);
 							session.setAttribute("utente", bean);
 						} else {
+							response.getWriter().print("Impossibile modificare la password");
 							response.setStatus(400);
 						}
 					} else {
-						//La password è errata
-						response.setStatus(400);
+							response.getWriter().print("Password errata");
+							response.setStatus(400);
 					}
+
 				} catch (SQLException e) {
+					response.getWriter().print("Impossibile eseguire l'operazione");
+					response.setStatus(400);
 					e.printStackTrace();
 				}
 		break;
+
+			case "rentload":
+				RentModelDS rentmodelds = new RentModelDS(ds);
+				Utility.print("Ho creato rentmodelds");
+				String emailForRents = request.getParameter("email");
+				Utility.print("Ho preso l'attributo email: "+emailForRents);
+				try {
+					Collection<RentBean> temp = rentmodelds.fetchRentsFromUser(emailForRents,3);
+					request.setAttribute("earlyRents",temp);
+					System.out.println(temp);
+					Utility.print("Ho settato l'attributo earlyRents");
+					RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/earlyRentsComponent.jsp");
+					Utility.print("Sto per fare il dispatching");
+					dispatcher.forward(request,response);
+					return;
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				break;
+
 		}
+
+
 		
 	}
+
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

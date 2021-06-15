@@ -14,17 +14,17 @@ $(document).ready (
                                 plate: $("#deleted-car").val()
                             },
                             success: function (data) {
-                                $("#result-car-removal-div").html(createOutcome(data, "success"));
+                                $("#result-car-removal-div").html(createOutcome(data, "success", "check-square"));
                                 setTimeout(() => $("#result-car-removal-div").html(""), 1500);
                             },
                             error: function (xhr, ajaxOptions, thrownError) {
-                                $("#result-car-removal-div").html(createOutcome(xhr.responseText, "unsuccess"));
+                                $("#result-car-removal-div").html(createOutcome(xhr.responseText, "unsuccess", "bomb"));
                                 setTimeout(() => $("#result-car-removal-div").html(""), 1500);
                             }
                         }
                     )
                 } else {
-                    $("#result-car-removal-div").html(createOutcome("Operazione non riuscita", "unsuccess"));
+                    $("#result-car-removal-div").html(createOutcome("Operazione non riuscita", "unsuccess", "bomb"));
                     setTimeout(() => $("#result-car-removal-div").html(""), 1500);
                 }
             }
@@ -45,18 +45,18 @@ $(document).ready (
                                 email: $("#deleted-user").val()
                             },
                             success: function (data) {
-                                $("#result-user-div").html(createOutcome(data, "success"))
+                                $("#result-user-div").html(createOutcome(data, "success", "check-square"))
                                 setTimeout(() => $("#result-user-div").html(""), 1500);
                             },
                             error: function (xhr, ajaxOptions, thrownError) {
-                                $("#result-user-div").html(createOutcome(xhr.responseText, "unsuccess"))
+                                $("#result-user-div").html(createOutcome(xhr.responseText, "unsuccess", "bomb"))
                                 setTimeout(() => $("#result-user-div").html(""), 1500);
                             }
                         }
                     )
 
                 } else {
-                    $("#result-user-div").html(createOutcome("Operazione non riuscita", "unsuccess"))
+                    $("#result-user-div").html(createOutcome("Operazione non riuscita", "unsuccess", "bomb"))
                     setTimeout(() => $("#result-user-div").html(""), 1500);
                 }
             }
@@ -91,41 +91,41 @@ $(document).ready (
                                                         mileage: $("#add-car-mileage").val()
                                                     },
                                                     success: function(data) {
-                                                        $("#result-car-add-div").html(createOutcome(data,"success"))
+                                                        $("#result-car-add-div").html(createOutcome(data,"success", "check-square"))
                                                         setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                                     },
                                                     error: function (xhr, ajaxOptions, thrownError) {
-                                                        $("#result-car-add-div").html(createOutcome(xhr.responseText,"unsuccess"))
+                                                        $("#result-car-add-div").html(createOutcome(xhr.responseText,"unsuccess", "bomb"))
                                                         setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                                     }
                                                 }
                                             )
                                         } else {
-                                            $("#result-car-add-div").html(createOutcome("Chilometraggio non valido","unsuccess"))
+                                            $("#result-car-add-div").html(createOutcome("Chilometraggio non valido","unsuccess", "bomb"))
                                             setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                         }
                                     } else {
-                                        $("#result-car-add-div").html(createOutcome("Anno non valido","unsuccess"))
+                                        $("#result-car-add-div").html(createOutcome("Anno non valido","unsuccess", "bomb"))
                                         setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                     }
                                 } else {
-                                    $("#result-car-add-div").html(createOutcome("Alimentazione non valida","unsuccess"))
+                                    $("#result-car-add-div").html(createOutcome("Alimentazione non valida","unsuccess", "bomb"))
                                     setTimeout(() => $("#result-car-add-div").html(""), 1500);
                                 }
                             } else {
-                                $("#result-car-add-div").html(createOutcome("Potenza non valida","unsuccess"))
+                                $("#result-car-add-div").html(createOutcome("Potenza non valida","unsuccess", "bomb"))
                                 setTimeout(() => $("#result-car-add-div").html(""), 1500);
                             }
                         } else {
-                            $("#result-car-add-div").html(createOutcome("Modello non valido","unsuccess"))
+                            $("#result-car-add-div").html(createOutcome("Modello non valido","unsuccess", "bomb"))
                             setTimeout(() => $("#result-car-add-div").html(""), 1500);
                         }
                     } else {
-                        $("#result-car-add-div").html(createOutcome("Marca non valida","unsuccess"))
+                        $("#result-car-add-div").html(createOutcome("Marca non valida","unsuccess", "bomb"))
                         setTimeout(() => $("#result-car-add-div").html(""), 1500);
                     }
                 } else {
-                    $("#result-car-add-div").html(createOutcome("Targa non valida","unsuccess"))
+                    $("#result-car-add-div").html(createOutcome("Targa non valida","unsuccess", "bomb"))
                     setTimeout(() => $("#result-car-add-div").html(""), 1500);
                 }
             }
@@ -133,10 +133,10 @@ $(document).ready (
     }
 );
 
-function createOutcome(data, type) {
+function createOutcome(data, type, icon) {
     return "<div id=\"alert-"+type+"\">\n" +
         "    <div>\n" +
-        "        <i class=\"fas fa-check-square\"></i>\n" +
+        "        <i class=\"fas fa-"+icon+"\"></i>\n" +
         "        <label id=\"result-label\">"+data+"</label>\n" +
         "    </div>\n" +
         "</div>";

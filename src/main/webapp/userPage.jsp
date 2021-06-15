@@ -57,7 +57,7 @@
                 <a class="nav-link" href="#">Home</a> <a class="nav-link" href="#">Veicoli</a>
                 <a class="nav-link" href="#">Contatti</a>
                 <form action="logout" method="GET">
-                    <input type="submit" value="Logout" class="btn btn-success">
+                    <input id="logout-button" type="submit" value="Logout" class="btn btn-success">
                 </form>
             </div>
         </div>
@@ -66,7 +66,7 @@
 
 <div class="container-fluid" id="info-container">
     <div class="row  align-items-center" id="row1">
-        <div class="col-4" id="column1">
+        <div class="col-lg-4 col-sm-12" id="column1">
             <figure class="figure">
                 <img src="immagini/avatar.svg" class="figure-img img-fluid rounded"
                      alt="profile-icon">
@@ -81,8 +81,13 @@
             <div id="container-form-email">
                 <div class="form-email">
                     <input type="email" id="newemail" placeholder="Nuova email">
-                    <button type="button" class="btn btn-success" id="emailchangebutton">Cambia</button>
+                    <div class="result-div">
+                        <button type="button" class="btn btn-success" id="emailchangebutton">Cambia</button>
+                        <div id="result-change-email-div"></div>
+                    </div>
                 </div>
+
+
             </div>
 
             <div id="button-password">
@@ -95,15 +100,17 @@
                 <div id="form-password">
                     <input type="password" id="oldpass" placeholder="Vecchia password">
                     <input type="password" id="newpass" placeholder="Nuova password">
-                    <button type="button" class="btn btn-success" id="passchangebutton">Cambia</button>
-                    <div id="successopass"></div>
+                    <div class="result-div">
+                        <button type="button" class="btn btn-success" id="passchangebutton">Cambia</button>
+                        <div id="result-change-psswd-div"></div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <div class="col-4" id="column2">
+    <div class="col-lg-4 col-sm-12" id="column2">
         <div class="row text-start" id="info-label">
             <h2>Dati personali <i class="fas fa-address-card"></i></h2>
         </div>
@@ -115,11 +122,11 @@
         </div>
     </div>
 
-    <div class="col-4" id="column3">
+    <div class="col-lg-4 col-sm-12" id="column3">
         <div class="row text-start" id="rent-label">
             <h2>Ultimi Noleggi <i class="fas fa-car"></i></h2>
 
-            <ol class="list-group list-group-numbered">
+            <ol class="list-group list-group-numbered" id="early-rents-list">
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                         <div class="fw-bold">Subheading</div>

@@ -15,11 +15,14 @@ body {
 }
 
 .btn-success {
-    border-radius: 15px !important;
     background: #00bf85 !important;
     border-color: #00bf85 !important;
     margin-left: 10px;
 
+}
+
+#logout-button {
+	border-radius: 15px;
 }
 
 .btn-success a{
@@ -47,9 +50,9 @@ body {
 }
 
 #row1 {
-	width: 350px;
+	width: 500px;
 	height: 350px;
-	margin: 10px 200px 10px 1px;
+
 }
 
 
@@ -106,6 +109,7 @@ i {
 #emailchangebutton, #passchangebutton {
 	background:#7A6A4D !important;
 	border-color: #C7B491 !important;
+	border-radius: 5px;
 	margin-top: 15px;
 	width: 100px;
 	height: 40px;
@@ -114,4 +118,52 @@ i {
 #emailchangebutton:hover, #passchangebutton:hover {
 	background:#C7B491 !important;
 	border-color: #7A6A4D !important;
+}
+
+.result-div {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	align-items: center;
+	width: 500px;
+	height: 70px;
+}
+
+
+#alert-success {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	margin-top: 18px;
+	margin-left: 20px;
+	color: white;
+	background: #00bf85;
+	opacity: 0.8;
+	border-radius: 5px;
+	width: 280px !important;
+	height: 50px !important;
+}
+
+#alert-unsuccess {
+	display: flex;
+	margin-top: 18px;
+	margin-left: 20px;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	background: #BF2900;
+	opacity: 0.8;
+	border-radius: 5px;
+	width: 280px !important;
+	height: 50px !important;
+}
+
+#icon {
+	font-size: 16px;
+	color: white;
+}
+
+#emailchangebutton:focus, #passchangebutton:focus, #emailchangebutton:active, #passchangebutton:active {
+	box-shadow: none !important;
 }
