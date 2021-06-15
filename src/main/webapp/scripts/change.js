@@ -60,28 +60,25 @@ $(document).ready(
 				}
 			}
 		);
+
+		$.ajax(
+			{
+				url: "usersettings",
+				type: "POST",
+				data: {
+					changetype: "rentload",
+					email: $("#currentemail").text()
+				},
+				success: function (data) {
+					$("#early-rents-list").html(data)
+				},
+				error: function () {
+					alert("Errore nel caricamento degli ultimi noleggi");
+				}
+			}
+		)
 	}
 )
-
-
-$.ajax(
-	{
-		url: "usersettings",
-		type: "POST",
-		data: {
-			changetype: "rentload",
-			email: $("#currentemail").text()
-		},
-		success: function (data) {
-			$("#early-rents-list").html(data)
-		},
-		error: function () {
-			alert("Errore nel caricamento degli ultimi noleggi");
-		}
-	}
-)
-
-
 
 function createOutcome(data, type, icon) {
 	return "<div id=\"alert-"+type+"\">\n" +
