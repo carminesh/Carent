@@ -9,7 +9,7 @@
     Utility.print("iteratore creato");
     CarBean bean;
 %>
-<table>
+<table class="table table-bordered table-dark">
     <thead>
         <tr>
             <th> Targa </th>

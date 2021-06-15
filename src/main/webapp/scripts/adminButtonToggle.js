@@ -4,6 +4,9 @@ $(document).ready (
         $("#form-container-delete-user").toggle();
         $("#form-container-add-car").toggle();
         $("#form-container-add-car-image").toggle();
+        $("#table-container1").toggle();
+        $("#table-container2").toggle();
+        $("#table-container3").toggle();
 
         $("#delete-car").click (
             () => {
@@ -38,6 +41,39 @@ $(document).ready (
                     $("#form-container-add-car-image").fadeIn();
                 else
                     $("#form-container-add-car-image").fadeOut(0.4);
+            }
+        );
+
+        $("#user-list-button").click (
+            () => {
+                if (!$("#table-container1").is(":visible")) {
+                    $("#table-container2").fadeOut(0.4);
+                    $("#table-container3").fadeOut(0.4);
+                    $("#table-container1").fadeIn();
+                } else
+                    $("#table-container1").fadeOut(0.4);
+            }
+        );
+
+        $("#car-list-button").click (
+            () => {
+                if (!$("#table-container2").is(":visible")) {
+                    $("#table-container1").fadeOut(0.4);
+                    $("#table-container3").fadeOut(0.4);
+                    $("#table-container2").fadeIn();
+                } else
+                    $("#table-container2").fadeOut(0.4);
+            }
+        );
+
+        $("#rent-list-button").click (
+            () => {
+                if (!$("#table-container3").is(":visible")) {
+                    $("#table-container1").fadeOut(0.4);
+                    $("#table-container2").fadeOut(0.4);
+                    $("#table-container3").fadeIn();
+                } else
+                    $("#table-container3").fadeOut(0.4);
             }
         );
     }

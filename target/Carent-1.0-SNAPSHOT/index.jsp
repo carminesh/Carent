@@ -88,7 +88,7 @@ if (pass==null) {
 						<a href="access">
 						<button type="button" class="btn btn-success">Login</button> <%
  					} else {
- 					%> <a href="userpage">
+ 					%> <a href="user/page">
 						<button type="button" class="btn btn-success"><%=user.getName()%></button>
 					<%}%>
 					</a>

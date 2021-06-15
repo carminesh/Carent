@@ -142,12 +142,49 @@
 
             </div>
 
-            <div id="user-list-div"></div>
-            <div id="car-list-div"></div>
-            <div id="rent-list-div"></div>
+            <div class="container-fluid" id="info-section">
+
+                <div class="row  align-items-start-center" id="row2">
+                    <div class="col-lg-3 col-md-6 col-sm-12" id="column5">
+                        <button type="button" class="btn btn-success" id="user-list-button">
+                            Mostra Utenti <i class="fas fa-user-friends"></i>
+                        </button>
+
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-12" id="column6">
+                        <button type="button" class="btn btn-success" id="car-list-button">
+                            Lista Veicoli <i class="fas fa-user-friends"></i>
+                        </button>
+
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-12" id="column7">
+                        <button type="button" class="btn btn-success" id="rent-list-button">
+                            Mostra Noleggi <i class="fas fa-user-friends"></i>
+                        </button>
+
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-12" id="column8">
+                        <button type="button" class="btn btn-success" id="rent-delete-button">
+                            Cancella Noleggio <i class="fas fa-user-friends"></i>
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
 
         </div>
     </div>
-
+    <div id="table-container1"></div>
+    <div id="table-container2"></div>
+    <div id="table-container3"></div>
 </body>
 </html>

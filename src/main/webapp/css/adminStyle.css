@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
 body {
-    background-color: #262a2e !important;
+	background-color: #262a2e !important;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
 #welcome-container {
@@ -30,15 +34,23 @@ body {
 	color: white;
 }
 
-#upper-container {
-	width: 102%;
+#upper-container, #info-container {
+	width: 100%;
 	margin-left: 20px;
 	margin-top: 20px;
 }
 
+
+
 #column1, #column2, #column3, #column4 {
 	margin-top: 20px;
 }
+
+#row2 {
+	margin-top: 50px;
+	margin-left: 10px;
+}
+
 
 #logo {
 	margin-left: 30px;
@@ -58,10 +70,6 @@ button {
 	height: 180px;
 }
 
-#button-container {
-	margin-top: 100px;
-	margin-left: 100px;
-}
 
 #add-car-button, #delete-user-button, #delete-car-button {
 	font-size: 16px !important;
@@ -147,4 +155,16 @@ input {
 	border-radius: 5px;
 	width: 280px !important;
 	height: 50px !important;
+}
+
+#table-view {
+	background: white !important;
+}
+
+#table-container1, #table-container2, #table-container3{
+	margin-top: 40px;
+	width: 96%;
+	height: 400px;
+	background: white;
+	border-radius: 5px;
 }

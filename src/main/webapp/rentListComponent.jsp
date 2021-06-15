@@ -9,7 +9,7 @@
     Utility.print("iteratore creato");
     RentBean bean;
 %>
-<table>
+<table class="table table-bordered table-dark">
     <thead>
         <tr>
             <th> Codice Noleggio </th>

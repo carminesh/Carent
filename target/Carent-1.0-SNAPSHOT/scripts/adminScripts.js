@@ -134,9 +134,9 @@ $(document).ready (
             }
         )
 
-        load("loadusers","#user-list-div");
-        load("loadcars","#car-list-div");
-        load("loadrents","#rent-list-div");
+        load("loadusers","#table-container1");
+        load("loadcars","#table-container2");
+        load("loadrents","#table-container3");
     }
 );
 
