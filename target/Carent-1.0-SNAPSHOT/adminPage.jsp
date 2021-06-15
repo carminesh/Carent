@@ -157,6 +157,8 @@
                             <button type="button" class="btn btn-success" id="delete-rent-button">Rimuovi</button>
                         </div>
 
+                        <div id="result-delete-rent-image-div"></div>
+
                     </div>
 
 

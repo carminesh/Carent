@@ -64,6 +64,37 @@ $(document).ready (
             }
         );
 
+        $("#delete-rent-button").click (
+            () => {
+                var rentRegex = /^[0-9]+$/
+                if ($("#deleted-rent").val().match(rentRegex)) {
+                    $.ajax(
+                        {
+                            url: "action",
+                            type: "POST",
+                            data: {
+                                actiontype: "removerent",
+                                rentCode: $("#deleted-rent").val()
+                            },
+                            success: function (data) {
+                                $("#result-delete-rent-image-div").html(createOutcome(data, "success", "check-square"))
+                                setTimeout(() => $("#result-delete-rent-image-div").html(""), 1500);
+                                load("loadrents","#table-container3");
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                $("#result-delete-rent-image-div").html(createOutcome(xhr.responseText, "unsuccess", "bomb"))
+                                setTimeout(() => $("#result-delete-rent-image-div").html(""), 1500);
+                            }
+
+                        }
+                    )
+                } else {
+                    $("#result-delete-rent-image-div").html(createOutcome("Codice non valido", "unsuccess", "bomb"))
+                    setTimeout(() => $("#result-delete-rent-image-div").html(""), 1500);
+                }
+            }
+        )
+
         $("#add-car-button").click (
             () => {
                 var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/

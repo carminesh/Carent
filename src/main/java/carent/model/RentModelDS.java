@@ -86,4 +86,49 @@ public class RentModelDS {
             }
         }
     }
+
+    public boolean removeRent (int rentCode) throws SQLException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        try {
+            con = ds.getConnection();
+            pst = con.prepareStatement("DELETE FROM noleggio WHERE rentCode=?");
+            pst.setInt(1,rentCode);
+            int ris = pst.executeUpdate();
+            return ris>0;
+        } finally {
+            try {
+                if (pst!=null)
+                    pst.close();
+            } finally {
+                if (con!=null)
+                    con.close();
+            }
+        }
+    }
+
+    public boolean rentExists (int rentCode) throws SQLException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = ds.getConnection();
+            pst = con.prepareStatement("SELECT * FROM noleggio WHERE rentCode=?");
+            pst.setInt(1,rentCode);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } finally {
+            try {
+                if (pst!=null)
+                    pst.close();
+            } finally {
+                if (con!=null)
+                    con.close();
+            }
+        }
+    }
 }

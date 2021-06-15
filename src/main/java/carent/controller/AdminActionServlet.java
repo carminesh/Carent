@@ -58,7 +58,7 @@ public class AdminActionServlet extends HttpServlet {
                         }
                     }
                 } catch (SQLException e) {
-                    response.getWriter().print("Errore DB");
+                    response.getWriter().print("Impossibile eseguire l'operazione");
                     response.setStatus(400);
                     e.printStackTrace();
                 }
@@ -103,7 +103,7 @@ public class AdminActionServlet extends HttpServlet {
                         }
                     }
                 } catch (SQLException e) {
-                    response.getWriter().print("Errore DB");
+                    response.getWriter().print("Impossibile eseguire l'operazione");
                     response.setStatus(400);
                 }
 
@@ -149,7 +149,7 @@ public class AdminActionServlet extends HttpServlet {
                     }
 
                 } catch (SQLException e) {
-                    response.getWriter().print("Errore DB");
+                    response.getWriter().print("Impossibile eseguire l'operazione");
                     response.setStatus(400);
                     e.printStackTrace();
                 }
@@ -197,12 +197,31 @@ public class AdminActionServlet extends HttpServlet {
                     dispatcher.forward(request,response);
                     return;
                 } catch (SQLException e) {
-                    Utility.print("Impossibile prelevare le auto...");
+                    Utility.print("Impossibile prelevare i noleggi...");
                     e.printStackTrace();
                 }
                 break;
-            default:
+            case "removerent":
+                RentModelDS rentmodelds = new RentModelDS(ds);
+                try {
+                    if (rentmodelds.rentExists(Integer.parseInt(request.getParameter("rentCode")))) {
+                        if (rentmodelds.removeRent(Integer.parseInt(request.getParameter("rentCode")))) {
+                            response.getWriter().print("Noleggio eliminato con successo");
+                        } else {
+                            response.getWriter().print("Impossibile eliminare il noleggio");
+                            response.setStatus(400);
+                        }
+                    } else {
+                        response.getWriter().print("Noleggio inesistente");
+                        response.setStatus(400);
+                    }
+                } catch (SQLException e) {
+                    response.getWriter().print("Impossibile eseguire l'operazione");
+                    response.setStatus(400);
+                }
                 break;
+                    default:
+                        break;
         }
     }
 
