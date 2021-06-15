@@ -9,8 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c740bcf0-b463-4742-aab0-bc7d11feecfc" name="Default Changelist" comment="Admin page UI update">
+    <list default="true" id="c740bcf0-b463-4742-aab0-bc7d11feecfc" name="Default Changelist" comment="Admin Page - Ui/Ux improvement">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Carent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Carent.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/css/adminStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/css/adminStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/scripts/adminButtonToggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/scripts/adminButtonToggle.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +25,20 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -46,9 +59,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/scripts" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -59,10 +76,42 @@
       <recent name="$PROJECT_DIR$/src/main/java/carent/controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dario\Desktop\CarentV2\src\main\webapp" />
       <recent name="$PROJECT_DIR$/src/main/webapp" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/Carent" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions" />
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.43" />
+          <option name="number" value="0" />
+          <option name="path" value="/Applications/Tomcat" />
+          <option name="version" value="9.0.43.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -153,26 +202,6 @@
         </option>
       </method>
     </configuration>
-    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
-      <option name="adminPort" value="8005" />
-      <option name="contextPath" value="/Carent" />
-      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions" />
-      <option name="passParentEnvironmentVariables" value="true" />
-      <option name="port" value="8080" />
-      <option name="tomcatInfo">
-        <TomcatInfo>
-          <option name="name" value="Apache Tomcat/9.0.43" />
-          <option name="number" value="0" />
-          <option name="path" value="/Applications/Tomcat" />
-          <option name="version" value="9.0.43.0" />
-        </TomcatInfo>
-      </option>
-      <option name="vmOptions" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -191,6 +220,8 @@
       <workItem from="1623586280580" duration="159000" />
       <workItem from="1623586636357" duration="7863000" />
       <workItem from="1623672396232" duration="5619000" />
+      <workItem from="1623754522156" duration="21000" />
+      <workItem from="1623754559042" duration="11899000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1623592832049</created>
@@ -255,7 +286,35 @@
       <option name="project" value="LOCAL" />
       <updated>1623678921363</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed a bug - Early rents wouldn't show due to semantic error">
+      <created>1623755058615</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1623755058615</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Admin Page - Added cars table, users table and rentals table (with AJAX features on admin actions)">
+      <created>1623761032069</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1623761032069</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Security - Added JSP snippets, Servlet changes and Filter redirections to improve security">
+      <created>1623764641679</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1623764641679</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Admin Page - Ui/Ux improvement">
+      <created>1623767157796</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1623767157796</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,6 +340,10 @@
     <MESSAGE value="Admin page - implementation of new button animations with js" />
     <MESSAGE value="Admin page - implementation of new button animations with js (V2)" />
     <MESSAGE value="Admin page - implementation of new button animations with js (V3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin page - implementation of new button animations with js (V3)" />
+    <MESSAGE value="Fixed a bug - Early rents wouldn't show due to semantic error" />
+    <MESSAGE value="Admin Page - Added cars table, users table and rentals table (with AJAX features on admin actions)" />
+    <MESSAGE value="Security - Added JSP snippets, Servlet changes and Filter redirections to improve security" />
+    <MESSAGE value="Admin Page - Ui/Ux improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin Page - Ui/Ux improvement" />
   </component>
 </project>
