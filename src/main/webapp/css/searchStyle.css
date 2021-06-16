@@ -44,22 +44,35 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding-top: 6%;
-    width: 80%;
+    width: 100%;
     height: 100%;
 }
-
 
 #shop-section {
     height: 100%;
     width: 100%;
-    border-right-style: solid;
-    border-width: 5px;
-    border-color:  #00bf85;
     background: #212529 !important;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+}
+
+#slider {
+    height: 100%;
+    width: 20px;
+    background: #212529;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#slider-icon {
+    color: #00bf85;
+    width: 20px;
+    height: 20px;
+    font-size: 30px;
 }
 
 .card mb-3 {

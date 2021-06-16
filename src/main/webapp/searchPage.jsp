@@ -13,14 +13,14 @@
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="scripts/sideBar.js"></script>
 
 
+ </head>
+ <body>
 
-</head>
-<body>
 
-
-    <!--Navbar-->
+     <!--Navbar-->
     <nav
             class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark navbar-collapse">
         <div class="container-fluid">
@@ -74,6 +74,13 @@
                 </div>
             </div>
 
+        </div>
+
+    </div>
+
+    <div id="slider">
+        <div id="slider-icon-div">
+            <i id="slider-icon" class="fas fa-arrow-alt-circle-right"></i>
         </div>
 
     </div>
