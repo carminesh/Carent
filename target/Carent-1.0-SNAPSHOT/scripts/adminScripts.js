@@ -16,7 +16,7 @@ $(document).ready (
                             success: function (data) {
                                 $("#result-car-removal-div").html(createOutcome(data, "success", "check-square"));
                                 setTimeout(() => $("#result-car-removal-div").html(""), 1500);
-                                load("loadcars","#car-list-div");
+                                load("loadcars","#table-container2");
                             },
                             error: function (xhr, ajaxOptions, thrownError) {
                                 $("#result-car-removal-div").html(createOutcome(xhr.responseText, "unsuccess", "bomb"));
@@ -48,7 +48,7 @@ $(document).ready (
                             success: function (data) {
                                 $("#result-user-div").html(createOutcome(data, "success", "check-square"))
                                 setTimeout(() => $("#result-user-div").html(""), 1500);
-                                load("loadusers","#user-list-div");
+                                load("loadusers","#table-container1");
                             },
                             error: function (xhr, ajaxOptions, thrownError) {
                                 $("#result-user-div").html(createOutcome(xhr.responseText, "unsuccess", "bomb"))
@@ -58,7 +58,7 @@ $(document).ready (
                     )
 
                 } else {
-                    $("#result-user-div").html(createOutcome("Operazione non riuscita", "unsuccess", "bomb"))
+                    $("#result-user-div").html(createOutcome("Email non valida", "unsuccess", "bomb"))
                     setTimeout(() => $("#result-user-div").html(""), 1500);
                 }
             }
@@ -128,7 +128,7 @@ $(document).ready (
                                                         success: function(data) {
                                                             $("#result-car-add-div").html(createOutcome(data,"success", "check-square"))
                                                             setTimeout(() => $("#result-car-add-div").html(""), 1500);
-                                                            load("loadcars","#car-list-div");
+                                                            load("loadcars","#table-container2");
                                                         },
                                                         error: function (xhr, ajaxOptions, thrownError) {
                                                             $("#result-car-add-div").html(createOutcome(xhr.responseText,"unsuccess", "bomb"))
