@@ -42,6 +42,7 @@ public class CarModelDS implements CarModel<CarBean> {
 				bean.setAnnoImmatricolazione(rs.getInt("anno_imm"));
 				bean.setPotenza(rs.getInt("potenza"));
 				bean.setAlimentazione(rs.getString("alimentazione"));
+				bean.setPrezzo_gg(rs.getInt("prezzo_gg"));
 			}
 		} finally {
 			try {
@@ -84,7 +85,7 @@ public class CarModelDS implements CarModel<CarBean> {
 				bean.setAnnoImmatricolazione(rs.getInt("anno_imm"));
 				bean.setPotenza(rs.getInt("potenza"));
 				bean.setAlimentazione(rs.getString("alimentazione"));
-				
+				bean.setPrezzo_gg(rs.getInt("prezzo_gg"));
 				lista.add(bean);
 			}
 			
@@ -107,7 +108,7 @@ public class CarModelDS implements CarModel<CarBean> {
 		PreparedStatement pst = null;
 		try {
 			con = ds.getConnection();
-			pst = con.prepareStatement("INSERT INTO veicolo(targa,marca,modello, alimentazione,potenza,anno_imm,chilometraggio) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			pst = con.prepareStatement("INSERT INTO veicolo(targa,marca,modello, alimentazione,potenza,anno_imm,chilometraggio,prezzo_gg) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 			pst.setString(1,item.getTarga());
 			pst.setString(2, item.getMarca());
 			pst.setString(3, item.getModello());
@@ -115,6 +116,7 @@ public class CarModelDS implements CarModel<CarBean> {
 			pst.setInt(5, item.getPotenza());
 			pst.setInt(6, item.getAnnoImmatricolazione());
 			pst.setInt(7, item.getChilometraggio());
+			pst.setInt(8,item.getPrezzo_gg());
 			int ris = pst.executeUpdate();
 			return ris>0;
 		} finally {
@@ -134,7 +136,7 @@ public class CarModelDS implements CarModel<CarBean> {
 		PreparedStatement pst = null;
 		try {
 			con = ds.getConnection();
-			pst = con.prepareStatement("UPDATE veicolo SET marca=?, modello=?, alimentazione=?, potenza=?, anno_imm=?, chilometraggio=? WHERE targa=?");
+			pst = con.prepareStatement("UPDATE veicolo SET marca=?, modello=?, alimentazione=?, potenza=?, anno_imm=?, chilometraggio=? prezzo_gg=? WHERE targa=?");
 			pst.setString(1, item.getMarca());
 			pst.setString(2, item.getModello());
 			pst.setString(3, item.getAlimentazione());
@@ -142,6 +144,7 @@ public class CarModelDS implements CarModel<CarBean> {
 			pst.setInt(5, item.getAnnoImmatricolazione());
 			pst.setInt(6, item.getChilometraggio());
 			pst.setString(7, item.getTarga());
+			pst.setInt(8,item.getPrezzo_gg());
 			
 			Utility.print(pst.toString());
 			
@@ -198,6 +201,7 @@ public class CarModelDS implements CarModel<CarBean> {
 				bean.setAnnoImmatricolazione(rs.getInt("anno_imm"));
 				bean.setPotenza(rs.getInt("potenza"));
 				bean.setAlimentazione(rs.getString("alimentazione"));
+				bean.setPrezzo_gg(rs.getInt("prezzo_gg"));
 				
 				lista.add(bean);
 				

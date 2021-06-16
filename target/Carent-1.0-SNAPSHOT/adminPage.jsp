@@ -109,6 +109,8 @@
                         <br>
                         <input type="text" id="add-car-mileage" placeholder="Chilometraggio veicolo">
                         <br>
+                        <input type="text" id="add-car-price" placeholder="Prezzo al giorno">
+                        <br>
 
                         <button type="button" class="btn btn-success" id="add-car-button">Aggiungi</button>
                     </div>

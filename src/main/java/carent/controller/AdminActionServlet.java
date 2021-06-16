@@ -73,8 +73,10 @@ public class AdminActionServlet extends HttpServlet {
                     String newFuel = (String) request.getParameter("fuel");
                     String newYearString = (String) request.getParameter("year");
                     String newMileageString = (String) request.getParameter("mileage");
-                    if (newPlate==null || newPlate.equals("") || newBrand==null || newBrand.equals("") || newModel==null || newModel.equals("") || newPowerString==null || newPowerString.equals("") || newFuel==null || newFuel.equals("") || newYearString==null || newYearString.equals("") || newMileageString==null || newMileageString.equals("")) {
+                    String newPriceString = (String) request.getParameter("price");
+                    if (newPlate==null || newPlate.equals("") || newBrand==null || newBrand.equals("") || newModel==null || newModel.equals("") || newPowerString==null || newPowerString.equals("") || newFuel==null || newFuel.equals("") || newYearString==null || newYearString.equals("") || newMileageString==null || newMileageString.equals("") || newPriceString==null || newPriceString.equals("")) {
                         response.getWriter().print("Parametri invalidi");
+                        response.setStatus(400);
                     } else {
                         CarModelDS carAdder = new CarModelDS(ds);
 
@@ -88,6 +90,7 @@ public class AdminActionServlet extends HttpServlet {
                             toAdd.setAlimentazione(newFuel);
                             toAdd.setAnnoImmatricolazione(Integer.parseInt(newYearString));
                             toAdd.setChilometraggio(Integer.parseInt(newMileageString));
+                            toAdd.setPrezzo_gg(Integer.parseInt(newPriceString));
                             if (carAdder.doSave(toAdd)) {
                                 Utility.print("Veicolo aggiunto con successo");
                                 response.getWriter().print("Veicolo aggiunto con successo");

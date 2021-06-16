@@ -109,31 +109,37 @@ $(document).ready (
                                 if ($("#add-car-fuel").val().match(textRegex)) {
                                     if($("#add-car-year").val().match(yearRegex)) {
                                         if ($("#add-car-mileage").val().match(numRegex)) {
-                                            $.ajax(
-                                                {
-                                                    url: "action",
-                                                    type: "POST",
-                                                    data: {
-                                                        actiontype: "addcar",
-                                                        plate: $("#add-car-plate").val(),
-                                                        brand: $("#add-car-plate").val(),
-                                                        model: $("#add-car-model").val(),
-                                                        power: $("#add-car-power").val(),
-                                                        fuel: $("#add-car-fuel").val(),
-                                                        year: $("#add-car-year").val(),
-                                                        mileage: $("#add-car-mileage").val()
-                                                    },
-                                                    success: function(data) {
-                                                        $("#result-car-add-div").html(createOutcome(data,"success", "check-square"))
-                                                        setTimeout(() => $("#result-car-add-div").html(""), 1500);
-                                                        load("loadcars","#car-list-div");
-                                                    },
-                                                    error: function (xhr, ajaxOptions, thrownError) {
-                                                        $("#result-car-add-div").html(createOutcome(xhr.responseText,"unsuccess", "bomb"))
-                                                        setTimeout(() => $("#result-car-add-div").html(""), 1500);
+                                            if ($("#add-car-price").val().match(numRegex)) {
+                                                $.ajax(
+                                                    {
+                                                        url: "action",
+                                                        type: "POST",
+                                                        data: {
+                                                            actiontype: "addcar",
+                                                            plate: $("#add-car-plate").val(),
+                                                            brand: $("#add-car-brand").val(),
+                                                            model: $("#add-car-model").val(),
+                                                            power: $("#add-car-power").val(),
+                                                            fuel: $("#add-car-fuel").val(),
+                                                            year: $("#add-car-year").val(),
+                                                            mileage: $("#add-car-mileage").val(),
+                                                            price: $("#add-car-price").val()
+                                                        },
+                                                        success: function(data) {
+                                                            $("#result-car-add-div").html(createOutcome(data,"success", "check-square"))
+                                                            setTimeout(() => $("#result-car-add-div").html(""), 1500);
+                                                            load("loadcars","#car-list-div");
+                                                        },
+                                                        error: function (xhr, ajaxOptions, thrownError) {
+                                                            $("#result-car-add-div").html(createOutcome(xhr.responseText,"unsuccess", "bomb"))
+                                                            setTimeout(() => $("#result-car-add-div").html(""), 1500);
+                                                        }
                                                     }
-                                                }
-                                            )
+                                                )
+                                            } else {
+                                                $("#result-car-add-div").html(createOutcome("Prezzo non valido","unsuccess", "bomb"))
+                                                setTimeout(() => $("#result-car-add-div").html(""), 1500);
+                                            }
                                         } else {
                                             $("#result-car-add-div").html(createOutcome("Chilometraggio non valido","unsuccess", "bomb"))
                                             setTimeout(() => $("#result-car-add-div").html(""), 1500);

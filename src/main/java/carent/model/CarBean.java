@@ -13,6 +13,8 @@ public class CarBean implements Serializable {
 	private int annoImmatricolazione;
 	private String alimentazione;
 	private int potenza;
+	private int prezzo_gg;
+
 	public String getTarga() {
 		return targa;
 	}
@@ -55,6 +57,8 @@ public class CarBean implements Serializable {
 	public void setPotenza(int potenza) {
 		this.potenza = potenza;
 	}
+	public int getPrezzo_gg() { return prezzo_gg;}
+	public void setPrezzo_gg(int prezzo_gg) {this.prezzo_gg= prezzo_gg; }
 	
 	public String toString () {
 		return targa +" "+marca+" "+modello+ "(Anno: "+annoImmatricolazione+", Potenza: "+potenza+" kW, Alimentazione: "+alimentazione+")";
