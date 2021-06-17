@@ -28,7 +28,9 @@ body {
 
 
 #left-section {
-    margin-top: 70px;
+    position: fixed;
+    left: 0;
+    margin-top: 100px;
     background: #262a2e !important;
     width: 20%;
     height: 100%;
@@ -59,6 +61,8 @@ body {
 }
 
 #slider {
+    position: fixed;
+    left: 0px;
     height: 100%;
     width: 20px;
     background: #212529;
@@ -141,6 +145,10 @@ body {
 
 }
 
+#total-label {
+    color: white;
+}
+
 #checkout-button {
     margin-top: 10px;
     margin-bottom: 30px;
@@ -155,4 +163,8 @@ body {
 
 #checkout-button:hover {
     background: #982200 !important;
+}
+
+.card {
+    margin-top: 15px;
 }

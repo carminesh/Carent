@@ -7,10 +7,14 @@ $(document).ready(
                 if(!$("#left-section").is(":visible")) {
                     $("#slider-icon").removeClass("fa-arrow-alt-circle-right");
                     $("#slider-icon").addClass("fa-arrow-alt-circle-left");
+                    $("#slider").css("left", "20%");
+                    $("#right-section").css("margin-left", "20%");
                     $("#left-section").fadeIn(0.4);
                 } else {
                     $("#slider-icon").removeClass("fa-arrow-alt-circle-left");
                     $("#slider-icon").addClass("fa-arrow-alt-circle-right");
+                    $("#slider").css("left", "0px");
+                    $("#right-section").css("margin-left", "0%");
                     $("#left-section").fadeOut(0.4);
                 }
             }
