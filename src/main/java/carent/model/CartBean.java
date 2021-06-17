@@ -1,36 +1,39 @@
 package carent.model;
 
-import java.io.Serializable;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedList;
 
-public class CartBean implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	
-	private Collection<CartItemBean> carrello;
-	
-	public CartBean () {
-		this.carrello = new LinkedList<CartItemBean>();
-	}
+public class CartBean {
+    private Collection<CartItemBean> cart;
 
-	public Collection<CartItemBean> getCarrello() {
-		return carrello;
-	}
+    public CartBean () {
+        cart = new LinkedList<CartItemBean>();
+    }
 
-	public void setCarrello(Collection<CartItemBean> carrello) {
-		this.carrello = carrello;
-	}
-	
-	public void inserisci (CartItemBean item) {
-		carrello.add(item);
-	}
-	
-	public String toString () {
-		String carrelloString = ""; 
-		for (CartItemBean item: carrello)
-			carrelloString+=item.toString()+"\n";
-		return carrelloString;
-	}
-	
+    public boolean isInCart (String plate) {
+        Iterator<?> it = cart.iterator();
+        CartItemBean bean;
+        while (it.hasNext()) {
+            bean= (CartItemBean) it.next();
+            if (bean.getAuto().getTarga().equals(plate))
+                return true;
+        }
+        return false;
+    }
+
+    public boolean isEmpty () {
+        int cont=0;
+        Iterator<?> it = cart.iterator();
+        while (it.hasNext()) {
+            it.next();
+            ++cont;
+            return false;
+        }
+        return cont==0;
+    }
+
+    public boolean add (CartItemBean item) {
+        return cart.add(item);
+    }
 }

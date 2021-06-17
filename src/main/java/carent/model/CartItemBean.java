@@ -1,54 +1,61 @@
 package carent.model;
 
-import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
-public class CartItemBean implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	
-	private int codiceItem;
-	private int userCode;
-	private String targa;
-	private String daData;
-	private String aData;
-	
-	public CartItemBean () {
-		
-	}
-	
-	public int getCodiceItem() {
-		return codiceItem;
-	}
-	public void setCodiceItem(int codiceItem) {
-		this.codiceItem = codiceItem;
-	}
-	public int getUserCode() {
-		return userCode;
-	}
-	public void setUserCode (int userCode) {
-		this.userCode = userCode;
-	}
-	public String getTarga() {
-		return targa;
-	}
-	public void setTarga(String targa) {
-		this.targa = targa;
-	}
-	public String getDaData() {
-		return daData;
-	}
-	public void setDaData(String daData) {
-		this.daData = daData;
-	}
-	public String getaData() {
-		return aData;
-	}
-	public void setaData(String aData) {
-		this.aData = aData;
-	}
-	
-	public String toString () {
-		return userCode + " - " + targa + "( "+daData + " fino a " + aData + ")";
-	}
-	
+public class CartItemBean {
+    private CarBean auto;
+    private String daData;
+    private String aData;
+    private String luogo;
+    private long prezzoTotale;
+
+    public CarBean getAuto() {
+        return auto;
+    }
+
+    public String getDaData() {
+        return daData;
+    }
+
+    public String getaData() {
+        return aData;
+    }
+
+    public String getLuogo() {
+        return luogo;
+    }
+
+    public long getPrezzoTotale() {
+        return prezzoTotale;
+    }
+
+    public void setAuto(CarBean auto) {
+        this.auto = auto;
+    }
+
+    public void setDaData(String daData) {
+        this.daData = daData;
+    }
+
+    public void setaData(String aData) {
+        this.aData = aData;
+    }
+
+    public void setLuogo(String luogo) {
+        this.luogo = luogo;
+    }
+
+    public void setPrezzoTotale(long prezzoTotale) {
+        this.prezzoTotale = prezzoTotale;
+    }
+
+    public long calcolaPeriodo () {
+        Date sqlStart = Date.valueOf(this.getDaData());
+        Date sqlFinish = Date.valueOf(this.getaData());
+        LocalDate localStart = sqlStart.toLocalDate();
+        LocalDate localFinish = sqlFinish.toLocalDate();
+        return ChronoUnit.DAYS.between(localStart,localFinish);
+    }
 }

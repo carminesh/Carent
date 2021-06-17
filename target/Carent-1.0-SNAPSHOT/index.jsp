@@ -128,12 +128,12 @@ if (pass==null) {
 		<form class="search-bar" method="POST" action="<%=application.getContextPath()+"/search"%>">
 			<div class="row justify-content-center" id="row2">
 				<div class="col-md-3">
-					<label>Località</label> <select class="form-select"
+					<label>Località</label> <select name="pick-up-place" class="form-select"
 						aria-label="Default select example">
-						<option selected>Località</option>
-						<option value="1">Caserta</option>
-						<option value="2">Milano</option>
-						<option value="3">Three</option>
+						<option value="Localita"selected>Località</option>
+						<option value="Caserta">Caserta</option>
+						<option value="Milano">Milano</option>
+						<option value="Three">Three</option>
 					</select>
 				</div>
 				<div class="col-md-3">
