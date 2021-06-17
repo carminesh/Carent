@@ -1,0 +1,23 @@
+Index: src/main/webapp/carListComponent.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page import=\"java.util.Collection\" %>\n<%@ page import=\"java.util.Iterator\" %>\n<%@ page import=\"carent.model.CarBean\" %>\n<%@ page import=\"carent.utils.Utility\" %><%\n    Utility.print(\"Sono entrato nella component\");\n    Collection<?> list = (Collection<?>) request.getAttribute(\"carList\");\n    Utility.print(\"lista caricata\");\n    Iterator<?> it = list.iterator();\n    Utility.print(\"iteratore creato\");\n    CarBean bean;\n%>\n<table class=\"table table-bordered table-dark\">\n    <thead>\n        <tr>\n            <th> Targa </th>\n            <th> Marca </th>\n            <th> Modello </th>\n            <th> Alimentazione </th>\n            <th> Chilometraggio </th>\n            <th> Potenza </th>\n            <th> Anno Immatricolazione </th>\n        </tr>\n    </thead>\n    <%\n        while (it.hasNext()) {\n            bean = (CarBean) it.next();\n    %>\n    <tr>\n        <td> <%=bean.getTarga()%> </td>\n        <td> <%=bean.getMarca()%> </td>\n        <td> <%=bean.getModello()%> </td>\n        <td> <%=bean.getAlimentazione()%> </td>\n        <td> <%=bean.getChilometraggio()%> </td>\n        <td> <%=bean.getPotenza()%> </td>\n        <td> <%=bean.getAnnoImmatricolazione()%> </td>\n    </tr>\n    <%\n        }\n    %>\n</table>\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/carListComponent.jsp b/src/main/webapp/carListComponent.jsp
+--- a/src/main/webapp/carListComponent.jsp	
++++ b/src/main/webapp/carListComponent.jsp	
+@@ -15,10 +15,10 @@
+             <th> Targa </th>
+             <th> Marca </th>
+             <th> Modello </th>
+-            <th> Alimentazione </th>
++            <th> Alimentaz. </th>
+             <th> Chilometraggio </th>
+             <th> Potenza </th>
+-            <th> Anno Immatricolazione </th>
++            <th> Anno</th>
+         </tr>
+     </thead>
+     <%

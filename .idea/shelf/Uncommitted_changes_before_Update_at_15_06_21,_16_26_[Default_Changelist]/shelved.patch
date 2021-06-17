@@ -1,0 +1,582 @@
+Index: src/main/webapp/carListComponent.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page import=\"java.util.Collection\" %>\n<%@ page import=\"java.util.Iterator\" %>\n<%@ page import=\"carent.model.CarBean\" %>\n<%@ page import=\"carent.utils.Utility\" %><%\n    Utility.print(\"Sono entrato nella component\");\n    Collection<?> list = (Collection<?>) request.getAttribute(\"carList\");\n    Utility.print(\"lista caricata\");\n    Iterator<?> it = list.iterator();\n    Utility.print(\"iteratore creato\");\n    CarBean bean;\n%>\n<table>\n    <thead>\n        <tr>\n            <th> Targa </th>\n            <th> Marca </th>\n            <th> Modello </th>\n            <th> Alimentazione </th>\n            <th> Chilometraggio </th>\n            <th> Potenza </th>\n            <th> Anno Immatricolazione </th>\n        </tr>\n    </thead>\n    <%\n        while (it.hasNext()) {\n            bean = (CarBean) it.next();\n    %>\n    <tr>\n        <td> <%=bean.getTarga()%> </td>\n        <td> <%=bean.getMarca()%> </td>\n        <td> <%=bean.getModello()%> </td>\n        <td> <%=bean.getAlimentazione()%> </td>\n        <td> <%=bean.getChilometraggio()%> </td>\n        <td> <%=bean.getPotenza()%> </td>\n        <td> <%=bean.getAnnoImmatricolazione()%> </td>\n    </tr>\n    <%\n        }\n    %>\n</table>\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/carListComponent.jsp b/src/main/webapp/carListComponent.jsp
+--- a/src/main/webapp/carListComponent.jsp	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/src/main/webapp/carListComponent.jsp	(date 1623766641940)
+@@ -9,16 +9,16 @@
+     Utility.print("iteratore creato");
+     CarBean bean;
+ %>
+-<table>
++<table class="table table-bordered table-dark">
+     <thead>
+         <tr>
+             <th> Targa </th>
+             <th> Marca </th>
+             <th> Modello </th>
+-            <th> Alimentazione </th>
++            <th> Alimentaz. </th>
+             <th> Chilometraggio </th>
+             <th> Potenza </th>
+-            <th> Anno Immatricolazione </th>
++            <th> Anno</th>
+         </tr>
+     </thead>
+     <%
+Index: src/main/webapp/rentListComponent.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page import=\"java.util.Collection\" %>\n<%@ page import=\"java.util.Iterator\" %>\n<%@ page import=\"carent.model.RentBean\" %>\n<%@ page import=\"carent.utils.Utility\" %><%\n    Utility.print(\"Sono entrato nella component\");\n    Collection<?> list = (Collection<?>) request.getAttribute(\"rentList\");\n    Utility.print(\"lista caricata\");\n    Iterator<?> it = list.iterator();\n    Utility.print(\"iteratore creato\");\n    RentBean bean;\n%>\n<table>\n    <thead>\n        <tr>\n            <th> Codice Noleggio </th>\n            <th> Codice Utente </th>\n            <th> Targa </th>\n            <th> Data inizio </th>\n            <th> Data fine </th>\n            <th> Prezzo </th>\n        </tr>\n    </thead>\n    <%\n        while (it.hasNext()) {\n            bean = (RentBean) it.next();\n    %>\n    <tr>\n        <td> <%=bean.getRentCode()%></td>\n        <td> <%=bean.getUserCode()%> </td>\n        <td> <%=bean.getTarga()%> </td>\n        <td> <%=bean.getDaData()%> </td>\n        <td> <%=bean.getaData()%> </td>\n        <td> <%=bean.getPrezzo()%> </td>\n    </tr>\n    <%\n        }\n    %>\n</table>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/rentListComponent.jsp b/src/main/webapp/rentListComponent.jsp
+--- a/src/main/webapp/rentListComponent.jsp	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/src/main/webapp/rentListComponent.jsp	(date 1623766651420)
+@@ -9,7 +9,7 @@
+     Utility.print("iteratore creato");
+     RentBean bean;
+ %>
+-<table>
++<table class="table table-bordered table-dark">
+     <thead>
+         <tr>
+             <th> Codice Noleggio </th>
+Index: src/main/webapp/scripts/adminButtonToggle.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>$(document).ready (\n    () => {\n        $(\"#form-container-delete-car\").toggle();\n        $(\"#form-container-delete-user\").toggle();\n        $(\"#form-container-add-car\").toggle();\n        $(\"#form-container-add-car-image\").toggle();\n\n        $(\"#delete-car\").click (\n            () => {\n                if(!$(\"#form-container-delete-car\").is(\":visible\"))\n                    $(\"#form-container-delete-car\").fadeIn();\n                else\n                    $(\"#form-container-delete-car\").fadeOut(0.4);\n            }\n        );\n\n        $(\"#delete-user\").click (\n            () => {\n                if(!$(\"#form-container-delete-user\").is(\":visible\"))\n                    $(\"#form-container-delete-user\").fadeIn();\n                else\n                    $(\"#form-container-delete-user\").fadeOut(0.4);\n            }\n        );\n\n        $(\"#add-car\").click (\n            () => {\n                if(!$(\"#form-container-add-car\").is(\":visible\"))\n                    $(\"#form-container-add-car\").fadeIn();\n                else\n                    $(\"#form-container-add-car\").fadeOut(0.4);\n            }\n        );\n\n        $(\"#add-car-image\").click (\n            () => {\n                if(!$(\"#form-container-add-car-image\").is(\":visible\"))\n                    $(\"#form-container-add-car-image\").fadeIn();\n                else\n                    $(\"#form-container-add-car-image\").fadeOut(0.4);\n            }\n        );\n    }\n)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/scripts/adminButtonToggle.js b/src/main/webapp/scripts/adminButtonToggle.js
+--- a/src/main/webapp/scripts/adminButtonToggle.js	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/src/main/webapp/scripts/adminButtonToggle.js	(date 1623766549919)
+@@ -4,6 +4,9 @@
+         $("#form-container-delete-user").toggle();
+         $("#form-container-add-car").toggle();
+         $("#form-container-add-car-image").toggle();
++        $("#table-container1").toggle();
++        $("#table-container2").toggle();
++        $("#table-container3").toggle();
+ 
+         $("#delete-car").click (
+             () => {
+@@ -40,5 +43,38 @@
+                     $("#form-container-add-car-image").fadeOut(0.4);
+             }
+         );
++
++        $("#user-list-button").click (
++            () => {
++                if (!$("#table-container1").is(":visible")) {
++                    $("#table-container2").fadeOut(0.4);
++                    $("#table-container3").fadeOut(0.4);
++                    $("#table-container1").fadeIn();
++                } else
++                    $("#table-container1").fadeOut(0.4);
++            }
++        );
++
++        $("#car-list-button").click (
++            () => {
++                if (!$("#table-container2").is(":visible")) {
++                    $("#table-container1").fadeOut(0.4);
++                    $("#table-container3").fadeOut(0.4);
++                    $("#table-container2").fadeIn();
++                 } else
++                    $("#table-container2").fadeOut(0.4);
++            }
++        );
++
++        $("#rent-list-button").click (
++            () => {
++                if (!$("#table-container3").is(":visible")) {
++                    $("#table-container1").fadeOut(0.4);
++                    $("#table-container2").fadeOut(0.4);
++                    $("#table-container3").fadeIn();
++                } else
++                    $("#table-container3").fadeOut(0.4);
++            }
++        );
+     }
+ )
+\ No newline at end of file
+Index: src/main/webapp/userListComponent.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page import=\"java.util.Collection\" %>\n<%@ page import=\"java.util.Iterator\" %>\n<%@ page import=\"carent.model.UserBean\" %>\n<%@ page import=\"carent.utils.Utility\" %><%\n    Utility.print(\"Sono entrato nella component\");\n    Collection<?> list = (Collection<?>) request.getAttribute(\"userList\");\n    Utility.print(\"lista caricata\");\n    Iterator<?> it = list.iterator();\n    Utility.print(\"iteratore creato\");\n    UserBean bean;\n%>\n<table>\n    <thead>\n        <tr>\n            <th> Codice Utente </th>\n            <th> Email </th>\n            <th> Ruolo </th>\n            <th> Nome </th>\n            <th> Cognome </th>\n            <th> Telefono </th>\n        </tr>\n    </thead>\n\n    <%\n    while (it.hasNext()) {\n        bean = (UserBean) it.next();\n    %>\n            <tr>\n                <td> <%=bean.getUserCode()%> </td>\n                <td> <%=bean.getEmail()%> </td>\n                <td> <%=bean.getRole()%> </td>\n                <td> <%=bean.getName()%> </td>\n                <td> <%=bean.getSurname()%> </td>\n                <td> <%=bean.getPhone()%> </td>\n            </tr>\n    <%\n    }\n    %>\n        </table>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/userListComponent.jsp b/src/main/webapp/userListComponent.jsp
+--- a/src/main/webapp/userListComponent.jsp	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/src/main/webapp/userListComponent.jsp	(date 1623766656827)
+@@ -9,7 +9,7 @@
+     Utility.print("iteratore creato");
+     UserBean bean;
+ %>
+-<table>
++<table class="table table-bordered table-dark">
+     <thead>
+         <tr>
+             <th> Codice Utente </th>
+Index: src/main/webapp/css/adminStyle.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@charset \"UTF-8\";\n\nbody {\n    background-color: #262a2e !important;\n}\n\n#welcome-container {\n\tdisplay: flex;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\tbackground: #212529;\n}\n\n#logout-button {\n\tmargin-top: 65px;\n\tmargin-left: 50px;\n\twidth: 60px;\n\theight: 60px;\n\tbackground: #58756D !important;\n\tborder-color: #58756D !important;\n\tborder-radius: 10px;\n}\n\n#logout-button:hover {\n\tbackground: #00bf85 !important;\n}\n\n#logout-logo {\n\tfont-size: 40px;\n\tcolor: white;\n}\n\n#upper-container {\n\twidth: 102%;\n\tmargin-left: 20px;\n\tmargin-top: 20px;\n}\n\n#column1, #column2, #column3, #column4 {\n\tmargin-top: 20px;\n}\n\n#logo {\n\tmargin-left: 30px;\n\twidth: 180px;\n\theight: 180px;\n}\n\n#title-role {\n\tmargin-left: 35px;\n\tmargin-top: 73px;\n\tcolor: white;\n}\n\nbutton {\n\tfont-size: 30px !important;\n\twidth: 380px;\n\theight: 180px;\n}\n\n#button-container {\n\tmargin-top: 100px;\n\tmargin-left: 100px;\n}\n\n#add-car-button, #delete-user-button, #delete-car-button {\n\tfont-size: 16px !important;\n\tmargin-top: 20px;\n\tbackground:#7A6A4D !important;\n\tborder-color: #C7B491 !important;\n\twidth: 100px;\n\theight: 50px;\n}\n\n#delete-user-button, #delete-car-button {\n\tbackground: #982200 !important;\n\tborder-color: #BF2900  !important;\n}\n\n#delete-user-button:hover, #delete-car-button:hover {\n\tbackground:#BF2900 !important;\n}\n\n#delete-user-button:focus, #delete-car-button:focus, #add-car-button:focus, #delete-user-button:active, #delete-car-button:active, #add-car-button:active {\n\tbox-shadow: none;\n}\n\n#add-car-button:hover {\n\tbackground:#C7B491 !important;\n\n}\n\ninput {\n\theight: 40px;\n\twidth: 380px;\n\tborder-radius: 5px;\n\tborder-style: none;\n\tmargin-top: 10px !important;\n}\n\n#form-container-delete-car, #form-container-add-car, #form-container-delete-user {\n\tmargin-top: 20px;\n}\n\n#add-photo-button {\n\twidth: 100px;\n\theight: 50px;\n\tmargin-top: 20px !important;\n\tbackground:#7A6A4D !important;\n\tborder-color: #C7B491 !important;\n\tborder-style: solid;\n\tborder-width: 1px;\n\tborder-radius: 5px;\n\tcolor: white;\n}\n\n#add-photo-button:hover {\n\tbackground:#C7B491 !important;\n}\n\n#img-form {\n\tmargin-top: 30px !important;\n\tcolor: white;\n}\n\n#alert-success {\n\tdisplay: flex;\n\tmargin-top: 10px;\n\tjustify-content: center;\n\talign-items: center;\n\tcolor: white;\n\tbackground: #00bf85;\n\topacity: 0.8;\n\tborder-radius: 5px;\n\twidth: 280px !important;\n\theight: 50px !important;\n}\n\n#alert-unsuccess {\n\tdisplay: flex;\n\tmargin-top: 10px;\n\tjustify-content: center;\n\talign-items: center;\n\tcolor: white;\n\tbackground: #BF2900;\n\topacity: 0.8;\n\tborder-radius: 5px;\n\twidth: 280px !important;\n\theight: 50px !important;\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/css/adminStyle.css b/src/main/webapp/css/adminStyle.css
+--- a/src/main/webapp/css/adminStyle.css	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/src/main/webapp/css/adminStyle.css	(date 1623766880123)
+@@ -2,6 +2,10 @@
+ 
+ body {
+     background-color: #262a2e !important;
++	display: flex;
++	align-items: center;
++	flex-direction: column;
++	justify-content: center;
+ }
+ 
+ #welcome-container {
+@@ -30,16 +34,24 @@
+ 	color: white;
+ }
+ 
+-#upper-container {
+-	width: 102%;
++#upper-container, #info-container {
++	width: 100%;
+ 	margin-left: 20px;
+ 	margin-top: 20px;
+ }
+ 
++
++
+ #column1, #column2, #column3, #column4 {
+ 	margin-top: 20px;
+ }
+ 
++#row2 {
++	margin-top: 50px;
++	margin-left: 10px;
++}
++
++
+ #logo {
+ 	margin-left: 30px;
+ 	width: 180px;
+@@ -58,10 +70,6 @@
+ 	height: 180px;
+ }
+ 
+-#button-container {
+-	margin-top: 100px;
+-	margin-left: 100px;
+-}
+ 
+ #add-car-button, #delete-user-button, #delete-car-button {
+ 	font-size: 16px !important;
+@@ -147,4 +155,16 @@
+ 	border-radius: 5px;
+ 	width: 280px !important;
+ 	height: 50px !important;
++}
++
++#table-view {
++	background: white !important;
++}
++
++#table-container1, #table-container2, #table-container3{
++	margin-top: 40px;
++	width: 96%;
++	height: 400px;
++	background: white;
++	border-radius: 5px;
+ }
+\ No newline at end of file
+Index: src/main/webapp/scripts/adminScripts.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>$(document).ready (\n    () => {\n        $(\"#delete-car-button\").click (\n            () => {\n                var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/\n                if ($(\"#deleted-car\").val().match(targaRegex)) {\n\n                    $.ajax (\n                        {\n                            url: \"adminaction\",\n                            type: \"POST\",\n                            data: {\n                                actiontype: \"removecar\",\n                                plate: $(\"#deleted-car\").val()\n                            },\n                            success: function (data) {\n                                $(\"#result-car-removal-div\").html(createOutcome(data, \"success\", \"check-square\"));\n                                setTimeout(() => $(\"#result-car-removal-div\").html(\"\"), 1500);\n                                load(\"loadcars\",\"#car-list-div\");\n                            },\n                            error: function (xhr, ajaxOptions, thrownError) {\n                                $(\"#result-car-removal-div\").html(createOutcome(xhr.responseText, \"unsuccess\", \"bomb\"));\n                                setTimeout(() => $(\"#result-car-removal-div\").html(\"\"), 1500);\n                            }\n                        }\n                    )\n                } else {\n                    $(\"#result-car-removal-div\").html(createOutcome(\"Operazione non riuscita\", \"unsuccess\", \"bomb\"));\n                    setTimeout(() => $(\"#result-car-removal-div\").html(\"\"), 1500);\n                }\n            }\n        );\n\n        $(\"#delete-user-button\").click (\n            () => {\n                var emailregex = /^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/\n                if ($(\"#deleted-user\").val().match(emailregex)) {\n\n\n                    $.ajax (\n                        {\n                            url: \"adminaction\",\n                            type: \"POST\",\n                            data : {\n                                actiontype: \"removeuser\",\n                                email: $(\"#deleted-user\").val()\n                            },\n                            success: function (data) {\n                                $(\"#result-user-div\").html(createOutcome(data, \"success\", \"check-square\"))\n                                setTimeout(() => $(\"#result-user-div\").html(\"\"), 1500);\n                                load(\"loadusers\",\"#user-list-div\");\n                            },\n                            error: function (xhr, ajaxOptions, thrownError) {\n                                $(\"#result-user-div\").html(createOutcome(xhr.responseText, \"unsuccess\", \"bomb\"))\n                                setTimeout(() => $(\"#result-user-div\").html(\"\"), 1500);\n                            }\n                        }\n                    )\n\n                } else {\n                    $(\"#result-user-div\").html(createOutcome(\"Operazione non riuscita\", \"unsuccess\", \"bomb\"))\n                    setTimeout(() => $(\"#result-user-div\").html(\"\"), 1500);\n                }\n            }\n        );\n\n        $(\"#add-car-button\").click (\n            () => {\n                var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/\n                var textAndNumbersRegex = /^[a-zA-Z0-9 ]+$/\n                var textRegex = /^[a-zA-Z]+$/\n                var numRegex = /^[0-9]+$/\n                var yearRegex = /^[0-9]{4}$/\n                if ($(\"#add-car-plate\").val().match(targaRegex)) {\n                    if ($(\"#add-car-brand\").val().match(textRegex)) {\n                        if ($(\"#add-car-model\").val().match(textAndNumbersRegex)) {\n                            if ($(\"#add-car-power\").val().match(numRegex)) {\n                                if ($(\"#add-car-fuel\").val().match(textRegex)) {\n                                    if($(\"#add-car-year\").val().match(yearRegex)) {\n                                        if ($(\"#add-car-mileage\").val().match(numRegex)) {\n                                            $.ajax(\n                                                {\n                                                    url: \"adminaction\",\n                                                    type: \"POST\",\n                                                    data: {\n                                                        actiontype: \"addcar\",\n                                                        plate: $(\"#add-car-plate\").val(),\n                                                        brand: $(\"#add-car-plate\").val(),\n                                                        model: $(\"#add-car-model\").val(),\n                                                        power: $(\"#add-car-power\").val(),\n                                                        fuel: $(\"#add-car-fuel\").val(),\n                                                        year: $(\"#add-car-year\").val(),\n                                                        mileage: $(\"#add-car-mileage\").val()\n                                                    },\n                                                    success: function(data) {\n                                                        $(\"#result-car-add-div\").html(createOutcome(data,\"success\", \"check-square\"))\n                                                        setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                                        load(\"loadcars\",\"#car-list-div\");\n                                                    },\n                                                    error: function (xhr, ajaxOptions, thrownError) {\n                                                        $(\"#result-car-add-div\").html(createOutcome(xhr.responseText,\"unsuccess\", \"bomb\"))\n                                                        setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                                    }\n                                                }\n                                            )\n                                        } else {\n                                            $(\"#result-car-add-div\").html(createOutcome(\"Chilometraggio non valido\",\"unsuccess\", \"bomb\"))\n                                            setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                        }\n                                    } else {\n                                        $(\"#result-car-add-div\").html(createOutcome(\"Anno non valido\",\"unsuccess\", \"bomb\"))\n                                        setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                    }\n                                } else {\n                                    $(\"#result-car-add-div\").html(createOutcome(\"Alimentazione non valida\",\"unsuccess\", \"bomb\"))\n                                    setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                }\n                            } else {\n                                $(\"#result-car-add-div\").html(createOutcome(\"Potenza non valida\",\"unsuccess\", \"bomb\"))\n                                setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                            }\n                        } else {\n                            $(\"#result-car-add-div\").html(createOutcome(\"Modello non valido\",\"unsuccess\", \"bomb\"))\n                            setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                        }\n                    } else {\n                        $(\"#result-car-add-div\").html(createOutcome(\"Marca non valida\",\"unsuccess\", \"bomb\"))\n                        setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                    }\n                } else {\n                    $(\"#result-car-add-div\").html(createOutcome(\"Targa non valida\",\"unsuccess\", \"bomb\"))\n                    setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                }\n            }\n        )\n\n        load(\"loadusers\",\"#user-list-div\");\n        load(\"loadcars\",\"#car-list-div\");\n        load(\"loadrents\",\"#rent-list-div\");\n    }\n);\n\nfunction createOutcome(data, type, icon) {\n    return \"<div id=\\\"alert-\"+type+\"\\\">\\n\" +\n        \"    <div>\\n\" +\n        \"        <i class=\\\"fas fa-\"+icon+\"\\\"></i>\\n\" +\n        \"        <label id=\\\"result-label\\\">\"+data+\"</label>\\n\" +\n        \"    </div>\\n\" +\n        \"</div>\";\n}\n\nfunction targaValida() {\n    var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/\n    if ($(\"#add-plate\").val().match(targaRegex)) {\n        $(\"#result-add-car-image-div\").load(\"successfulOperationComponent.jsp\");\n        setTimeout(() => $(\"#result-add-car-image-div\").html(\"\"), 1500);\n        return true;\n    } else {\n        $(\"#result-add-car-image-div\").load(\"unsuccessfulOperationComponent.jsp\");\n        setTimeout(() => $(\"#result-add-car-image-div\").html(\"\"), 1500);\n        return false;\n    }\n}\n\nfunction load (loaditem,destinationDiv) {\n    $.ajax  (\n        {\n            url: \"adminaction\",\n            type: \"POST\",\n            data: {\n                actiontype: loaditem\n            },\n            success: function(data) {\n                alert(\"Servlet terminata con successo\");\n                $(destinationDiv).html(data);\n            },\n            error: function () {\n                alert(\"Errore nella servlet di caricamento...\");\n            }\n        }\n    )\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/scripts/adminScripts.js b/src/main/webapp/scripts/adminScripts.js
+--- a/src/main/webapp/scripts/adminScripts.js	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/src/main/webapp/scripts/adminScripts.js	(date 1623766262531)
+@@ -134,9 +134,9 @@
+             }
+         )
+ 
+-        load("loadusers","#user-list-div");
+-        load("loadcars","#car-list-div");
+-        load("loadrents","#rent-list-div");
++        load("loadusers","#table-container1");
++        load("loadcars","#table-container2");
++        load("loadrents","#table-container3");
+     }
+ );
+ 
+@@ -171,11 +171,11 @@
+                 actiontype: loaditem
+             },
+             success: function(data) {
+-                alert("Servlet terminata con successo");
++
+                 $(destinationDiv).html(data);
+             },
+             error: function () {
+-                alert("Errore nella servlet di caricamento...");
++
+             }
+         }
+     )
+Index: src/main/webapp/adminPage.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page language=\"java\" contentType=\"text/html; charset=ISO-8859-1\"\n         pageEncoding=\"ISO-8859-1\" import=\"java.util.*,carent.model.*\" %>\n<!DOCTYPE html>\n\n<%\n    UserBean user = (UserBean) session.getAttribute(\"admin\");\n    if (user == null) {\n        response.sendRedirect(response.encodeRedirectURL(\"/CRStorage/loginPage.jsp\"));\n    }\n%>\n\n\n<html lang=\"it\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Carent - Admin Panel</title>\n    <link href=\"css/adminStyle.css\" rel=\"stylesheet\"/>\n\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css\"\n          rel=\"stylesheet\" integrity=\"sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl\"\n          crossorigin=\"anonymous\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\"\n          integrity=\"sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==\"\n          crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"/>\n\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n    <script src=\"scripts/adminScripts.js\"></script>\n    <script src=\"scripts/adminButtonToggle.js\"></script>\n    <script src=\"scripts/carLoader.js\"></script>\n\n</head>\n\n<body>\n\n    <div class=\"container-fluid\" id=\"welcome-container\">\n        <img src=\"immagini/logo-carent.svg\" alt=\"logo\" id=\"logo\">\n        <h2 id=\"title-role\">Admin ${admin.getName()} - Pannello di Controllo</h2>\n        <form action=\"logout\" method=\"GET\">\n            <button type=\"submit\" id=\"logout-button\" class=\"btn btn-success\"><i class=\"fas fa-sign-out-alt\"></i></button>\n        </form>\n    </div>\n\n\n    <div class=\"container-fluid\" id=\"upper-container\">\n        <div class=\"row  align-items-start-center\" id=\"row1\">\n\n            <div class=\"col-lg-3 col-md-6 col-sm-12\" id=\"column1\">\n                <button type=\"button\" class=\"btn btn-success\" id=\"delete-car\">\n                Elimina Veicolo <i class=\"fas fa-trash-alt\"></i>\n                </button>\n\n                <div id=\"form-container-delete-car\">\n                    <div class=\"form\">\n                        <input type=\"text\" id=\"deleted-car\" placeholder=\"Targa del veicolo da rimuovere\">\n                        <br>\n                        <button type=\"button\" class=\"btn btn-success\" id=\"delete-car-button\">Rimuovi</button>\n                    </div>\n\n                    <div id=\"result-car-removal-div\"></div>\n\n                </div>\n\n            </div>\n\n\n\n            <div class=\"col-lg-3 col-md-6 col-sm-12\" id=\"column2\">\n                <button type=\"button\" class=\"btn btn-success\" id=\"delete-user\">\n                    Elimina Utente <i class=\"fas fa-user-slash\"></i>\n                </button>\n\n                <div id=\"form-container-delete-user\">\n                    <div class=\"form\">\n                        <input type=\"email\" id=\"deleted-user\" placeholder=\"Email dell'utente da rimuovere\">\n                        <br>\n                        <button type=\"button\" class=\"btn btn-success\" id=\"delete-user-button\">Rimuovi</button>\n\n                        <div id=\"result-user-div\"></div>\n\n                    </div>\n                </div>\n\n            </div>\n\n\n            <div class=\"col-lg-3 col-md-6 col-sm-12\" id=\"column3\">\n                <button type=\"button\" class=\"btn btn-success\" id=\"add-car\">\n                    Aggiungi Veicolo <i class=\"fas fa-plus\"></i>\n                </button>\n\n\n\n                <div id=\"form-container-add-car\">\n                    <div class=\"form\">\n                        <input type=\"text\" id=\"add-car-plate\" placeholder=\"Targa veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-brand\" placeholder=\"Marca veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-model\" placeholder=\"Modello veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-power\" placeholder=\"Potenza veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-fuel\" placeholder=\"Alimentazione veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-year\" placeholder=\"Anno immatricolazione veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-mileage\" placeholder=\"Chilometraggio veicolo\">\n                        <br>\n\n                        <button type=\"button\" class=\"btn btn-success\" id=\"add-car-button\">Aggiungi</button>\n                    </div>\n\n                    <div id=\"result-car-add-div\"></div>\n\n                </div>\n\n            </div>\n\n\n            <div class=\"col-lg-3 col-md-6 col-sm-12\" id=\"column4\">\n                <button type=\"button\" class=\"btn btn-success\" id=\"add-car-image\">\n                    Aggiungi foto veicolo <i class=\"fas fa-file-image\"></i>\n                </button>\n\n                <div id=\"form-container-add-car-image\">\n                    <div class=\"form\">\n                        <form enctype=\"multipart/form-data\" action=\"imgupload\" method=\"POST\" onsubmit=\"return targaValida()\">\n                            <input type=\"file\" id=\"img-form\" name=\"car-image\" accept=\".svg\" required>\n                            <br>\n                            <input type=\"text\" id=\"add-plate\" name=\"targaPerFoto\" placeholder=\"Targa veicolo\" required>\n                            <br>\n                            <input type=\"submit\" id=\"add-photo-button\" value=\"Aggiungi\">\n                        </form>\n\n                        <div id=\"result-add-car-image-div\"></div>\n\n                    </div>\n                </div>\n\n            </div>\n\n            <div id=\"user-list-div\"></div>\n            <div id=\"car-list-div\"></div>\n            <div id=\"rent-list-div\"></div>\n\n        </div>\n    </div>\n\n</body>\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/webapp/adminPage.jsp b/src/main/webapp/adminPage.jsp
+--- a/src/main/webapp/adminPage.jsp	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/src/main/webapp/adminPage.jsp	(date 1623766216746)
+@@ -140,13 +140,51 @@
+                 </div>
+ 
+             </div>
++        </div>
++    </div>
++
++    <div class="container-fluid" id="info-section">
++
++        <div class="row  align-items-start-center" id="row2">
++            <div class="col-lg-3 col-md-6 col-sm-12" id="column5">
++                <button type="button" class="btn btn-success" id="user-list-button">
++                    Mostra Utenti <i class="fas fa-user-friends"></i>
++                </button>
++
++
++            </div>
++
++            <div class="col-lg-3 col-md-6 col-sm-12" id="column6">
++                <button type="button" class="btn btn-success" id="car-list-button">
++                    Lista Veicoli <i class="fas fa-user-friends"></i>
++                </button>
++
++
++            </div>
+ 
+-            <div id="user-list-div"></div>
+-            <div id="car-list-div"></div>
+-            <div id="rent-list-div"></div>
++            <div class="col-lg-3 col-md-6 col-sm-12" id="column7">
++                <button type="button" class="btn btn-success" id="rent-list-button">
++                    Mostra Noleggi <i class="fas fa-user-friends"></i>
++                </button>
++
+ 
+-        </div>
+-    </div>
++            </div>
++
++            <div class="col-lg-3 col-md-6 col-sm-12" id="column8">
++                <button type="button" class="btn btn-success" id="rent-delete-button">
++                    Cancella Noleggio <i class="fas fa-user-friends"></i>
++                </button>
++
++            </div>
+ 
++
++        </div>
++
++    </div>
++
++    <div id="table-container1"></div>
++    <div id="table-container2"></div>
++    <div id="table-container3"></div>
++
+ </body>
+ </html>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ArtifactsWorkspaceSettings\">\n    <artifacts-to-build>\n      <artifact name=\"Carent:war exploded\" />\n    </artifacts-to-build>\n  </component>\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"c740bcf0-b463-4742-aab0-bc7d11feecfc\" name=\"Default Changelist\" comment=\"Admin page UI update\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"JavaScript File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"LogFilters\">\n    <option name=\"FILTER_ERRORS\" value=\"false\" />\n    <option name=\"FILTER_WARNINGS\" value=\"false\" />\n    <option name=\"FILTER_INFO\" value=\"true\" />\n    <option name=\"FILTER_DEBUG\" value=\"true\" />\n    <option name=\"CUSTOM_FILTER\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1trC886iS6gUr4d98ZKd8cm8cP6\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/main/webapp/scripts\" />\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\n    <property name=\"project.structure.proportion\" value=\"0.0\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.0\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/webapp/scripts\" />\n      <recent name=\"$PROJECT_DIR$/src/main/webapp/css\" />\n      <recent name=\"$PROJECT_DIR$/src/main/webapp\" />\n      <recent name=\"$PROJECT_DIR$/src/main/webapp/WEB-INF\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/carent/controller\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/webapp\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"Tomcat 9.0.43\" type=\"#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory\" factoryName=\"Local\" APPLICATION_SERVER_NAME=\"Tomcat 9.0.43\" ALTERNATIVE_JRE_ENABLED=\"false\">\n      <option name=\"BROWSER_ID\" value=\"98ca6316-2f89-46d9-a9e5-fa9e2b0625b3\" />\n      <option name=\"UPDATE_ON_FRAME_DEACTIVATION\" value=\"true\" />\n      <option name=\"UPDATE_CLASSES_ON_FRAME_DEACTIVATION\" value=\"true\" />\n      <option name=\"UPDATING_POLICY\" value=\"restart-server\" />\n      <deployment>\n        <artifact name=\"Carent:war exploded\">\n          <settings>\n            <option name=\"CONTEXT_PATH\" value=\"/Carent_war_exploded\" />\n          </settings>\n        </artifact>\n      </deployment>\n      <server-settings>\n        <option name=\"BASE_DIRECTORY_NAME\" value=\"f1329188-0f95-4cc0-88f1-cced37109d6d\" />\n      </server-settings>\n      <predefined_log_file enabled=\"true\" id=\"Tomcat\" />\n      <predefined_log_file enabled=\"true\" id=\"Tomcat Catalina\" />\n      <predefined_log_file id=\"Tomcat Manager\" />\n      <predefined_log_file id=\"Tomcat Host Manager\" />\n      <predefined_log_file id=\"Tomcat Localhost Access\" />\n      <RunnerSettings RunnerId=\"Debug\">\n        <option name=\"DEBUG_PORT\" value=\"50498\" />\n      </RunnerSettings>\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Cover\">\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\n        <STARTUP>\n          <option name=\"USE_DEFAULT\" value=\"true\" />\n          <option name=\"SCRIPT\" value=\"\" />\n          <option name=\"VM_PARAMETERS\" value=\"\" />\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\n        </STARTUP>\n        <SHUTDOWN>\n          <option name=\"USE_DEFAULT\" value=\"true\" />\n          <option name=\"SCRIPT\" value=\"\" />\n          <option name=\"VM_PARAMETERS\" value=\"\" />\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\n        </SHUTDOWN>\n      </ConfigurationWrapper>\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Debug\">\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\n        <STARTUP>\n          <option name=\"USE_DEFAULT\" value=\"true\" />\n          <option name=\"SCRIPT\" value=\"\" />\n          <option name=\"VM_PARAMETERS\" value=\"\" />\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\n        </STARTUP>\n        <SHUTDOWN>\n          <option name=\"USE_DEFAULT\" value=\"true\" />\n          <option name=\"SCRIPT\" value=\"\" />\n          <option name=\"VM_PARAMETERS\" value=\"\" />\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\n        </SHUTDOWN>\n      </ConfigurationWrapper>\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Profile\">\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\n        <STARTUP>\n          <option name=\"USE_DEFAULT\" value=\"true\" />\n          <option name=\"SCRIPT\" value=\"\" />\n          <option name=\"VM_PARAMETERS\" value=\"\" />\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\n        </STARTUP>\n        <SHUTDOWN>\n          <option name=\"USE_DEFAULT\" value=\"true\" />\n          <option name=\"SCRIPT\" value=\"\" />\n          <option name=\"VM_PARAMETERS\" value=\"\" />\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\n        </SHUTDOWN>\n      </ConfigurationWrapper>\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Run\">\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\n        <STARTUP>\n          <option name=\"USE_DEFAULT\" value=\"true\" />\n          <option name=\"SCRIPT\" value=\"\" />\n          <option name=\"VM_PARAMETERS\" value=\"\" />\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\n        </STARTUP>\n        <SHUTDOWN>\n          <option name=\"USE_DEFAULT\" value=\"true\" />\n          <option name=\"SCRIPT\" value=\"\" />\n          <option name=\"VM_PARAMETERS\" value=\"\" />\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\n        </SHUTDOWN>\n      </ConfigurationWrapper>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n        <option name=\"BuildArtifacts\" enabled=\"true\">\n          <artifact name=\"Carent:war exploded\" />\n        </option>\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"com.poratu.idea.plugins.tomcat\" factoryName=\"SMART_TOMCAT_FACTORY\">\n      <option name=\"adminPort\" value=\"8005\" />\n      <option name=\"contextPath\" value=\"/Carent\" />\n      <option name=\"docBase\" value=\"$PROJECT_DIR$/src/main/webapp\" />\n      <option name=\"envOptions\" />\n      <option name=\"passParentEnvironmentVariables\" value=\"true\" />\n      <option name=\"port\" value=\"8080\" />\n      <option name=\"tomcatInfo\">\n        <TomcatInfo>\n          <option name=\"name\" value=\"Apache Tomcat/9.0.43\" />\n          <option name=\"number\" value=\"0\" />\n          <option name=\"path\" value=\"/Applications/Tomcat\" />\n          <option name=\"version\" value=\"9.0.43.0\" />\n        </TomcatInfo>\n      </option>\n      <option name=\"vmOptions\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"c740bcf0-b463-4742-aab0-bc7d11feecfc\" name=\"Default Changelist\" comment=\"\" />\n      <created>1623517661380</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1623517661380</updated>\n      <workItem from=\"1623517662648\" duration=\"2234000\" />\n      <workItem from=\"1623520337639\" duration=\"1328000\" />\n      <workItem from=\"1623575216058\" duration=\"3473000\" />\n      <workItem from=\"1623578910323\" duration=\"2715000\" />\n      <workItem from=\"1623584720808\" duration=\"1049000\" />\n      <workItem from=\"1623585974936\" duration=\"276000\" />\n      <workItem from=\"1623586280580\" duration=\"159000\" />\n      <workItem from=\"1623586636357\" duration=\"7863000\" />\n      <workItem from=\"1623672396232\" duration=\"5619000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"First Commit\">\n      <created>1623592832049</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1623592832049</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"First official commit\">\n      <created>1623593281541</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1623593281541</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Admin page UI update\">\n      <created>1623595681170</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1623595681170</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Admin page update\">\n      <created>1623673329622</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1623673329622</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Admin page - implementation of new button animations with js\">\n      <created>1623677787226</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1623677787226</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Admin page - implementation of new button animations with js (V2)\">\n      <created>1623678267974</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1623678267974</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Admin page - implementation of new button animations with js (V3)\">\n      <created>1623678848361</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1623678848361</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Admin page - implementation of new button animations with js (V3)\">\n      <created>1623678857286</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1623678857286</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Admin page - implementation of new button animations with js (V3)\">\n      <created>1623678921363</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1623678921363</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"10\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"First Commit\" />\n    <MESSAGE value=\"First official commit\" />\n    <MESSAGE value=\"Admin page UI update\" />\n    <MESSAGE value=\"Admin page update\" />\n    <MESSAGE value=\"Admin page - implementation of new button animations with js\" />\n    <MESSAGE value=\"Admin page - implementation of new button animations with js (V2)\" />\n    <MESSAGE value=\"Admin page - implementation of new button animations with js (V3)\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Admin page - implementation of new button animations with js (V3)\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/.idea/workspace.xml	(date 1623767026740)
+@@ -11,6 +11,18 @@
+   <component name="ChangeListManager">
+     <list default="true" id="c740bcf0-b463-4742-aab0-bc7d11feecfc" name="Default Changelist" comment="Admin page UI update">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/adminPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adminPage.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/carListComponent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/carListComponent.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/adminStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/adminStyle.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/rentListComponent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/rentListComponent.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/adminButtonToggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/adminButtonToggle.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/adminScripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/adminScripts.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/userListComponent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userListComponent.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/adminPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/adminPage.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/carListComponent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/carListComponent.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/rentListComponent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/rentListComponent.jsp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/scripts/adminScripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/scripts/adminScripts.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/userListComponent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/userListComponent.jsp" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -21,6 +33,8 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="JavaScript File" />
++        <option value="Class" />
++        <option value="Jsp File" />
+       </list>
+     </option>
+   </component>
+@@ -191,6 +205,10 @@
+       <workItem from="1623586280580" duration="159000" />
+       <workItem from="1623586636357" duration="7863000" />
+       <workItem from="1623672396232" duration="5619000" />
++      <workItem from="1623678978649" duration="3407000" />
++      <workItem from="1623698026819" duration="9743000" />
++      <workItem from="1623746094959" duration="6571000" />
++      <workItem from="1623760533239" duration="6042000" />
+     </task>
+     <task id="LOCAL-00001" summary="First Commit">
+       <created>1623592832049</created>
+@@ -255,7 +273,35 @@
+       <option name="project" value="LOCAL" />
+       <updated>1623678921363</updated>
+     </task>
+-    <option name="localTasksCounter" value="10" />
++    <task id="LOCAL-00010" summary="Minor changes">
++      <created>1623679005644</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1623679005644</updated>
++    </task>
++    <task id="LOCAL-00011" summary="Admin page - UI/UX changes">
++      <created>1623683051965</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1623683051965</updated>
++    </task>
++    <task id="LOCAL-00012" summary="Admin page - Popup action implementation, Servlets minor changes">
++      <created>1623707953975</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1623707953975</updated>
++    </task>
++    <task id="LOCAL-00013" summary="User Page - Ui/Ux changes - Eearly car rentals implementation with AJAX">
++      <created>1623753471470</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1623753471470</updated>
++    </task>
++    <option name="localTasksCounter" value="14" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -281,6 +327,10 @@
+     <MESSAGE value="Admin page - implementation of new button animations with js" />
+     <MESSAGE value="Admin page - implementation of new button animations with js (V2)" />
+     <MESSAGE value="Admin page - implementation of new button animations with js (V3)" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Admin page - implementation of new button animations with js (V3)" />
++    <MESSAGE value="Minor changes" />
++    <MESSAGE value="Admin page - UI/UX changes" />
++    <MESSAGE value="Admin page - Popup action implementation, Servlets minor changes" />
++    <MESSAGE value="User Page - Ui/Ux changes - Eearly car rentals implementation with AJAX" />
++    <option name="LAST_COMMIT_MESSAGE" value="User Page - Ui/Ux changes - Eearly car rentals implementation with AJAX" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: target/Carent-1.0-SNAPSHOT/userListComponent.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page import=\"java.util.Collection\" %>\n<%@ page import=\"java.util.Iterator\" %>\n<%@ page import=\"carent.model.UserBean\" %>\n<%@ page import=\"carent.utils.Utility\" %><%\n    Utility.print(\"Sono entrato nella component\");\n    Collection<?> list = (Collection<?>) request.getAttribute(\"userList\");\n    Utility.print(\"lista caricata\");\n    Iterator<?> it = list.iterator();\n    Utility.print(\"iteratore creato\");\n    UserBean bean;\n%>\n<table>\n    <thead>\n        <tr>\n            <th> Codice Utente </th>\n            <th> Email </th>\n            <th> Ruolo </th>\n            <th> Nome </th>\n            <th> Cognome </th>\n            <th> Telefono </th>\n        </tr>\n    </thead>\n\n    <%\n    while (it.hasNext()) {\n        bean = (UserBean) it.next();\n    %>\n            <tr>\n                <td> <%=bean.getUserCode()%> </td>\n                <td> <%=bean.getEmail()%> </td>\n                <td> <%=bean.getRole()%> </td>\n                <td> <%=bean.getName()%> </td>\n                <td> <%=bean.getSurname()%> </td>\n                <td> <%=bean.getPhone()%> </td>\n            </tr>\n    <%\n    }\n    %>\n        </table>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/Carent-1.0-SNAPSHOT/userListComponent.jsp b/target/Carent-1.0-SNAPSHOT/userListComponent.jsp
+--- a/target/Carent-1.0-SNAPSHOT/userListComponent.jsp	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/target/Carent-1.0-SNAPSHOT/userListComponent.jsp	(date 1623766664305)
+@@ -9,7 +9,7 @@
+     Utility.print("iteratore creato");
+     UserBean bean;
+ %>
+-<table>
++<table class="table table-bordered table-dark">
+     <thead>
+         <tr>
+             <th> Codice Utente </th>
+Index: target/Carent-1.0-SNAPSHOT/rentListComponent.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page import=\"java.util.Collection\" %>\n<%@ page import=\"java.util.Iterator\" %>\n<%@ page import=\"carent.model.RentBean\" %>\n<%@ page import=\"carent.utils.Utility\" %><%\n    Utility.print(\"Sono entrato nella component\");\n    Collection<?> list = (Collection<?>) request.getAttribute(\"rentList\");\n    Utility.print(\"lista caricata\");\n    Iterator<?> it = list.iterator();\n    Utility.print(\"iteratore creato\");\n    RentBean bean;\n%>\n<table>\n    <thead>\n        <tr>\n            <th> Codice Noleggio </th>\n            <th> Codice Utente </th>\n            <th> Targa </th>\n            <th> Data inizio </th>\n            <th> Data fine </th>\n            <th> Prezzo </th>\n        </tr>\n    </thead>\n    <%\n        while (it.hasNext()) {\n            bean = (RentBean) it.next();\n    %>\n    <tr>\n        <td> <%=bean.getRentCode()%></td>\n        <td> <%=bean.getUserCode()%> </td>\n        <td> <%=bean.getTarga()%> </td>\n        <td> <%=bean.getDaData()%> </td>\n        <td> <%=bean.getaData()%> </td>\n        <td> <%=bean.getPrezzo()%> </td>\n    </tr>\n    <%\n        }\n    %>\n</table>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/Carent-1.0-SNAPSHOT/rentListComponent.jsp b/target/Carent-1.0-SNAPSHOT/rentListComponent.jsp
+--- a/target/Carent-1.0-SNAPSHOT/rentListComponent.jsp	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/target/Carent-1.0-SNAPSHOT/rentListComponent.jsp	(date 1623766664312)
+@@ -9,7 +9,7 @@
+     Utility.print("iteratore creato");
+     RentBean bean;
+ %>
+-<table>
++<table class="table table-bordered table-dark">
+     <thead>
+         <tr>
+             <th> Codice Noleggio </th>
+Index: target/Carent-1.0-SNAPSHOT/carListComponent.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page import=\"java.util.Collection\" %>\n<%@ page import=\"java.util.Iterator\" %>\n<%@ page import=\"carent.model.CarBean\" %>\n<%@ page import=\"carent.utils.Utility\" %><%\n    Utility.print(\"Sono entrato nella component\");\n    Collection<?> list = (Collection<?>) request.getAttribute(\"carList\");\n    Utility.print(\"lista caricata\");\n    Iterator<?> it = list.iterator();\n    Utility.print(\"iteratore creato\");\n    CarBean bean;\n%>\n<table>\n    <thead>\n        <tr>\n            <th> Targa </th>\n            <th> Marca </th>\n            <th> Modello </th>\n            <th> Alimentazione </th>\n            <th> Chilometraggio </th>\n            <th> Potenza </th>\n            <th> Anno Immatricolazione </th>\n        </tr>\n    </thead>\n    <%\n        while (it.hasNext()) {\n            bean = (CarBean) it.next();\n    %>\n    <tr>\n        <td> <%=bean.getTarga()%> </td>\n        <td> <%=bean.getMarca()%> </td>\n        <td> <%=bean.getModello()%> </td>\n        <td> <%=bean.getAlimentazione()%> </td>\n        <td> <%=bean.getChilometraggio()%> </td>\n        <td> <%=bean.getPotenza()%> </td>\n        <td> <%=bean.getAnnoImmatricolazione()%> </td>\n    </tr>\n    <%\n        }\n    %>\n</table>\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/Carent-1.0-SNAPSHOT/carListComponent.jsp b/target/Carent-1.0-SNAPSHOT/carListComponent.jsp
+--- a/target/Carent-1.0-SNAPSHOT/carListComponent.jsp	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/target/Carent-1.0-SNAPSHOT/carListComponent.jsp	(date 1623766664313)
+@@ -9,16 +9,16 @@
+     Utility.print("iteratore creato");
+     CarBean bean;
+ %>
+-<table>
++<table class="table table-bordered table-dark">
+     <thead>
+         <tr>
+             <th> Targa </th>
+             <th> Marca </th>
+             <th> Modello </th>
+-            <th> Alimentazione </th>
++            <th> Alimentaz. </th>
+             <th> Chilometraggio </th>
+             <th> Potenza </th>
+-            <th> Anno Immatricolazione </th>
++            <th> Anno</th>
+         </tr>
+     </thead>
+     <%
+Index: target/Carent-1.0-SNAPSHOT/adminPage.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page language=\"java\" contentType=\"text/html; charset=ISO-8859-1\"\n         pageEncoding=\"ISO-8859-1\" import=\"java.util.*,carent.model.*\" %>\n<!DOCTYPE html>\n\n<%\n    UserBean user = (UserBean) session.getAttribute(\"admin\");\n    if (user == null) {\n        response.sendRedirect(response.encodeRedirectURL(\"/CRStorage/loginPage.jsp\"));\n    }\n%>\n\n\n<html lang=\"it\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Carent - Admin Panel</title>\n    <link href=\"css/adminStyle.css\" rel=\"stylesheet\"/>\n\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css\"\n          rel=\"stylesheet\" integrity=\"sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl\"\n          crossorigin=\"anonymous\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\"\n          integrity=\"sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==\"\n          crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"/>\n\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n    <script src=\"scripts/adminScripts.js\"></script>\n    <script src=\"scripts/adminButtonToggle.js\"></script>\n    <script src=\"scripts/carLoader.js\"></script>\n\n</head>\n\n<body>\n\n    <div class=\"container-fluid\" id=\"welcome-container\">\n        <img src=\"immagini/logo-carent.svg\" alt=\"logo\" id=\"logo\">\n        <h2 id=\"title-role\">Admin ${admin.getName()} - Pannello di Controllo</h2>\n        <form action=\"logout\" method=\"GET\">\n            <button type=\"submit\" id=\"logout-button\" class=\"btn btn-success\"><i class=\"fas fa-sign-out-alt\"></i></button>\n        </form>\n    </div>\n\n\n    <div class=\"container-fluid\" id=\"upper-container\">\n        <div class=\"row  align-items-start-center\" id=\"row1\">\n\n            <div class=\"col-lg-3 col-md-6 col-sm-12\" id=\"column1\">\n                <button type=\"button\" class=\"btn btn-success\" id=\"delete-car\">\n                Elimina Veicolo <i class=\"fas fa-trash-alt\"></i>\n                </button>\n\n                <div id=\"form-container-delete-car\">\n                    <div class=\"form\">\n                        <input type=\"text\" id=\"deleted-car\" placeholder=\"Targa del veicolo da rimuovere\">\n                        <br>\n                        <button type=\"button\" class=\"btn btn-success\" id=\"delete-car-button\">Rimuovi</button>\n                    </div>\n\n                    <div id=\"result-car-removal-div\"></div>\n\n                </div>\n\n            </div>\n\n\n\n            <div class=\"col-lg-3 col-md-6 col-sm-12\" id=\"column2\">\n                <button type=\"button\" class=\"btn btn-success\" id=\"delete-user\">\n                    Elimina Utente <i class=\"fas fa-user-slash\"></i>\n                </button>\n\n                <div id=\"form-container-delete-user\">\n                    <div class=\"form\">\n                        <input type=\"email\" id=\"deleted-user\" placeholder=\"Email dell'utente da rimuovere\">\n                        <br>\n                        <button type=\"button\" class=\"btn btn-success\" id=\"delete-user-button\">Rimuovi</button>\n\n                        <div id=\"result-user-div\"></div>\n\n                    </div>\n                </div>\n\n            </div>\n\n\n            <div class=\"col-lg-3 col-md-6 col-sm-12\" id=\"column3\">\n                <button type=\"button\" class=\"btn btn-success\" id=\"add-car\">\n                    Aggiungi Veicolo <i class=\"fas fa-plus\"></i>\n                </button>\n\n\n\n                <div id=\"form-container-add-car\">\n                    <div class=\"form\">\n                        <input type=\"text\" id=\"add-car-plate\" placeholder=\"Targa veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-brand\" placeholder=\"Marca veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-model\" placeholder=\"Modello veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-power\" placeholder=\"Potenza veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-fuel\" placeholder=\"Alimentazione veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-year\" placeholder=\"Anno immatricolazione veicolo\">\n                        <br>\n                        <input type=\"text\" id=\"add-car-mileage\" placeholder=\"Chilometraggio veicolo\">\n                        <br>\n\n                        <button type=\"button\" class=\"btn btn-success\" id=\"add-car-button\">Aggiungi</button>\n                    </div>\n\n                    <div id=\"result-car-add-div\"></div>\n\n                </div>\n\n            </div>\n\n\n            <div class=\"col-lg-3 col-md-6 col-sm-12\" id=\"column4\">\n                <button type=\"button\" class=\"btn btn-success\" id=\"add-car-image\">\n                    Aggiungi foto veicolo <i class=\"fas fa-file-image\"></i>\n                </button>\n\n                <div id=\"form-container-add-car-image\">\n                    <div class=\"form\">\n                        <form enctype=\"multipart/form-data\" action=\"imgupload\" method=\"POST\" onsubmit=\"return targaValida()\">\n                            <input type=\"file\" id=\"img-form\" name=\"car-image\" accept=\".svg\" required>\n                            <br>\n                            <input type=\"text\" id=\"add-plate\" name=\"targaPerFoto\" placeholder=\"Targa veicolo\" required>\n                            <br>\n                            <input type=\"submit\" id=\"add-photo-button\" value=\"Aggiungi\">\n                        </form>\n\n                        <div id=\"result-add-car-image-div\"></div>\n\n                    </div>\n                </div>\n\n            </div>\n\n            <div id=\"user-list-div\"></div>\n            <div id=\"car-list-div\"></div>\n            <div id=\"rent-list-div\"></div>\n\n        </div>\n    </div>\n\n</body>\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/Carent-1.0-SNAPSHOT/adminPage.jsp b/target/Carent-1.0-SNAPSHOT/adminPage.jsp
+--- a/target/Carent-1.0-SNAPSHOT/adminPage.jsp	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/target/Carent-1.0-SNAPSHOT/adminPage.jsp	(date 1623766330332)
+@@ -140,13 +140,51 @@
+                 </div>
+ 
+             </div>
++        </div>
++    </div>
++
++    <div class="container-fluid" id="info-section">
++
++        <div class="row  align-items-start-center" id="row2">
++            <div class="col-lg-3 col-md-6 col-sm-12" id="column5">
++                <button type="button" class="btn btn-success" id="user-list-button">
++                    Mostra Utenti <i class="fas fa-user-friends"></i>
++                </button>
++
++
++            </div>
++
++            <div class="col-lg-3 col-md-6 col-sm-12" id="column6">
++                <button type="button" class="btn btn-success" id="car-list-button">
++                    Lista Veicoli <i class="fas fa-user-friends"></i>
++                </button>
++
++
++            </div>
+ 
+-            <div id="user-list-div"></div>
+-            <div id="car-list-div"></div>
+-            <div id="rent-list-div"></div>
++            <div class="col-lg-3 col-md-6 col-sm-12" id="column7">
++                <button type="button" class="btn btn-success" id="rent-list-button">
++                    Mostra Noleggi <i class="fas fa-user-friends"></i>
++                </button>
++
+ 
+-        </div>
+-    </div>
++            </div>
++
++            <div class="col-lg-3 col-md-6 col-sm-12" id="column8">
++                <button type="button" class="btn btn-success" id="rent-delete-button">
++                    Cancella Noleggio <i class="fas fa-user-friends"></i>
++                </button>
++
++            </div>
+ 
++
++        </div>
++
++    </div>
++
++    <div id="table-container1"></div>
++    <div id="table-container2"></div>
++    <div id="table-container3"></div>
++
+ </body>
+ </html>
+\ No newline at end of file
+Index: target/Carent-1.0-SNAPSHOT/scripts/adminScripts.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>$(document).ready (\n    () => {\n        $(\"#delete-car-button\").click (\n            () => {\n                var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/\n                if ($(\"#deleted-car\").val().match(targaRegex)) {\n\n                    $.ajax (\n                        {\n                            url: \"adminaction\",\n                            type: \"POST\",\n                            data: {\n                                actiontype: \"removecar\",\n                                plate: $(\"#deleted-car\").val()\n                            },\n                            success: function (data) {\n                                $(\"#result-car-removal-div\").html(createOutcome(data, \"success\", \"check-square\"));\n                                setTimeout(() => $(\"#result-car-removal-div\").html(\"\"), 1500);\n                                load(\"loadcars\",\"#car-list-div\");\n                            },\n                            error: function (xhr, ajaxOptions, thrownError) {\n                                $(\"#result-car-removal-div\").html(createOutcome(xhr.responseText, \"unsuccess\", \"bomb\"));\n                                setTimeout(() => $(\"#result-car-removal-div\").html(\"\"), 1500);\n                            }\n                        }\n                    )\n                } else {\n                    $(\"#result-car-removal-div\").html(createOutcome(\"Operazione non riuscita\", \"unsuccess\", \"bomb\"));\n                    setTimeout(() => $(\"#result-car-removal-div\").html(\"\"), 1500);\n                }\n            }\n        );\n\n        $(\"#delete-user-button\").click (\n            () => {\n                var emailregex = /^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/\n                if ($(\"#deleted-user\").val().match(emailregex)) {\n\n\n                    $.ajax (\n                        {\n                            url: \"adminaction\",\n                            type: \"POST\",\n                            data : {\n                                actiontype: \"removeuser\",\n                                email: $(\"#deleted-user\").val()\n                            },\n                            success: function (data) {\n                                $(\"#result-user-div\").html(createOutcome(data, \"success\", \"check-square\"))\n                                setTimeout(() => $(\"#result-user-div\").html(\"\"), 1500);\n                                load(\"loadusers\",\"#user-list-div\");\n                            },\n                            error: function (xhr, ajaxOptions, thrownError) {\n                                $(\"#result-user-div\").html(createOutcome(xhr.responseText, \"unsuccess\", \"bomb\"))\n                                setTimeout(() => $(\"#result-user-div\").html(\"\"), 1500);\n                            }\n                        }\n                    )\n\n                } else {\n                    $(\"#result-user-div\").html(createOutcome(\"Operazione non riuscita\", \"unsuccess\", \"bomb\"))\n                    setTimeout(() => $(\"#result-user-div\").html(\"\"), 1500);\n                }\n            }\n        );\n\n        $(\"#add-car-button\").click (\n            () => {\n                var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/\n                var textAndNumbersRegex = /^[a-zA-Z0-9 ]+$/\n                var textRegex = /^[a-zA-Z]+$/\n                var numRegex = /^[0-9]+$/\n                var yearRegex = /^[0-9]{4}$/\n                if ($(\"#add-car-plate\").val().match(targaRegex)) {\n                    if ($(\"#add-car-brand\").val().match(textRegex)) {\n                        if ($(\"#add-car-model\").val().match(textAndNumbersRegex)) {\n                            if ($(\"#add-car-power\").val().match(numRegex)) {\n                                if ($(\"#add-car-fuel\").val().match(textRegex)) {\n                                    if($(\"#add-car-year\").val().match(yearRegex)) {\n                                        if ($(\"#add-car-mileage\").val().match(numRegex)) {\n                                            $.ajax(\n                                                {\n                                                    url: \"adminaction\",\n                                                    type: \"POST\",\n                                                    data: {\n                                                        actiontype: \"addcar\",\n                                                        plate: $(\"#add-car-plate\").val(),\n                                                        brand: $(\"#add-car-plate\").val(),\n                                                        model: $(\"#add-car-model\").val(),\n                                                        power: $(\"#add-car-power\").val(),\n                                                        fuel: $(\"#add-car-fuel\").val(),\n                                                        year: $(\"#add-car-year\").val(),\n                                                        mileage: $(\"#add-car-mileage\").val()\n                                                    },\n                                                    success: function(data) {\n                                                        $(\"#result-car-add-div\").html(createOutcome(data,\"success\", \"check-square\"))\n                                                        setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                                        load(\"loadcars\",\"#car-list-div\");\n                                                    },\n                                                    error: function (xhr, ajaxOptions, thrownError) {\n                                                        $(\"#result-car-add-div\").html(createOutcome(xhr.responseText,\"unsuccess\", \"bomb\"))\n                                                        setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                                    }\n                                                }\n                                            )\n                                        } else {\n                                            $(\"#result-car-add-div\").html(createOutcome(\"Chilometraggio non valido\",\"unsuccess\", \"bomb\"))\n                                            setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                        }\n                                    } else {\n                                        $(\"#result-car-add-div\").html(createOutcome(\"Anno non valido\",\"unsuccess\", \"bomb\"))\n                                        setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                    }\n                                } else {\n                                    $(\"#result-car-add-div\").html(createOutcome(\"Alimentazione non valida\",\"unsuccess\", \"bomb\"))\n                                    setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                                }\n                            } else {\n                                $(\"#result-car-add-div\").html(createOutcome(\"Potenza non valida\",\"unsuccess\", \"bomb\"))\n                                setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                            }\n                        } else {\n                            $(\"#result-car-add-div\").html(createOutcome(\"Modello non valido\",\"unsuccess\", \"bomb\"))\n                            setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                        }\n                    } else {\n                        $(\"#result-car-add-div\").html(createOutcome(\"Marca non valida\",\"unsuccess\", \"bomb\"))\n                        setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                    }\n                } else {\n                    $(\"#result-car-add-div\").html(createOutcome(\"Targa non valida\",\"unsuccess\", \"bomb\"))\n                    setTimeout(() => $(\"#result-car-add-div\").html(\"\"), 1500);\n                }\n            }\n        )\n\n        load(\"loadusers\",\"#user-list-div\");\n        load(\"loadcars\",\"#car-list-div\");\n        load(\"loadrents\",\"#rent-list-div\");\n    }\n);\n\nfunction createOutcome(data, type, icon) {\n    return \"<div id=\\\"alert-\"+type+\"\\\">\\n\" +\n        \"    <div>\\n\" +\n        \"        <i class=\\\"fas fa-\"+icon+\"\\\"></i>\\n\" +\n        \"        <label id=\\\"result-label\\\">\"+data+\"</label>\\n\" +\n        \"    </div>\\n\" +\n        \"</div>\";\n}\n\nfunction targaValida() {\n    var targaRegex = /^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$/\n    if ($(\"#add-plate\").val().match(targaRegex)) {\n        $(\"#result-add-car-image-div\").load(\"successfulOperationComponent.jsp\");\n        setTimeout(() => $(\"#result-add-car-image-div\").html(\"\"), 1500);\n        return true;\n    } else {\n        $(\"#result-add-car-image-div\").load(\"unsuccessfulOperationComponent.jsp\");\n        setTimeout(() => $(\"#result-add-car-image-div\").html(\"\"), 1500);\n        return false;\n    }\n}\n\nfunction load (loaditem,destinationDiv) {\n    $.ajax  (\n        {\n            url: \"adminaction\",\n            type: \"POST\",\n            data: {\n                actiontype: loaditem\n            },\n            success: function(data) {\n                alert(\"Servlet terminata con successo\");\n                $(destinationDiv).html(data);\n            },\n            error: function () {\n                alert(\"Errore nella servlet di caricamento...\");\n            }\n        }\n    )\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/Carent-1.0-SNAPSHOT/scripts/adminScripts.js b/target/Carent-1.0-SNAPSHOT/scripts/adminScripts.js
+--- a/target/Carent-1.0-SNAPSHOT/scripts/adminScripts.js	(revision fb04d82824c4a8ae7225e1776e3aae4449c815b7)
++++ b/target/Carent-1.0-SNAPSHOT/scripts/adminScripts.js	(date 1623766330333)
+@@ -134,9 +134,9 @@
+             }
+         )
+ 
+-        load("loadusers","#user-list-div");
+-        load("loadcars","#car-list-div");
+-        load("loadrents","#rent-list-div");
++        load("loadusers","#table-container1");
++        load("loadcars","#table-container2");
++        load("loadrents","#table-container3");
+     }
+ );
+ 
+@@ -171,11 +171,11 @@
+                 actiontype: loaditem
+             },
+             success: function(data) {
+-                alert("Servlet terminata con successo");
++
+                 $(destinationDiv).html(data);
+             },
+             error: function () {
+-                alert("Errore nella servlet di caricamento...");
++
+             }
+         }
+     )
