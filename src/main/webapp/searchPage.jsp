@@ -62,9 +62,20 @@
                 <div class="navbar-nav">
                     <a class="nav-link" href="#">Home</a> <a class="nav-link" href="#">Veicoli</a>
                     <a class="nav-link" href="#">Contatti</a> <a class="nav-link"
-                                                                 href="#">Aiuto</a> <a href="loginPage.jsp">
-                    <button id="login-button" type="button" class="btn btn-success">Login</button>
-                </a>
+                                                                 href="#">Aiuto</a>
+
+
+                    <%
+                        if (utente != null && utente.getRole().equals("userrole")) {
+                    %>
+                    <a href="<%=application.getContextPath()+"/user/page"%>">
+                        <button type="button" class="btn btn-success"><%=utente.getName()%></button>
+                         <%
+ 					} else {
+ 					%> <a href="access">
+                        <button type="button" class="btn btn-success">Login</button>
+                        <%}%>
+                    </a>
                 </div>
             </div>
         </div>
