@@ -9,14 +9,17 @@
     if (carList==null) {
         Utility.print("carList era null");
         response.sendRedirect(response.encodeRedirectURL("search"));
+        return;
     }
     UserBean utente = (UserBean) session.getAttribute("utente");
 
     String dataInizio = (String) request.getAttribute("start-date");
     String dataFine = (String) request.getAttribute("finish-date");
+    String luogo = (String) request.getAttribute("pick-up-place");
     Utility.print("Sto per caricare la searchPage");
     Utility.print("dataInizio: "+dataInizio);
     Utility.print("dataFine: "+dataFine);
+    Utility.print("luogo: "+luogo);
 %>
 
 <html lang="it">
@@ -88,7 +91,7 @@
         <div id="shop-section">
             <h3 id="cart-label">Carrello <i class="fas fa-shopping-cart"></i></h3>
             <div id="buy-all">
-                <input type="submit" value="Noleggia" id="checkout-button">
+                <input type="button" value="Noleggia" id="checkout-button">
             </div>
 
             <div class="card border-success mb-3" style="max-width: 18rem;">
@@ -129,12 +132,12 @@
             <form class="search-bar">
                 <div class="row justify-content-center" id="row2">
                     <div class="col-md-3">
-                        <label>Località</label> <select class="form-select"
+                        <label>Località</label> <select id="pick-up-place" class="form-select"
                                                         aria-label="Default select example">
-                        <option selected>Località</option>
-                        <option value="1">Caserta</option>
-                        <option value="2">Milano</option>
-                        <option value="3">Three</option>
+                        <option value="Localita" selected>Località</option>
+                        <option value="Caserta">Caserta</option>
+                        <option value="Milano">Milano</option>
+                        <option value="Three">Three</option>
                     </select>
                     </div>
                     <div class="col-md-3">
@@ -150,7 +153,7 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <input type="submit" value="CERCA LA TUA AUTO" id="search-button">
+                        <input type="button" value="CERCA LA TUA AUTO" id="search-button">
                     </div>
 
                 </div>
@@ -183,9 +186,9 @@
                                             <h5><i class="fas fa-euro-sign"></i> <b><%=bean.getPrezzo_gg()%> al giorno</b></h5>
                                         </div>
                                     <%
-                                        if (utente!=null && utente.getRole().equals("userrole") && dataInizio!=null && dataFine!=null) {
+                                        if (utente!=null && utente.getRole().equals("userrole") && dataInizio!=null && dataFine!=null && luogo!=null) {
                                     %>
-                                        <input type="submit" value="Aggiungi al carrello" data-start="<%=dataInizio%>" data-finish="<%=dataFine%>" data-targa="<%=bean.getTarga()%>" class="buy-button">
+                                        <input type="submit" value="Aggiungi al carrello" data-luogo="<%=luogo%>" data-start="<%=dataInizio%>" data-finish="<%=dataFine%>" data-targa="<%=bean.getTarga()%>" class="buy-button">
                                     <%
                                         }
                                     %>

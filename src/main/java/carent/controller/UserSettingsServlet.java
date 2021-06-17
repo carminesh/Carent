@@ -1,9 +1,6 @@
 package carent.controller;
 
-import carent.model.RentBean;
-import carent.model.RentModelDS;
-import carent.model.UserBean;
-import carent.model.UserModelDS;
+import carent.model.*;
 import carent.utils.Utility;
 
 import javax.servlet.RequestDispatcher;
@@ -95,7 +92,6 @@ public class UserSettingsServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 		break;
-
 			case "rentload":
 				RentModelDS rentmodelds = new RentModelDS(ds);
 				Utility.print("Ho creato rentmodelds");
@@ -113,6 +109,86 @@ public class UserSettingsServlet extends HttpServlet {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+				break;
+			case "addToCart":
+				Utility.print("Provando a prelevare la sessione");
+				HttpSession session = request.getSession(false);
+				Utility.print("Sessione prelevata");
+				if (session!=null) {
+					Utility.print("La sessione non è null");
+					CartBean cartbean = (CartBean) session.getAttribute("cart");
+					if (cartbean!=null) {
+						String plate = (String) request.getParameter("plate");
+						String startdate = (String) request.getParameter("startdate");
+						String finishdate = (String) request.getParameter("finishdate");
+						String place = (String) request.getParameter("place");
+						Utility.print("Sono in user settings");
+						Utility.print("plate: "+plate);
+						Utility.print("startdate: "+startdate);
+						Utility.print("finishdate: "+finishdate);
+						Utility.print("place: "+place);
+
+						if (!(plate==null || plate.equals("") || startdate==null || startdate.equals("") || finishdate==null || finishdate
+								.equals("") || place==null || place.equals("") || place.equals("Localita"))) {
+							Utility.print("ok continuiamo");
+							CartItemBean newItemInCart = new CartItemBean();
+							CarBean tempCarforValues = new CarBean();
+							CarModelDS carSearcher = new CarModelDS(ds);
+							try {
+								tempCarforValues = carSearcher.doRetrieveByKey(plate);
+								newItemInCart.setAuto(tempCarforValues);
+								newItemInCart.setDaData(startdate);
+								newItemInCart.setaData(finishdate);
+								newItemInCart.setPrezzoTotale(newItemInCart.calcolaPeriodo()*newItemInCart.getAuto().getPrezzo_gg());
+
+
+								Utility.print("Provando ad inserire questo nuovo item nel carrello");
+								Utility.print(newItemInCart.getAuto().toString());
+								Utility.print(newItemInCart.getDaData());
+								Utility.print(newItemInCart.getaData());
+								System.out.println(newItemInCart.getPrezzoTotale());
+
+
+								//In questo momento il cartitem è stato creato con successo
+
+								if (!cartbean.isInCart(newItemInCart.getAuto().getTarga())) {
+									Utility.print("L'elemento non è nel carrello");
+									if (cartbean.add(newItemInCart)) {
+										Utility.print("Elemento aggiunto nel carrello!!");
+										/*
+										RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/cartComponent.js");
+										dispatcher.forward(request,response);
+										return;
+										*/
+									} else {
+										Utility.print("Impossibile aggiungere al carrello");
+										response.getWriter().print("Impossibile aggiungere al carrello");
+										response.setStatus(400);
+									}
+								} else {
+									Utility.print("L'elemento è nel carrello");
+									response.getWriter().print("Non puoi noleggiare due volte la stessa auto, riprova in un nuovo acquisto");
+									response.setStatus(400);
+								}
+
+							} catch (SQLException e) {
+								e.printStackTrace();
+								response.getWriter().print("Impossibile completare l'operazione");
+								response.setStatus(400);
+							}
+						} else {
+							response.getWriter().print("Fornisci tutti i parametri");
+							response.setStatus(400);
+						}
+					} else {
+						response.getWriter().print("Apparentemente non esiste il carrello");
+						response.setStatus(400);
+					}
+				} else {
+					response.getWriter().print("Non sei loggato...");
+					response.setStatus(400);
+				}
+
 				break;
 
 		}

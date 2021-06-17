@@ -9,14 +9,17 @@
     if (carList==null) {
         Utility.print("carList era null");
         response.sendRedirect(response.encodeRedirectURL("search"));
+        return;
     }
     UserBean utente = (UserBean) session.getAttribute("utente");
 
     String dataInizio = (String) request.getAttribute("start-date");
     String dataFine = (String) request.getAttribute("finish-date");
+    String luogo = (String) request.getAttribute("pick-up-place");
     Utility.print("Sto per caricare la searchPage");
     Utility.print("dataInizio: "+dataInizio);
     Utility.print("dataFine: "+dataFine);
+    Utility.print("luogo: "+luogo);
 %>
 
 <html lang="it">
@@ -28,11 +31,10 @@
             integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
             crossorigin="anonymous">
     <link href="css/searchStyle.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="icon" href="immagini/favicon.svg" type="image/x-icon" />
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="<%=application.getContextPath()+"/scripts/searchPageScripts.js"%>"></script>
@@ -84,47 +86,27 @@
 
     <% if (utente!=null && utente.getRole().equals("userrole")) {%>
 
-    <!--Shop Section-->
     <div id="left-section">
 
         <div id="shop-section">
-            <h2 id="cart-label">Carrello <i class="fas fa-shopping-cart"></i></h2>
-            <h3 id="total-label">Totale: 20 <i class="fas fa-euro-sign"></i></h3>
+            <h3 id="cart-label">Carrello <i class="fas fa-shopping-cart"></i></h3>
             <div id="buy-all">
-                <input type="submit" value="Noleggia" id="checkout-button">
+                <input type="button" value="Noleggia" id="checkout-button">
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h4 class="card-title"><b>Peugeot 208</b></h4>
-                    <p class="card-text">
-                        <i class="fas fa-gas-pump"></i> <b>Diesel</b> &nbsp&nbsp
-                        <i class="fas fa-car"></i> <b>75 kWh</b> &nbsp&nbsp
-                        <i class="fas fa-calendar-alt"></i> <b>2019</b>
-                        <i class="fas fa-tachometer-alt"></i> <b>13.000 Km</b>
-                    </p>
-                    <div class="price-section">
-                        <div class="price">
-                            <h5><i class="fas fa-euro-sign"></i> <b>14 al giorno</b></h5>
-                        </div>
-                    </div>
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body text-success">
+                    <h5 class="card-title">Success card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h4 class="card-title"><b>Fiat Panda</b></h4>
-                    <p class="card-text">
-                        <i class="fas fa-gas-pump"></i> <b>Benzina</b> &nbsp&nbsp
-                        <i class="fas fa-car"></i> <b>50 kWh</b> &nbsp&nbsp
-                        <i class="fas fa-calendar-alt"></i> <b>2001</b>
-                        <i class="fas fa-tachometer-alt"></i> <b>143.400 Km</b>
-                    </p>
-                    <div class="price-section">
-                        <div class="price">
-                            <h5><i class="fas fa-euro-sign"></i> <b>5 al giorno</b></h5>
-                        </div>
-                    </div>
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body text-success">
+                    <h5 class="card-title">Success card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
 
@@ -132,15 +114,12 @@
 
     </div>
 
-    <!--Slider Section-->
     <div id="slider">
         <div id="slider-icon-div">
             <i id="slider-icon" class="fas fa-arrow-alt-circle-right"></i>
         </div>
     </div>
 
-
-    <!--Search Section-->
     <%
         }
     %>
@@ -153,12 +132,12 @@
             <form class="search-bar">
                 <div class="row justify-content-center" id="row2">
                     <div class="col-md-3">
-                        <label>Località</label> <select class="form-select"
+                        <label>Località</label> <select id="pick-up-place" class="form-select"
                                                         aria-label="Default select example">
-                        <option selected>Località</option>
-                        <option value="1">Caserta</option>
-                        <option value="2">Milano</option>
-                        <option value="3">Three</option>
+                        <option value="Localita" selected>Località</option>
+                        <option value="Caserta">Caserta</option>
+                        <option value="Milano">Milano</option>
+                        <option value="Three">Three</option>
                     </select>
                     </div>
                     <div class="col-md-3">
@@ -202,19 +181,18 @@
                                         <i class="fas fa-car"></i> <b><%=bean.getPotenza()%> kWh</b> &nbsp&nbsp
                                         <i class="fas fa-calendar-alt"></i> <b><%=bean.getAnnoImmatricolazione()%></b> &nbsp&nbsp
                                         <i class="fas fa-tachometer-alt"></i> <b><%=bean.getChilometraggio()%> Km</b>
-                                    </p>
                                     <div class="price-section">
                                         <div class="price">
                                             <h5><i class="fas fa-euro-sign"></i> <b><%=bean.getPrezzo_gg()%> al giorno</b></h5>
                                         </div>
                                     <%
-                                        if (utente!=null && utente.getRole().equals("userrole") && dataInizio!=null && dataFine!=null) {
+                                        if (utente!=null && utente.getRole().equals("userrole") && dataInizio!=null && dataFine!=null && luogo!=null) {
                                     %>
-                                        <input type="submit" value="Aggiungi al carrello" data-start="<%=dataInizio%>" data-finish="<%=dataFine%>" data-targa="<%=bean.getTarga()%>" class="buy-button">
+                                        <input type="submit" value="Aggiungi al carrello" data-luogo="<%=luogo%>" data-start="<%=dataInizio%>" data-finish="<%=dataFine%>" data-targa="<%=bean.getTarga()%>" class="buy-button">
                                     <%
                                         }
                                     %>
-                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>

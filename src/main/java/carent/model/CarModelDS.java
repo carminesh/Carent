@@ -28,9 +28,8 @@ public class CarModelDS implements CarModel<CarBean> {
 		CarBean bean = null;
 		try {
 			con = ds.getConnection();
-			pst = con.prepareStatement("SELECT * FROM ? WHERE targa = ?");
-			pst.setString(1, TABLE_NAME);
-			pst.setString(2, code);
+			pst = con.prepareStatement("SELECT * FROM veicolo WHERE targa = ?");
+			pst.setString(1, code);
 			Utility.print("doRetrieveByKey: "+pst.toString());
 			rs = pst.executeQuery();
 			if (rs.next()) {
@@ -190,7 +189,14 @@ public class CarModelDS implements CarModel<CarBean> {
 			con = ds.getConnection();
 			
 			//Da modificare
-			pst = con.prepareStatement("SELECT * FROM veicolo");
+			pst = con.prepareStatement("SELECT * FROM veicolo v WHERE NOT EXISTS ( SELECT * FROM noleggio n WHERE n.targa=v.targa AND ? between n.daData and n.aData ) AND NOT EXISTS ( SELECT * FROM noleggio n WHERE n.targa=v.targa AND ? between n.daData and n.aData ) AND NOT EXISTS ( SELECT * FROM noleggio n WHERE n.targa=v.targa AND ? <= n.daData AND ? >= n.aData ) AND NOT EXISTS ( SELECT * FROM noleggio n WHERE n.targa=v.targa AND ? >= n.daData AND ? <= n.aData )");
+			pst.setString(1,start);
+			pst.setString(2,finish);
+			pst.setString(3,start);
+			pst.setString(4,finish);
+			pst.setString(5,start);
+			pst.setString(6,finish);
+			Utility.print(pst.toString());
 			rs = pst.executeQuery();
 			while (rs.next()) {
 				CarBean bean = new CarBean();

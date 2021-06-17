@@ -1,5 +1,6 @@
 package carent.controller;
 
+import carent.model.CartBean;
 import carent.model.UserBean;
 import carent.model.UserModelDS;
 import carent.utils.Utility;
@@ -37,6 +38,7 @@ public class LoginServletDBAccess extends HttpServlet {
 					if(userbean.getRole().equals("userrole")) {
 						HttpSession session = request.getSession(true);
 						session.setAttribute("utente", userbean);
+						session.setAttribute("cart",new CartBean());
 						session.setMaxInactiveInterval(2*60*60);
 						System.out.print("Login come UTENTE");
 						getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);

@@ -61,7 +61,7 @@ public class CarBean implements Serializable {
 	public void setPrezzo_gg(int prezzo_gg) {this.prezzo_gg= prezzo_gg; }
 	
 	public String toString () {
-		return targa +" "+marca+" "+modello+ "(Anno: "+annoImmatricolazione+", Potenza: "+potenza+" kW, Alimentazione: "+alimentazione+")";
+		return targa +" "+marca+" "+modello+ "(Anno: "+annoImmatricolazione+", Potenza: "+potenza+" kW, Alimentazione: "+alimentazione+", Prezzo al giorno: "+prezzo_gg+")";
 	}
 	
 	public boolean equals (Object otherObject) {

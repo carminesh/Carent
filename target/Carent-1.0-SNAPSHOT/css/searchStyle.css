@@ -50,10 +50,8 @@ body {
 
 #shop-section {
     height: 100%;
-    width: 20%;
+    width: 100%;
     background: #212529 !important;
-    position: fixed;
-    left: 0px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -64,8 +62,6 @@ body {
     height: 100%;
     width: 20px;
     background: #212529;
-    position: fixed;
-    left: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,10 +138,7 @@ body {
 #cart-label {
     color: white;
     margin-top: 30px;
-}
 
-#total-label {
-    color: white;
 }
 
 #checkout-button {
@@ -162,8 +155,4 @@ body {
 
 #checkout-button:hover {
     background: #982200 !important;
-}
-
-.card {
-    margin-top: 15px;
 }
