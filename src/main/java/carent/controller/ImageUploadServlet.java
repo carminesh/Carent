@@ -30,7 +30,7 @@ public class ImageUploadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             Part filePart = request.getPart("car-image");
-            String fileName = request.getParameter("targaPerFoto")+".jpg";
+            String fileName = request.getParameter("targaPerFoto")+".svg";
             InputStream fileContent = filePart.getInputStream();
             File filePath = new File(getServletContext().getRealPath("/immagini"));
             File file = new File(filePath, fileName);

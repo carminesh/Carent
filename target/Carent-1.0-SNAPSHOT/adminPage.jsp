@@ -130,7 +130,7 @@
 
                 <div id="form-container-add-car-image">
                     <div class="form">
-                        <form enctype="multipart/form-data" action="imgupload" method="POST" onsubmit="return targaValida()">
+                        <form enctype="multipart/form-data" action="<%=application.getContextPath()+"/imgupload"%>" method="POST" onsubmit="return targaValida()">
                             <input type="file" id="img-form" name="car-image" accept=".svg" required>
                             <br>
                             <input type="text" id="add-plate" name="targaPerFoto" placeholder="Targa veicolo" required>

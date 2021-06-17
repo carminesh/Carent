@@ -45,6 +45,31 @@ $(document).ready (
                         },
                         success: function (data) {
                             alert("Servlet addToCart terminata con successo");
+                            $("#shop-section").html(data);
+                        },
+                        error: function (xhr,ajaxOptions, thrownError) {
+                            alert(xhr.responseText);
+                        }
+                    }
+                )
+            }
+        )
+
+        $(".delete-from-cart").click (
+            function () {
+                alert("Sono entrato nello script per DELETE");
+                alert($(this).attr("data-targa"));
+                $.ajax(
+                    {
+                        url: "user/settings",
+                        type: "POST",
+                        data: {
+                            changetype: "removeFromCart",
+                            plate: $(this).attr("data-targa")
+                        },
+                        success: function (data) {
+                            alert("Servlet addToCart terminata con successo");
+                            $("#shop-section").html(data);
                         },
                         error: function (xhr,ajaxOptions, thrownError) {
                             alert(xhr.responseText);

@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * Servlet implementation class UserSettingsServlet
@@ -31,6 +32,9 @@ public class UserSettingsServlet extends HttpServlet {
 		Utility.print("changetype= "+changetype);
 		DataSource ds = (DataSource) this.getServletContext().getAttribute("DataSource");
 		UserModelDS usermodelds = new UserModelDS(ds);
+		HttpSession session;
+		CartBean cartbean;
+		RequestDispatcher dispatcher;
 		switch (changetype) {
 		case "email":
 			String newemail = (String) request.getParameter("newemail");
@@ -42,7 +46,7 @@ public class UserSettingsServlet extends HttpServlet {
 				if (usermodelds.changeEmail(oldemail, newemail)) {
 					response.getWriter().print(newemail);
 					UserBean bean = new UserBean();
-					HttpSession session = request.getSession(false);
+					session = request.getSession(false);
 					bean = (UserBean) session.getAttribute("utente");
 					bean.setEmail(newemail);
 					session.setAttribute("utente", bean);
@@ -73,7 +77,7 @@ public class UserSettingsServlet extends HttpServlet {
 						if (usermodelds.changePassword(currentemail, newpassword)) {
 							response.getWriter().print("Password modificata con successo");
 							UserBean bean = new UserBean();
-							HttpSession session = request.getSession(false);
+							session = request.getSession(false);
 							bean = (UserBean) session.getAttribute("utente");
 							bean.setPasswd(newpassword);
 							session.setAttribute("utente", bean);
@@ -102,7 +106,7 @@ public class UserSettingsServlet extends HttpServlet {
 					request.setAttribute("earlyRents",temp);
 					System.out.println(temp);
 					Utility.print("Ho settato l'attributo earlyRents");
-					RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/earlyRentsComponent.jsp");
+					dispatcher = this.getServletContext().getRequestDispatcher("/earlyRentsComponent.jsp");
 					Utility.print("Sto per fare il dispatching");
 					dispatcher.forward(request,response);
 					return;
@@ -112,11 +116,11 @@ public class UserSettingsServlet extends HttpServlet {
 				break;
 			case "addToCart":
 				Utility.print("Provando a prelevare la sessione");
-				HttpSession session = request.getSession(false);
+				session = request.getSession(false);
 				Utility.print("Sessione prelevata");
 				if (session!=null) {
 					Utility.print("La sessione non è null");
-					CartBean cartbean = (CartBean) session.getAttribute("cart");
+					cartbean = (CartBean) session.getAttribute("cart");
 					if (cartbean!=null) {
 						String plate = (String) request.getParameter("plate");
 						String startdate = (String) request.getParameter("startdate");
@@ -155,11 +159,9 @@ public class UserSettingsServlet extends HttpServlet {
 									Utility.print("L'elemento non è nel carrello");
 									if (cartbean.add(newItemInCart)) {
 										Utility.print("Elemento aggiunto nel carrello!!");
-										/*
-										RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/cartComponent.js");
+										dispatcher = this.getServletContext().getRequestDispatcher("/cartComponent.jsp");
 										dispatcher.forward(request,response);
 										return;
-										*/
 									} else {
 										Utility.print("Impossibile aggiungere al carrello");
 										response.getWriter().print("Impossibile aggiungere al carrello");
@@ -189,6 +191,73 @@ public class UserSettingsServlet extends HttpServlet {
 					response.setStatus(400);
 				}
 
+				break;
+			case "removeFromCart":
+				Utility.print("Provando a prelevare la sessione");
+				session = request.getSession(false);
+				if (session!=null) {
+					Utility.print("La sessione non è null");
+					cartbean = (CartBean) session.getAttribute("cart");
+					if (cartbean!=null) {
+						String plateToRemove = request.getParameter("plate");
+						Utility.print("Provando a rimuovere il veicolo: "+plateToRemove);
+						if (cartbean.removeFromCart(plateToRemove)) {
+							session.setAttribute("cart",cartbean);
+							Utility.print("Elemento rimosso dal carrello");
+							dispatcher = this.getServletContext().getRequestDispatcher("/cartComponent.jsp");
+							dispatcher.forward(request,response);
+							return;
+						} else {
+							response.getWriter().print("Impossibile eliminare elemento dal carrello");
+							response.setStatus(400);
+						}
+					} else {
+						response.getWriter().print("Apparentemente non esiste il carrello");
+						response.setStatus(400);
+					}
+				} else {
+					response.getWriter().print("Non sei loggato...");
+					response.setStatus(400);
+				}
+
+				break;
+			case "checkout":
+				RentModelDS rentModelDS = new RentModelDS(ds);
+				session = request.getSession(false);
+				if (session!=null) {
+					CartBean cartBean = (CartBean) session.getAttribute("cart");
+					UserBean userBean = (UserBean) session.getAttribute("utente");
+					if (cartBean!=null && userBean!=null) {
+						if (!cartBean.isEmpty()) {
+							try {
+								Iterator<CartItemBean> it = cartBean.getCart().iterator();
+								CartItemBean cartItemBean;
+								while (it.hasNext()) {
+									cartItemBean = (CartItemBean) it.next();
+									rentModelDS.insertRentasCartItem(cartItemBean,userBean.getUserCode());
+									Utility.print("Inserito in noleggio: "+cartItemBean.getAuto().getTarga());
+								}
+								Utility.print("operazione completata");
+								//Si svuota quindi il carrello
+								session.setAttribute("cart",new CartBean());
+								response.setStatus(200);
+							} catch (SQLException e) {
+								response.getWriter().print("Impossibile completare l'operazione");
+								response.setStatus(400);
+							}
+
+						} else {
+							response.getWriter().print("Il carrello è vuoto...");
+							response.setStatus(400);
+						}
+					} else {
+						response.getWriter().print("Apparentemente il carrello non esiste");
+						response.setStatus(400);
+					}
+				} else {
+					response.getWriter().print("Non sei loggato...");
+					response.setStatus(400);
+				}
 				break;
 
 		}

@@ -67,8 +67,8 @@
                             place: $(this).attr("data-luogo")
                         },
                         success: function (data) {
-                            alert("Servlet addToCart terminata con successo")
-                            //Aggiorni il carrello
+                            alert("Servlet addToCart terminata con successo");
+                            $("#shop-section").html(data);
                         },
                         error: function (xhr,ajaxOptions, thrownError) {
                             alert(xhr.responseText);
@@ -77,6 +77,5 @@
                 )
             }
         )
-
     }
 )</script>

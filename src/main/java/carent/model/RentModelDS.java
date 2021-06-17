@@ -131,4 +131,28 @@ public class RentModelDS {
             }
         }
     }
+
+    public boolean insertRentasCartItem (CartItemBean item, int userCode) throws SQLException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        try {
+            con = ds.getConnection();
+            pst = con.prepareStatement("INSERT INTO noleggio(userCode,targa,daData,aData,prezzo) VALUES (?,?,?,?,?)");
+            pst.setInt(1, userCode);
+            pst.setString(2, item.getAuto().getTarga());
+            pst.setString(3, item.getDaData());
+            pst.setString(4, item.getaData());
+            pst.setDouble(5, item.getPrezzoTotale());
+            int ris = pst.executeUpdate();
+            return ris > 0;
+        } finally {
+            try {
+                if (pst != null)
+                    pst.close();
+            } finally {
+                if (con != null)
+                    con.close();
+            }
+        }
+    }
 }
