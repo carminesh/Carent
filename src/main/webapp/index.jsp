@@ -125,7 +125,7 @@ if (pass==null) {
 		<div class="row text-center" id="row1">
 			<h2>Effettua la ricerca e verifica la disponibilità</h2>
 		</div>
-		<form class="search-bar">
+		<form class="search-bar" method="POST" action="<%=application.getContextPath()+"/search"%>">
 			<div class="row justify-content-center" id="row2">
 				<div class="col-md-3">
 					<label>Località</label> <select class="form-select"
@@ -139,13 +139,13 @@ if (pass==null) {
 				<div class="col-md-3">
 					<div class="form-group">
 						<label for="date">Data di ritiro:</label> <input type="date"
-							class="form-control" id="pickup-date">
+							class="form-control" id="pickup-date" name="start-date">
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="form-group">
 						<label for="date">Data di consegna:</label> <input type="date"
-							class="form-control" id="pickup-date">
+							class="form-control" id="pickup-date" name="finish-date">
 					</div>
 				</div>
 				<div class="col-md-3">

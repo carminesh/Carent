@@ -1,4 +1,24 @@
+<%@ page import="carent.utils.Utility" %>
+<%@ page import="java.util.Collection" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="carent.model.CarBean" %>
+<%@ page import="carent.model.UserBean" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    Collection<?> carList = (Collection<?>) request.getAttribute("carList");
+    if (carList==null) {
+        Utility.print("carList era null");
+        response.sendRedirect(response.encodeRedirectURL("search"));
+    }
+    UserBean utente = (UserBean) session.getAttribute("utente");
+
+    String dataInizio = (String) request.getAttribute("start-date");
+    String dataFine = (String) request.getAttribute("finish-date");
+    Utility.print("Sto per caricare la searchPage");
+    Utility.print("dataInizio: "+dataInizio);
+    Utility.print("dataFine: "+dataFine);
+%>
+
 <html lang="it">
 <head>
     <title>Ricerca</title>
@@ -14,6 +34,8 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <script src="<%=application.getContextPath()+"/scripts/searchPageScripts.js"%>"></script>
+    <script src="<%=application.getContextPath()+"/scripts/sideBar.js"%>"></script>
 
 
 </head>
@@ -48,7 +70,7 @@
         </div>
     </nav>
 
-
+    <% if (utente!=null && utente.getRole().equals("userrole")) {%>
 
     <div id="left-section">
 
@@ -78,6 +100,15 @@
 
     </div>
 
+    <div id="slider">
+        <div id="slider-icon-div">
+            <i id="slider-icon" class="fas fa-arrow-alt-circle-right"></i>
+        </div>
+    </div>
+
+    <%
+        }
+    %>
     <div id="right-section">
 
         <div class="container" id="container1">
@@ -104,7 +135,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="date">Data di consegna:</label> <input type="date"
-                                                                               class="form-control" id="pickup-date">
+                                                                               class="form-control" id="release-date">
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -115,84 +146,54 @@
             </form>
         </div>
 
-        <div class="card mb-3" style="width: 800px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img class="img-car" src="immagini/peugeot.svg" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h4 class="card-title"><b>Peugeout 208</b></h4>
-                        <p class="card-text">
-                            <i class="fas fa-gas-pump"></i> <b>Diesel</b> &nbsp&nbsp
-                            <i class="fas fa-car"></i> <b>60 kWh</b> &nbsp&nbsp
-                            <i class="fas fa-calendar-alt"></i> <b>2020</b> &nbsp&nbsp
-                            <i class="fas fa-tachometer-alt"></i> <b>23.500 Km</b>
+        <div id="car-list-div">
 
-                        <div class="price-section">
-                            <div class="price">
-                               <h5><i class="fas fa-euro-sign"></i> <b>15.00 al giorno</b></h5>
+        <%
+            Iterator<?> it = carList.iterator();
+            CarBean bean;
+            while (it.hasNext()) {
+                bean = (CarBean) it.next();
+                %>
+                    <div data-targa="<%=bean.getTarga()%>" class="card mb-3" style="width: 800px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img class="img-car" src="<%=application.getContextPath()+"/immagini/"+bean.getTarga()+".jpg"%>" alt="...">
                             </div>
-                            <input type="submit" value="Aggiungi al carrello" class="buy-button">
-
-
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h4 class="card-title"><b><%=bean.getMarca()+" "+bean.getModello()%></b></h4>
+                                    <p class="card-text">
+                                        <i class="fas fa-gas-pump"></i> <b><%=bean.getAlimentazione()%></b> &nbsp&nbsp
+                                        <i class="fas fa-car"></i> <b><%=bean.getPotenza()%> kWh</b> &nbsp&nbsp
+                                        <i class="fas fa-calendar-alt"></i> <b><%=bean.getAnnoImmatricolazione()%></b> &nbsp&nbsp
+                                        <i class="fas fa-tachometer-alt"></i> <b><%=bean.getChilometraggio()%> Km</b>
+                                    <div class="price-section">
+                                        <div class="price">
+                                            <h5><i class="fas fa-euro-sign"></i> <b><%=bean.getPrezzo_gg()%> al giorno</b></h5>
+                                        </div>
+                                    <%
+                                        if (utente!=null && utente.getRole().equals("userrole") && dataInizio!=null && dataFine!=null) {
+                                    %>
+                                        <input type="submit" value="Aggiungi al carrello" data-start="<%=dataInizio%>" data-finish="<%=dataFine%>" data-targa="<%=bean.getTarga()%>" class="buy-button">
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                                </div>
+                            </div>
                         </div>
-
-
                     </div>
-                </div>
-            </div>
+            <%
+            }
+            %>
         </div>
-
-        <div class="card mb-3" style="width: 800px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img class="img-car" src="immagini/mercedes.svg" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card mb-3" style="width: 800px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img class="img-car" src="immagini/opel.svg" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card mb-3" style="width: 800px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img class="img-car" src="immagini/skoda.svg" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
     </div>
 
 
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
 
 </body>
 </html>
