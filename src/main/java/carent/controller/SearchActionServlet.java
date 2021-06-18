@@ -18,6 +18,7 @@ public class SearchActionServlet extends HttpServlet {
         Utility.print("Sono entrato nella servlet");
         DataSource ds = (DataSource) this.getServletContext().getAttribute("DataSource");
         CarModelDS carmodelds = new CarModelDS(ds);
+        Date start,finish;
         String actiontype = (String) request.getParameter("actiontype");
         if (actiontype==null) actiontype="classicSearch";
         String dataInizio,dataFine,pickUpPlace;
@@ -32,8 +33,8 @@ public class SearchActionServlet extends HttpServlet {
                 Utility.print("luogo: "+pickUpPlace);
                 try {
                     if (!(pickUpPlace==null || pickUpPlace.equals("Localita") || pickUpPlace.equals("") || dataInizio==null || dataInizio.equals("") || dataFine==null || dataFine.equals(""))) {
-                        Date start = Date.valueOf(dataInizio);
-                        Date finish = Date.valueOf(dataFine);
+                        start = Date.valueOf(dataInizio);
+                        finish = Date.valueOf(dataFine);
                         if (finish.after(start)) {
                             Utility.print("Tutto apposto");
                             request.setAttribute("carListRefreshed",carmodelds.doRetrieveAvailableInPeriod(dataInizio,dataFine));
@@ -67,7 +68,33 @@ public class SearchActionServlet extends HttpServlet {
                 Utility.print("data Fine: "+dataFine);
                 Utility.print("luogo: "+pickUpPlace);
 
-                if (pickUpPlace==null || dataInizio==null || dataFine==null || pickUpPlace.equals("") || pickUpPlace.equals("Localita") || dataInizio.equals("") || dataInizio.equals("")) {
+                //Se non ha messo qualche parametro, cerca tutto
+
+                //Anzi prima se ha messo tutti i parametri
+
+                if ((pickUpPlace!=null && !pickUpPlace.equals("") && !pickUpPlace.equals("Localita")) && (dataInizio!=null && !dataInizio.equals("")) && (dataFine!=null && !dataFine.equals(""))) {
+                    Utility.print("Preleva da "+dataInizio+" a "+dataFine);
+                    start = Date.valueOf(dataInizio);
+                    finish = Date.valueOf(dataFine);
+                    if (finish.after(start)) {
+                        try {
+                            request.setAttribute("carList",carmodelds.doRetrieveAvailableInPeriod(dataInizio,dataFine));
+                            request.setAttribute("pick-up-place",pickUpPlace);
+                            request.setAttribute("start-date",dataInizio);
+                            request.setAttribute("finish-date",dataFine);
+                            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/searchPage.jsp");
+                            dispatcher.forward(request,response);
+                            return;
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                            response.setStatus(400);
+                        }
+                    } else {
+                        //Andrebbe fatto un dispatch ad una pagina errore
+                        Utility.print("Periodo non valido");
+                        response.setStatus(400);
+                    }
+                } else {
                     Utility.print("Preleva tutto");
                     try {
                         request.setAttribute("carList",carmodelds.doRetrieveAll(null));
@@ -77,20 +104,6 @@ public class SearchActionServlet extends HttpServlet {
                     } catch (SQLException e) {
                         e.printStackTrace();
                         response.setStatus(500);
-                    }
-                } else {
-                    Utility.print("Preleva da "+dataInizio+" a "+dataFine);
-                    try {
-                        request.setAttribute("carList",carmodelds.doRetrieveAvailableInPeriod(dataInizio,dataFine));
-                        request.setAttribute("pick-up-place",pickUpPlace);
-                        request.setAttribute("start-date",dataInizio);
-                        request.setAttribute("finish-date",dataFine);
-                        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/searchPage.jsp");
-                        dispatcher.forward(request,response);
-                        return;
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                        response.setStatus(400);
                     }
                 }
                 break;
