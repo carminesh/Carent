@@ -23,6 +23,8 @@
     Utility.print("dataInizio: "+dataInizio);
     Utility.print("dataFine: "+dataFine);
     Utility.print("luogo: "+luogo);
+
+    Utility.print(application.getRealPath("/immagini"));
 %>
 
 <html lang="it">
@@ -33,7 +35,7 @@
             rel="stylesheet"
             integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
             crossorigin="anonymous">
-    <link href="css/searchStyle.css" rel="stylesheet" />
+    <link href="<%=application.getContextPath()+"/css/searchStyle.css"%>" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -53,8 +55,8 @@
 <nav
         class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark navbar-collapse">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.jsp"> <img
-                src="immagini/logo-carent.svg" alt="logo" id="logo">
+        <a class="navbar-brand" href="<%=application.getContextPath()+"/home"%>"> <img
+                src="<%=application.getContextPath()+"/immagini/logo-carent.svg"%>" alt="logo" id="logo">
         </a>
 
 
@@ -67,22 +69,23 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="#">Home</a> <a class="nav-link" href="#">Veicoli</a>
+                <a class="nav-link" href="<%=application.getContextPath()+"/home"%>">Home</a>
                 <a class="nav-link" href="#">Contatti</a> <a class="nav-link"
                                                              href="#">Aiuto</a>
 
 
-                <%
-                    if (utente != null && utente.getRole().equals("userrole")) {
-                %>
+                <% if (utente == null) { %>
+                <a href="<%=application.getContextPath()+"/access"%>">
+                <button type="button" class="btn btn-success">Login</button>
+                <% } else if (utente.getRole().equals("userrole")) { %>
                 <a href="<%=application.getContextPath()+"/user/page"%>">
-                    <button type="button" class="btn btn-success"><%=utente.getName()%></button>
-                        <%
- 					} else {
- 					%> <a href="access">
-                    <button type="button" class="btn btn-success">Login</button>
-                    <%}%>
+                <button type="button" class="btn btn-success"><%=utente.getName()%></button>
+                <% } else { %>
+                <a href="<%=application.getContextPath()+"/admin/page"%>">
+                <button type="button" class="btn btn-success"><%=utente.getName()%></button>
+                <% } %>
                 </a>
+
             </div>
         </div>
     </div>

@@ -32,11 +32,12 @@ if (pass==null) {
 <body>
 
 	<!--Navbar-->
+
 	<nav
 		class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark navbar-collapse">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="index.jsp"> <img
-				src="immagini/logo-carent.svg" alt="logo" id="logo">
+				src="<%=application.getContextPath()+"/immagini/logo-carent.svg"%>" alt="logo" id="logo">
 			</a>
 
 
@@ -49,35 +50,7 @@ if (pass==null) {
 
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link" href="#">Home</a> <a class="nav-link" href="#">Veicoli</a>
-					<a class="nav-link" href="#">Contatti</a> <a class="nav-link"
-						href="#">Aiuto</a> <a href="loginPage.jsp">
-						<button type="button" class="btn btn-success">Login</button>
-					</a>
-				</div>
-			</div>
-		</div>
-	</nav>
-
-
-	<nav
-		class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark navbar-collapse">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="index.jsp"> <img
-				src="immagini/logo-carent.svg" alt="logo" id="logo">
-			</a>
-
-
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-				aria-controls="navbarNavAltMarkup" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-					<a class="nav-link" href="#">Home</a> <a class="nav-link" href="#">Veicoli</a>
+					<a class="nav-link" href="<%=application.getContextPath()+"/search"%>">Veicoli</a>
 					<a class="nav-link" href="#">Contatti</a> <a class="nav-link"
 						href="#">Aiuto</a>
 
@@ -85,12 +58,17 @@ if (pass==null) {
 					<%
 					if (user == null) {
 					%>
-						<a href="access">
+						<a href="<%=application.getContextPath()+"/access"%>">
 						<button type="button" class="btn btn-success">Login</button> <%
- 					} else {
- 					%> <a href="user/page">
+ 					} else if (user.getRole().equals("userrole")){
+ 					%> <a href="<%=application.getContextPath()+"/user/page"%>">
 						<button type="button" class="btn btn-success"><%=user.getName()%></button>
-					<%}%>
+					<%} else { %>
+						<a href="<%=application.getContextPath()+"/admin/page"%>">
+						<button type="button" class="btn btn-success"><%=user.getName()%></button>
+					<%
+					}
+					%>
 					</a>
 				</div>
 			</div>
@@ -114,7 +92,7 @@ if (pass==null) {
 		<div id="top-image" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="immagini/sfondooo.svg" class="d-block w-100"
+					<img src="<%=application.getContextPath()+"/immagini/sfondooo.svg"%>" class="d-block w-100"
 						alt="wallpaper">
 				</div>
 			</div>
@@ -176,37 +154,37 @@ if (pass==null) {
 
 									<div class="col-sd-4 col-md-3">
 										<div class="card card-body">
-											<img class="img-fluid" src="immagini/bmw.svg">
+											<img class="img-fluid" src="<%=application.getContextPath()+"/immagini/bmw.svg"%>">
 											<h5 class="card-title">Bmw i12</h5>
-											<p class="card-text">Some quick example text the bulk of the card's content.</p>
-											<a href="#" class="btn btn-success">Dettagli</a>
+											<p class="card-text">«Freude am Fahren». Premi "Dettagli" per maggiori inf...</p>
+											<a href="<%=application.getContextPath()+"/search"%>" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
 
 									<div class="col-sd-4 col-md-3">
 										<div class="card card-body">
-											<img class="img-fluid" src="immagini/smart.svg">
+											<img class="img-fluid" src="<%=application.getContextPath()+"/immagini/smart.svg"%>">
 											<h5 class="card-title">Smart forTwo</h5>
-											<p class="card-text">Some quick example text the bulk of the card's content.</p>
-											<a href="#" class="btn btn-success">Dettagli</a>
+											<p class="card-text">«Open your mind». Premi "Dettagli" per maggiori informazioni</p>
+											<a href="<%=application.getContextPath()+"/search"%>" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
 
 									<div class="col-sd-4 col-md-3">
 										<div class="card card-body">
-											<img class="img-fluid" src="immagini/fiat.svg">
+											<img class="img-fluid" src="<%=application.getContextPath()+"/immagini/fiat.svg"%>">
 											<h5 class="card-title">Fiat 500</h5>
-											<p class="card-text">Some quick example text the bulk of the card's content.</p>
-											<a href="#" class="btn btn-success">Dettagli</a>
+											<p class="card-text">«Ogni Fiat è 500% Fiat». Premi "Dettagli" per maggiori inf...</p>
+											<a href="<%=application.getContextPath()+"/search"%>" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
 
 									<div class="col-sd-4 col-md-3">
 										<div class="card card-body">
-											<img class="img-fluid" src="immagini/mercedes.svg">
+											<img class="img-fluid" src="<%=application.getContextPath()+"/immagini/mercedes.svg"%>">
 											<h5 class="card-title">Mercedes C</h5>
-											<p class="card-text">Some quick example text the bulk of the card's content.</p>
-											<a href="#" class="btn btn-success">Dettagli</a>
+											<p class="card-text">«The best or nothing». Premi "Dettagli" per maggiori inf...</p>
+											<a href="<%=application.getContextPath()+"/search"%>" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
 
@@ -219,37 +197,37 @@ if (pass==null) {
 								<div class="row justify-content-center">
 									<div class="col-sd-4 col-md-3">
 										<div class="card card-body">
-											<img class="img-fluid" src="immagini/peugeot.svg">
+											<img class="img-fluid" src="<%=application.getContextPath()+"/immagini/peugeot.svg"%>">
 											<h5 class="card-title">Peugeot 208</h5>
-											<p class="card-text">Some quick example text the bulk of the card's content.</p>
-											<a href="#" class="btn btn-success">Dettagli</a>
+											<p class="card-text">«Lions of our time». Premi "Dettagli" per maggiori inf...</p>
+											<a href="<%=application.getContextPath()+"/search"%>" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
 
 									<div class="col-sd-4 col-md-3">
 										<div class="card card-body">
-											<img class="img-fluid" src="immagini/opel.svg">
+											<img class="img-fluid" src="<%=application.getContextPath()+"/immagini/opel.svg"%>">
 											<h5 class="card-title">Opel Grandland</h5>
-											<p class="card-text">Some quick example text the bulk of the card's content.</p>
-											<a href="#" class="btn btn-success">Dettagli</a>
+											<p class="card-text">«The future is everyone's». Premi "Dettagli" per maggiori inf...</p>
+											<a href="<%=application.getContextPath()+"/search"%>" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
 
 									<div class="col-sd-4 col-md-3">
 										<div class="card card-body">
-											<img class="img-fluid" src="immagini/polo.svg">
+											<img class="img-fluid" src="<%=application.getContextPath()+"/immagini/polo.svg"%>">
 											<h5 class="card-title">Volswagen Polo</h5>
-											<p class="card-text">Some quick example text the bulk of the card's content.</p>
-											<a href="#" class="btn btn-success">Dettagli</a>
+											<p class="card-text">«Das Auto». Premi "Dettagli" per maggiori informazioni</p>
+											<a href="<%=application.getContextPath()+"/search"%>" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
 
 									<div class="col-sd-4 col-md-3">
 										<div class="card card-body">
-											<img class="img-fluid" src="immagini/skoda.svg">
+											<img class="img-fluid" src="<%=application.getContextPath()+"/immagini/skoda.svg"%>">
 											<h5 class="card-title">Skoda Octavia</h5>
-											<p class="card-text">Some quick example text the bulk of the card's content.</p>
-											<a href="#" class="btn btn-success">Dettagli</a>
+											<p class="card-text">«Simply clever». Premi "Dettagli" per maggiori informazioni</p>
+											<a href="<%=application.getContextPath()+"/search"%>" class="btn btn-success">Dettagli</a>
 										</div>
 									</div>
 								</div>
