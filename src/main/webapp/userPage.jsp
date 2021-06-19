@@ -21,6 +21,7 @@
     <meta charset="UTF-8">
     <title>Profilo di <%=user.getName()%></title>
     <link href="<%=application.getContextPath()+"/css/userStyle.css"%>" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -67,95 +68,109 @@
 </nav>
 
 <div class="container-fluid" id="info-container">
-    <div class="row  align-items-center" id="row1">
-        <div class="col-lg-4 col-sm-12" id="column1">
+
+    <div class="row  align-items-start-center" id="row1">
+        <div class="col-lg-4 col-md-12 col-sm-12" id="column1">
             <figure class="figure">
                 <img src="<%=application.getContextPath()+"/immagini/avatar.svg"%>" class="figure-img img-fluid rounded"
                      alt="profile-icon">
             </figure>
+        </div>
 
-            <div id="button-email">
-                <button type="button" class="btn btn-success" id="modificaemailButton">Modifica
-                    Email
-                </button>
+        <div class="col-lg-4 col-md-12 col-sm-12" id="column2">
+            <div class="row text-start" id="info-label">
+                <h2>Dati personali <i class="fas fa-address-card"></i></h2>
             </div>
+            <div id="infos">
+                <h4>Nome: <span id="name"><%=user.getName() %></span></h4>
+                <h4>Cognome: <span id="surname"><%=user.getSurname() %> </span></h4>
+                <h4>Email: <span id="currentemail"><%=user.getEmail() %></span></h4>
+                <h4>Telefono: <span id="telefono"><%=user.getPhone() %></span></h4>
+            </div>
+        </div>
 
-            <div id="container-form-email">
-                <div class="form-email">
-                    <input type="email" id="newemail" placeholder="Nuova email">
-                    <div class="result-div">
-                        <button type="button" class="btn btn-success" id="emailchangebutton">Cambia</button>
-                        <div id="result-change-email-div"></div>
-                    </div>
+        <div class="col-lg-4 col-md-12 col-sm-12" id="column3">
+            <div class="row text-start" id="rent-label">
+                <h2>Ultimi Noleggi <i class="fas fa-car"></i></h2>
+
+                <ol class="list-group list-group-numbered" id="early-rents-list">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Cras justo odio
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Cras justo odio
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Subheading</div>
+                            Cras justo odio
+                        </div>
+                        <span class="badge bg-primary rounded-pill">14</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row align-items-start-center" id="row2">
+
+            <div class="col-12" id="column4">
+                <h2 id="settings-label">Impostazioni <i class="fas fa-cog"></i></h2>
+                <div id="button-email">
+                    <button type="button" class="btn btn-success" id="modificaemailButton">Modifica
+                        Email
+                    </button>
                 </div>
 
+                <div id="container-form-email">
+                    <div class="form-email">
+                        <input type="email" id="newemail" placeholder="Nuova email">
+                        <div class="result-div">
+                            <button type="button" class="btn btn-success" id="emailchangebutton">Cambia</button>
+                            <div id="result-change-email-div"></div>
+                        </div>
+                    </div>
 
-            </div>
 
-            <div id="button-password">
-                <button type="button" class="btn btn-success" id="modificapassButton">Modifica
-                    Password
-                </button>
-            </div>
+                </div>
 
-            <div id="container-form-password">
-                <div id="form-password">
-                    <input type="password" id="oldpass" placeholder="Vecchia password">
-                    <input type="password" id="newpass" placeholder="Nuova password">
-                    <div class="result-div">
-                        <button type="button" class="btn btn-success" id="passchangebutton">Cambia</button>
-                        <div id="result-change-psswd-div"></div>
+                <div id="button-password">
+                    <button type="button" class="btn btn-success" id="modificapassButton">Modifica
+                        Password
+                    </button>
+                </div>
+
+                <div id="container-form-password">
+                    <div id="form-password">
+                        <input type="password" id="oldpass" placeholder="Vecchia password">
+                        <br>
+                        <input type="password" id="newpass" placeholder="Nuova password">
+                        <div class="result-div">
+                            <button type="button" class="btn btn-success" id="passchangebutton">Cambia</button>
+                            <div id="result-change-psswd-div"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-        </div>
     </div>
 
-    <div class="col-lg-4 col-sm-12" id="column2">
-        <div class="row text-start" id="info-label">
-            <h2>Dati personali <i class="fas fa-address-card"></i></h2>
-        </div>
-        <div id="infos">
-            <h4>Nome: <span id="name"><%=user.getName() %></span></h4>
-            <h4>Cognome: <span id="surname"><%=user.getSurname() %> </span></h4>
-            <h4>Email: <span id="currentemail"><%=user.getEmail() %></span></h4>
-            <h4>Telefono: <span id="telefono"><%=user.getPhone() %></span></h4>
-        </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-12" id="column3">
-        <div class="row text-start" id="rent-label">
-            <h2>Ultimi Noleggi <i class="fas fa-car"></i></h2>
-
-            <ol class="list-group list-group-numbered" id="early-rents-list">
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">Subheading</div>
-                        Cras justo odio
-                    </div>
-                    <span class="badge bg-primary rounded-pill">14</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">Subheading</div>
-                        Cras justo odio
-                    </div>
-                    <span class="badge bg-primary rounded-pill">14</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">Subheading</div>
-                        Cras justo odio
-                    </div>
-                    <span class="badge bg-primary rounded-pill">14</span>
-                </li>
-            </ol>
-        </div>
-
-    </div>
 
 </div>
+
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous">
+
+</script>
 
 </body>
 </html>

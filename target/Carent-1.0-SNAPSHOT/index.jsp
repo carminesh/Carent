@@ -127,7 +127,7 @@ if (pass==null) {
 					</div>
 				</div>
 				<div class="col-md-3">
-					<input type="submit" value="CERCA LA TUA AUTO" id="search-button">
+					<input type="submit" value="CERCA AUTO" id="search-button">
 				</div>
 
 			</div>

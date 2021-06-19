@@ -30,6 +30,7 @@
 <html lang="it">
 <head>
     <title>Ricerca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -180,7 +181,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <input type="button" value="CERCA LA TUA AUTO" id="search-button">
+                    <input type="button" value="CERCA AUTO" id="search-button">
                 </div>
 
             </div>

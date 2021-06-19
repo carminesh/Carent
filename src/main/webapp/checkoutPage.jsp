@@ -28,6 +28,7 @@
 <html lang="it">
 <head>
     <title>Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -73,88 +74,87 @@
 </nav>
 
 <div class="container">
+
     <h1 style="color: #00996b">Checkout Noleggio</h1>
     <div id="checkout-window">
+            <div class="container-fluid">
+                <div class="row  align-items-start" id="row1">
+                    <div class="col" id="card-section">
 
-        <div id="card-section">
-
-            <h2 style="color: white;">Auto selezionate: </h2>
-            <%
-                Iterator<?> it = cartBean.getCart().iterator();
-                CartItemBean cartItemBean;
-                while (it.hasNext()) {
-                    cartItemBean = (CartItemBean) it.next();
-            %>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h4 class="card-title"><b><%=cartItemBean.getAuto().getMarca() + " " + cartItemBean.getAuto().getModello()%></b></h4>
-                    <p class="card-text">
-                        <i class="fas fa-gas-pump"></i> <b><%=cartItemBean.getAuto().getAlimentazione()%></b> &nbsp&nbsp
-                        <i class="fas fa-car"></i> <b><%=cartItemBean.getAuto().getPotenza()%> kWh</b> &nbsp&nbsp
-                        <i class="fas fa-calendar-alt"></i> <b><%=cartItemBean.getAuto().getAnnoImmatricolazione()%></b>
-                        <i class="fas fa-tachometer-alt"></i> <b><%=cartItemBean.getAuto().getChilometraggio()%> Km</b>
-                        <i class=""><b><%=cartItemBean.getDaData()%></b></i>
-                        <i class=""><b><%=cartItemBean.getaData()%></b></i>
-                    </p>
-                    <div class="price-section">
-                        <div class="price">
-                            <h5><i class="fas fa-euro-sign"></i> <b><%=cartItemBean.getPrezzoTotale()%></b></h5>
+                        <h2 style="color: white;">Auto selezionate: </h2>
+                        <%
+                            Iterator<?> it = cartBean.getCart().iterator();
+                            CartItemBean cartItemBean;
+                            while (it.hasNext()) {
+                                cartItemBean = (CartItemBean) it.next();
+                        %>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h4 class="card-title"><b><%=cartItemBean.getAuto().getMarca() + " " + cartItemBean.getAuto().getModello()%></b></h4>
+                                <p class="card-text">
+                                    <i class="fas fa-gas-pump"></i> <b><%=cartItemBean.getAuto().getAlimentazione()%></b> &nbsp&nbsp
+                                    <i class="fas fa-car"></i> <b><%=cartItemBean.getAuto().getPotenza()%> kWh</b> &nbsp&nbsp
+                                    <i class="fas fa-calendar-alt"></i> <b><%=cartItemBean.getAuto().getAnnoImmatricolazione()%></b>
+                                    <i class="fas fa-tachometer-alt"></i> <b><%=cartItemBean.getAuto().getChilometraggio()%> Km</b>
+                                    <i class=""><b><%=cartItemBean.getDaData()%></b></i>
+                                    <i class=""><b><%=cartItemBean.getaData()%></b></i>
+                                </p>
+                                <div class="price-section">
+                                    <div class="price">
+                                        <h5><i class="fas fa-euro-sign"></i> <b><%=cartItemBean.getPrezzoTotale()%></b></h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <%
+                            }
+                        %>
+                    </div>
+                    <div class="col" id="checkout-section">
+                        <h2 style="color: white;">Riepilogo: </h2>
+                        <div class="card" style="width: 18rem; height: 50%;">
+                            <div class="card-body">
+                                <h4 class="card-title"><b>Periodi: </b></h4>
+                                <%
+                                    it = cartBean.getCart().iterator();
+                                    long periodoTotale = 0;
+                                    while (it.hasNext()) {
+                                        cartItemBean = (CartItemBean) it.next();
+                                %>
+                                <h6><%=cartItemBean.getAuto().getMarca() + " " + cartItemBean.getAuto().getModello()%>: <%=cartItemBean.calcolaPeriodo()%> giorni</h6>
+                                <%
+                                        periodoTotale+=cartItemBean.calcolaPeriodo();
+                                    }
+                                %>
+                                <h4 class="card-title"><b>Periodo totale: </b></h4>
+                                <h6><%=periodoTotale%> giorni </h6>
+                                <h4 class="card-title"><b>Prezzi: </b></h4>
+                                <%
+                                    it = cartBean.getCart().iterator();
+                                    while (it.hasNext()) {
+                                        cartItemBean = (CartItemBean) it.next();
+                                %>
+                                <h6><%=cartItemBean.getAuto().getMarca() + " " + cartItemBean.getAuto().getModello()%>: €<%=cartItemBean.getPrezzoTotale()%></h6>
+                                <%
+                                        periodoTotale+=cartItemBean.calcolaPeriodo();
+                                    }
+                                %>
+                                <h4 id="total-label" class="card-title"><b>Totale: <%=cartBean.getTotal()%></b> <i class="fas fa-euro-sign"></i></h4>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-success" id="checkout-butt">
+                            Paga
+                        </button>
+
+                    </div>
+                    <div class="col" id="img-section">
+                        <img src="<%=application.getContextPath()+"/immagini/payIcon.svg"%>" alt="Payment icon" width="300" height="300">
                     </div>
                 </div>
             </div>
-            <%
-                }
-            %>
-
-        <div id="checkout-section">
-            <h2 style="color: white;">Riepilogo: </h2>
-            <div class="card" style="width: 18rem; height: 50%;">
-                <div class="card-body">
-                    <h4 class="card-title"><b>Periodi: </b></h4>
-                    <%
-                        it = cartBean.getCart().iterator();
-                        long periodoTotale = 0;
-                        while (it.hasNext()) {
-                            cartItemBean = (CartItemBean) it.next();
-                     %>
-                    <h6><%=cartItemBean.getAuto().getMarca() + " " + cartItemBean.getAuto().getModello()%>: <%=cartItemBean.calcolaPeriodo()%> giorni</h6>
-                    <%
-                            periodoTotale+=cartItemBean.calcolaPeriodo();
-                        }
-                    %>
-                    <h4 class="card-title"><b>Periodo totale: </b></h4>
-                    <h6><%=periodoTotale%> giorni </h6>
-                    <h4 class="card-title"><b>Prezzi: </b></h4>
-                    <%
-                        it = cartBean.getCart().iterator();
-                        while (it.hasNext()) {
-                            cartItemBean = (CartItemBean) it.next();
-                    %>
-                    <h6><%=cartItemBean.getAuto().getMarca() + " " + cartItemBean.getAuto().getModello()%>: €<%=cartItemBean.getPrezzoTotale()%></h6>
-                    <%
-                            periodoTotale+=cartItemBean.calcolaPeriodo();
-                        }
-                    %>
-                    <h4 id="total-label" class="card-title"><b>Totale: <%=cartBean.getTotal()%></b> <i class="fas fa-euro-sign"></i></h4>
-                </div>
-
-                <button type="button" class="btn btn-success" id="checkout-butt">
-                    Paga
-                </button>
-
-            </div>
-
-        </div>
-
-        <div id="img-section">
-            <img src="<%=application.getContextPath()+"/immagini/payIcon.svg"%>" alt="Payment icon" width="300" height="300">
-        </div>
-
-        </div>
-
-
     </div>
+
 </div>
 
 

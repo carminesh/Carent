@@ -50,33 +50,43 @@ body {
 }
 
 #row1 {
-	width: 500px;
-	height: 350px;
-
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 
 #info-label h2 {
-	margin-top: 5px;
-	font-size: 50px;
+	font-size: 40px;
 }
 
 i {
 	margin-left: 2px;
+	margin-bottom: 2px;
 	font-size: 30px;
 }
 
 #rent-label h2 {
 	margin-top: 5px;
-	font-size: 50px;
+	font-size: 40px;
 }
 
 .list-group {
 	color: black;
 }
 
-#column3 {
-	margin-bottom: 145px;
+#column2, #column3 {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+#column2 {
+	margin-bottom: 60px;
 }
 
 #infos h4 s{
@@ -164,6 +174,23 @@ i {
 	color: white;
 }
 
+#settings-label {
+	color: white;
+	font-size: 40px;
+}
+
 #emailchangebutton:focus, #passchangebutton:focus, #emailchangebutton:active, #passchangebutton:active {
 	box-shadow: none !important;
+}
+
+@media screen and (max-width: 768px) {
+
+	#row2 {
+		margin-top: 50px !important;
+	}
+
+	#settings-label {
+		margin-left: 10px;
+	}
+
 }

@@ -13,6 +13,7 @@ body {
 	justify-content: flex-start;
 	align-items: flex-start;
 	background: #212529;
+	height: 180px;
 }
 
 #logout-button {
@@ -172,4 +173,75 @@ input {
 
 #user-list-button:focus, #car-list-button:focus, #rent-list-button:focus, #user-list-button:active, #car-list-button:active, #rent-list-button:active {
 	box-shadow: none;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+	#logo {
+		display: none;
+	}
+
+	#upper-container {
+		margin-left: 50px;
+	}
+
+	button, input {
+		width: 300px;
+	}
+
+	#welcome-container {
+		height: 200px;
+		width: 110%;
+	}
+
+	#column1, #column2, #column3, #column4, #column5, #column6, #column7, #column8 {
+		margin-top: 20px !important;
+
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+	button, input {
+		width: 200px;
+	}
+
+	#upper-container {
+		margin-left: 60px;
+	}
+
+	#logout-button {
+		margin-left: 10px;
+		margin-bottom: 20px;
+	}
+
+	#welcome-container {
+		height: 200px;
+		width: 100%;
+	}
+
+	#column1, #column2, #column3, #column4, #column5, #column6, #column7, #column8 {
+		margin-top: 20px !important;
+
+	}
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1600px) {
+
+	button, input {
+		width: 300px;
+	}
+
+	#welcome-container {
+		height: 180px;
+		width: 101%;
+	}
+
+	#column1, #column2, #column3, #column4, #column5, #column6, #column7, #column8 {
+		margin-top: 20px !important;
+
+	}
 }

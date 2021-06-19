@@ -41,7 +41,7 @@
             <img src="<%=application.getContextPath()+"/immagini/logo-carent.svg"%>" alt="logo" id="logo">
         </a>
         <h2 id="title-role">Admin ${admin.getName()} - Pannello di Controllo</h2>
-        <form action=<%=application.getContextPath()+"/logout"%>> method="GET">
+        <form action=<%=application.getContextPath()+"/logout"%>  method="GET">
             <button type="submit" id="logout-button" class="btn btn-success"><i class="fas fa-sign-out-alt"></i></button>
         </form>
     </div>
@@ -195,6 +195,7 @@
 
         </div>
     </div>
+
     <div id="table-container1"></div>
     <div id="table-container2"></div>
     <div id="table-container3"></div>
