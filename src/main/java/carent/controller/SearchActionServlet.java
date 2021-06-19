@@ -87,12 +87,12 @@ public class SearchActionServlet extends HttpServlet {
                             return;
                         } catch (SQLException e) {
                             e.printStackTrace();
-                            response.setStatus(400);
+                            response.sendError(500,"Impossibile completare l'operazione");
                         }
                     } else {
                         //Andrebbe fatto un dispatch ad una pagina errore
                         Utility.print("Periodo non valido");
-                        response.setStatus(400);
+                        response.sendError(400,"Periodo non valido");
                     }
                 } else {
                     Utility.print("Preleva tutto");

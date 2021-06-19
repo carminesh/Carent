@@ -51,7 +51,7 @@ if (pass==null) {
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<a class="nav-link" href="<%=application.getContextPath()+"/search"%>">Veicoli</a>
-					<a class="nav-link" href="#">Contatti</a> <a class="nav-link"
+					<a class="nav-link" href="#authors">Contatti</a> <a class="nav-link"
 						href="#">Aiuto</a>
 
 
@@ -270,7 +270,7 @@ if (pass==null) {
 
 
 
-					<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<div class="col-lg-3 col-md-6 mb-4 mb-md-0" id="authors">
 						<h5 class="text-uppercase mb-0" style="color: #00bf85;">Autori
 							Sito</h5>
 
