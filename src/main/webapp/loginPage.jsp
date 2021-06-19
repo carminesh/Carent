@@ -29,14 +29,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carent- Noleggio Veicoli</title>
 
-    <link href="css/loginStyle.css" rel="stylesheet"/>
+    <link href="<%=application.getContextPath()+"/css/loginStyle.css"%>" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
           crossorigin="anonymous">
     <link rel="icon" href="<%=application.getContextPath()+"/immagini/favicon.svg"%>" type="image/x-icon" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="scripts/loginSwitch.js"></script>
+    <script src="<%=application.getContextPath()+"/scripts/loginSwitch.js"%>"></script>
 
 </head>
 <body>
@@ -44,7 +44,7 @@
 <!--Navbar-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark navbar-collapse">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.jsp">
+        <a class="navbar-brand" href="<%=application.getContextPath()+"/home"%>">
             <img src="immagini/logo-carent.svg" alt="logo" id="logo">
         </a>
 
@@ -56,7 +56,7 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="index.jsp">Home</a>
+                <a class="nav-link" href="<%=application.getContextPath()+"/home"%>">Home</a>
                 <a class="nav-link" href="#">Veicoli</a>
                 <a class="nav-link" href="#">Contatti</a>
                 <a class="nav-link" href="#">Aiuto</a>

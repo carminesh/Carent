@@ -37,7 +37,9 @@
 <body>
 
     <div class="container-fluid" id="welcome-container">
-        <img src="<%=application.getContextPath()+"/immagini/logo-carent.svg"%>" alt="logo" id="logo">
+        <a href="<%=application.getContextPath()+"/home"%>">
+            <img src="<%=application.getContextPath()+"/immagini/logo-carent.svg"%>" alt="logo" id="logo">
+        </a>
         <h2 id="title-role">Admin ${admin.getName()} - Pannello di Controllo</h2>
         <form action=<%=application.getContextPath()+"/logout"%>> method="GET">
             <button type="submit" id="logout-button" class="btn btn-success"><i class="fas fa-sign-out-alt"></i></button>
@@ -130,7 +132,7 @@
 
                 <div id="form-container-add-car-image">
                     <div class="form">
-                        <form enctype="multipart/form-data" action="imgupload" method="POST" onsubmit="return targaValida()">
+                        <form enctype="multipart/form-data" action="<%=application.getContextPath()+"/imgupload"%>" method="POST" onsubmit="return targaValida()">
                             <input type="file" id="img-form" name="car-image" accept=".svg" required>
                             <br>
                             <input type="text" id="add-plate" name="targaPerFoto" placeholder="Targa veicolo" required>

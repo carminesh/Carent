@@ -42,7 +42,7 @@
 <nav
         class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark navbar-collapse">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.jsp"> <img
+        <a class="navbar-brand" href="<%=application.getContextPath()+"/home"%>"> <img
                 src="<%=application.getContextPath()+"/immagini/logo-carent.svg"%>" alt="logo" id="logo">
         </a>
 
@@ -56,7 +56,7 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="#">Home</a> <a class="nav-link" href="#">Veicoli</a>
+                <a class="nav-link" href="<%=application.getContextPath()+"/home"%>">Home</a> <a class="nav-link" href="#">Veicoli</a>
                 <a class="nav-link" href="#">Contatti</a>
                 <form action="<%=application.getContextPath()+"/logout"%>" method="GET">
                     <input id="logout-button" type="submit" value="Logout" class="btn btn-success">
