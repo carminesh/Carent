@@ -196,7 +196,7 @@
             while (it.hasNext()) {
                 bean = (CarBean) it.next();
         %>
-        <div data-targa="<%=bean.getTarga()%>" class="card mb-3" style="width: 800px;">
+        <div data-targa="<%=bean.getTarga()%>" class="card mb-3">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img class="img-car" src="<%=application.getContextPath()+"/immagini/"+bean.getTarga()+".jpg"%>" alt="...">

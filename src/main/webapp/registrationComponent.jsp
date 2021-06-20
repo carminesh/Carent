@@ -53,7 +53,7 @@
                     <button type="submit" class="btn btn-success"
                             id="registration-button">Registrati
                     </button>
-                    <div class="form-text" id="text-for-login">Sei già registrato? <a>Accedi</a></div>
+                    <div class="form-text" id="text-for-login">Sei registrato? <a>Accedi</a></div>
                 </div>
             </form>
         </div>

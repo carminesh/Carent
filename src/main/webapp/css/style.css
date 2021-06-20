@@ -171,8 +171,8 @@ body {
 }
 
 
+@media screen and (max-width: 376px) {
 
-@media screen and (max-width: 767px) {
     #search-button {
         width: 100%;
     }
@@ -183,19 +183,35 @@ body {
 
     .card {
         width: 2rem;
-    }
-    
-    .card {
         margin-bottom: 20px;
     }
-    
+
+
     #card-row {
         margin-left: 40px;
     }
- 
 }
 
-@media screen and (max-width: 1024px) {
+
+
+@media screen and (min-width: 376px) and (max-width: 768px) {
+
+    #search-button {
+        width: 100%;
+    }
+
+    .card {
+        margin-outside: 5px;
+        width: 10rem;
+    }
+    
+    #card-row {
+        margin-right: 15px;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     #search-button {
         margin-top: 20px;
         background: #00bf85;
@@ -207,8 +223,8 @@ body {
         padding: 8px;
     }
     
-    #navbarNavAltMarkup > div > a:nth-child(5) {
-	margin-left: -12px;
+    #navbarNavAltMarkup > div > a:nth-child(4) {
+        margin-left: -20px;
    	}
 
 }

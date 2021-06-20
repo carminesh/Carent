@@ -85,3 +85,14 @@ body {
     color: #c1aa7e;
     margin-bottom: 10px !important;
 }
+
+@media screen and (max-width: 376px) {
+
+    #text-for-registration {
+        margin-right: 95px !important;
+    }
+
+    #text-for-login {
+        margin-right: 90px !important;
+    }
+}
