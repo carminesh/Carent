@@ -90,9 +90,10 @@ public class SearchActionServlet extends HttpServlet {
                             response.sendError(500,"Impossibile completare l'operazione");
                         }
                     } else {
-                        //Andrebbe fatto un dispatch ad una pagina errore
-                        Utility.print("Periodo non valido");
-                        response.sendError(400,"Periodo non valido");
+                        request.setAttribute("error","Periodo non valido");
+                        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
+                        dispatcher.forward(request,response);
+                        return;
                     }
                 } else {
                     Utility.print("Preleva tutto");

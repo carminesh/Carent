@@ -103,11 +103,11 @@ if (pass==null) {
 		<div class="row text-center" id="row1">
 			<h2>Effettua la ricerca e verifica la disponibilità</h2>
 		</div>
-		<form class="search-bar" method="POST" action="<%=application.getContextPath()+"/search"%>">
+		<form class="search-bar" method="POST" action="<%=application.getContextPath()+"/search"%>" onsubmit="checkFields()">
 			<div class="row justify-content-center" id="row2">
 				<div class="col-md-3">
 					<label>Località</label> <select name="pick-up-place" class="form-select"
-						aria-label="Default select example">
+						aria-label="Default select example" id="pickup-place">
 						<option value="Localita"selected>Località</option>
 						<option value="Caserta">Caserta</option>
 						<option value="Milano">Milano</option>
@@ -123,7 +123,7 @@ if (pass==null) {
 				<div class="col-md-3">
 					<div class="form-group">
 						<label for="date">Data di consegna:</label> <input type="date"
-							class="form-control" id="pickup-date" name="finish-date">
+							class="form-control" id="release-date" name="finish-date">
 					</div>
 				</div>
 				<div class="col-md-3">
