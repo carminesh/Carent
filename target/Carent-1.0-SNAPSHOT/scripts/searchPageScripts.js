@@ -27,7 +27,7 @@ $(document).ready (
             function () {
                 $.ajax (
                     {
-                        url: "user/settings",
+                        url: "user/action",
                         type: "POST",
                         data: {
                             changetype: "addToCart",
@@ -51,7 +51,7 @@ $(document).ready (
             function () {
                 $.ajax(
                     {
-                        url: "user/settings",
+                        url: "user/action",
                         type: "POST",
                         data: {
                             changetype: "removeFromCart",

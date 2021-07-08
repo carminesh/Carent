@@ -57,7 +57,7 @@
                 alert($(this).attr("data-luogo"));
                 $.ajax (
                     {
-                        url: "user/settings",
+                        url: "user/action",
                         type: "POST",
                         data: {
                             changetype: "addToCart",

@@ -7,7 +7,7 @@ $(document).ready(
 				if ($("#newemail").val().match(emailregex)) {
 
 					$.ajax ({
-						url: "settings",
+						url: "action",
 						type: "POST",
 						data: {
 							changetype: "email",
@@ -37,7 +37,7 @@ $(document).ready(
 				var passwordregex = /^[0-9a-zA-Z]+$/
 				if ($("#newpass").val().match(passwordregex) && $("#oldpass").val().match(passwordregex)) {
 					$.ajax({
-						url: "settings",
+						url: "action",
 						type: "POST",
 						data: {
 							changetype: "pass",
@@ -63,7 +63,7 @@ $(document).ready(
 
 		$.ajax(
 			{
-				url: "settings",
+				url: "action",
 				type: "POST",
 				data: {
 					changetype: "rentload",
