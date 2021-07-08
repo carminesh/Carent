@@ -1,11 +1,13 @@
 package carent.model;
 
+import carent.utils.Utility;
+
 import javax.sql.DataSource;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Collection;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.LinkedList;
 
 public class RentModelDS {
@@ -40,6 +42,7 @@ public class RentModelDS {
                 bean.setTarga(rs.getString("targa"));
                 bean.setDaData(rs.getString("daData"));
                 bean.setaData(rs.getString("aData"));
+                bean.setCheckoutData(rs.getString("checkoutData"));
                 bean.setPrezzo(rs.getDouble("prezzo"));
                 lista.add(bean);
             }
@@ -72,6 +75,7 @@ public class RentModelDS {
                 bean.setTarga(rs.getString("targa"));
                 bean.setDaData(rs.getString("daData"));
                 bean.setaData(rs.getString("aData"));
+                bean.setCheckoutData(rs.getString("checkoutData"));
                 bean.setPrezzo(rs.getDouble("prezzo"));
                 lista.add(bean);
             }
@@ -135,16 +139,53 @@ public class RentModelDS {
     public boolean insertRentasCartItem (CartItemBean item, int userCode) throws SQLException {
         Connection con = null;
         PreparedStatement pst = null;
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
             con = ds.getConnection();
-            pst = con.prepareStatement("INSERT INTO noleggio(userCode,targa,daData,aData,prezzo) VALUES (?,?,?,?,?)");
+            pst = con.prepareStatement("INSERT INTO noleggio(userCode,targa,daData,aData,checkoutData,prezzo) VALUES (?,?,?,?,?,?)");
             pst.setInt(1, userCode);
             pst.setString(2, item.getAuto().getTarga());
             pst.setString(3, item.getDaData());
             pst.setString(4, item.getaData());
-            pst.setDouble(5, item.getPrezzoTotale());
+            pst.setString(5, formatter.format(new Date()));
+            pst.setDouble(6, item.getPrezzoTotale());
+            Utility.print(pst.toString());
             int ris = pst.executeUpdate();
             return ris > 0;
+        } finally {
+            try {
+                if (pst != null)
+                    pst.close();
+            } finally {
+                if (con != null)
+                    con.close();
+            }
+        }
+    }
+
+    public Collection<RentBean> fetchEarlyRentsFromUser (String email) throws SQLException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Collection<RentBean> lista = new LinkedList<RentBean>();
+        RentBean bean;
+        try {
+            con = ds.getConnection();
+            pst = con.prepareStatement("SELECT n.* FROM noleggio n NATURAL JOIN utente u WHERE u.email=? ORDER BY n.checkoutData DESC LIMIT 3");
+            pst.setString(1,email);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                bean = new RentBean();
+                bean.setRentCode(rs.getInt("rentCode"));
+                bean.setUserCode(rs.getInt("userCode"));
+                bean.setTarga(rs.getString("targa"));
+                bean.setDaData(rs.getString("daData"));
+                bean.setaData(rs.getString("aData"));
+                bean.setCheckoutData(rs.getString("checkoutData"));
+                bean.setPrezzo(rs.getDouble("prezzo"));
+                lista.add(bean);
+            }
+            return lista;
         } finally {
             try {
                 if (pst != null)

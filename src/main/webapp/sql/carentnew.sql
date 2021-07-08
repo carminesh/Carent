@@ -77,21 +77,25 @@ create table noleggio (
                           targa char(7) not null,
                           daData date not null,
                           aData date not null,
-                          prezzo float,
+                          checkoutData date not null,
+                          prezzo float not null,
                           primary key (rentCode),
                           constraint chiave_esterna_to_utente_from_noleggio foreign key (userCode) references utente(userCode) on update cascade on delete restrict,
                           constraint chiave_esterna_to_veicolo_from_noleggio foreign key (targa) references veicolo(targa) on update cascade on delete restrict
 ) engine=InnoDB;
 
-insert into noleggio(prezzo,daData,aData,userCode,targa) values
-(400,'2020-10-13','2021-02-23',1,'DW461EM'),
-(510,'2020-10-13','2021-01-15',2,'GD544BM'),
-(600,'2020-10-13','2021-03-10',3,'GC741KL'),
-(700,'2020-10-13','2021-01-18',4,'FW765AZ'),
-(122,'2020-10-13','2020-12-31',4,'BX563EM'),
-(110,'2020-10-13','2020-11-13',3,'GA913CE'),
-(320,'2020-10-13','2020-11-13',2,'EG795NO'),
-(980,'2020-10-13','2021-01-05',1,'FM456KE'),
-(650,'2020-10-13','2021-03-25',2,'CX700NA'),
-(700,'2020-10-14','2021-08-09',2,'EZ989AO'),
-(1000,'2020-10-14','2021-10-14',1,'EM099LI');
+insert into noleggio(prezzo,daData,aData,checkoutData,userCode,targa) values
+(400,'2020-10-13','2021-02-23','2021-06-08',1,'DW461EM'),
+(510,'2020-10-13','2021-01-15','2021-06-08',2,'GD544BM'),
+(600,'2020-10-13','2021-03-10','2021-06-08',3,'GC741KL'),
+(700,'2020-10-13','2021-01-18','2021-06-08',4,'FW765AZ'),
+(122,'2020-10-13','2020-12-31','2021-06-08',4,'BX563EM'),
+(110,'2020-10-13','2020-11-13','2021-06-08',3,'GA913CE'),
+(320,'2020-10-13','2020-11-13','2021-06-08',2,'EG795NO'),
+(980,'2020-10-13','2021-01-05','2021-06-08',1,'FM456KE'),
+(650,'2020-10-13','2021-03-25','2021-06-08',2,'CX700NA'),
+(700,'2020-10-14','2021-08-09','2021-06-08',2,'EZ989AO'),
+(1000,'2020-10-14','2021-10-14','2021-06-08',1,'EM099LI');
+
+SELECT * from noleggio;
+desc noleggio;

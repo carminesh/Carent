@@ -102,7 +102,7 @@ public class UserActionServlet extends HttpServlet {
 				String emailForRents = request.getParameter("email");
 				Utility.print("Ho preso l'attributo email: "+emailForRents);
 				try {
-					Collection<RentBean> temp = rentmodelds.fetchRentsFromUser(emailForRents,3);
+					Collection<RentBean> temp = rentmodelds.fetchEarlyRentsFromUser(emailForRents);
 					request.setAttribute("earlyRents",temp);
 					System.out.println(temp);
 					Utility.print("Ho settato l'attributo earlyRents");

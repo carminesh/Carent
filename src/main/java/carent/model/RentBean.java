@@ -9,6 +9,7 @@ public class RentBean {
     private String targa;
     private String daData;
     private String aData;
+    private String checkoutData;
     private double prezzo;
 
     public RentBean () {
@@ -45,8 +46,11 @@ public class RentBean {
     public void setaData(String aData) {
         this.aData = aData;
     }
+    public String getCheckoutData () { return checkoutData;}
+    public void setCheckoutData (String checkoutData) { this.checkoutData=checkoutData;}
     public double getPrezzo () { return prezzo;}
     public void setPrezzo (double prezzo) { this.prezzo=prezzo;}
+
 
     public String toString () {
         return userCode + " - " + targa + "( "+daData + " fino a " + aData + ")";

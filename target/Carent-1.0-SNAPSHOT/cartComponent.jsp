@@ -54,7 +54,7 @@
             alert($(this).attr("data-targa"));
             $.ajax(
                 {
-                    url: "user/settings",
+                    url: "user/action",
                     type: "POST",
                     data: {
                         changetype: "removeFromCart",
