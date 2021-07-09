@@ -27,22 +27,6 @@ create table veicolo (
                          prezzo_gg int not null
 ) engine = InnoDB;
 
-drop table if exists carrello;
-create table carrello (
-                          codiceItem int not null auto_increment,
-                          userCode int not null,
-                          targa char(7) not null,
-                          daData date not null,
-                          aData date not null,
-                          primary key (codiceItem),
-                          constraint chiave_esterna_to_utente_from_carrello foreign key (userCode) references utente(userCode) on delete cascade on update cascade,
-                          constraint chiave_esterna_to_veicolo_from_carrello foreign key (targa) references veicolo(targa) on delete restrict on update cascade
-) engine = InnoDB;
-
-select * from veicolo;
-select * from utente;
-select * from carrello;
-
 insert into utente(email,password,role, name, surname,phone) values
 ("puddino1337@gmail.com","d572cbaf9215ad1ca9466224210d127761f11078194f279536a747e5f28b148c","userrole","Dario", "Trinchese","3937323328"),
 ("marcotrinchese@gmail.com","d572cbaf9215ad1ca9466224210d127761f11078194f279536a747e5f28b148c","userrole","Marco", "Trinchese","3937324515"),
@@ -96,6 +80,3 @@ insert into noleggio(prezzo,daData,aData,checkoutData,userCode,targa) values
 (650,'2020-10-13','2021-03-25','2021-06-08',2,'CX700NA'),
 (700,'2020-10-14','2021-08-09','2021-06-08',2,'EZ989AO'),
 (1000,'2020-10-14','2021-10-14','2021-06-08',1,'EM099LI');
-
-SELECT * from noleggio;
-desc noleggio;
