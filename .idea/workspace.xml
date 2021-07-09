@@ -9,12 +9,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c740bcf0-b463-4742-aab0-bc7d11feecfc" name="Default Changelist" comment="Admin Page - Ui/Ux improvement">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c740bcf0-b463-4742-aab0-bc7d11feecfc" name="Default Changelist" comment="User/Admin page - Media query implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/errorStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/immagini/ErrorImage400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/immagini/ErrorImage404.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/immagini/ErrorImage500.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_06_21,_16_26_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_06_21,_16_30_[Default_Changelist]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_06_21__16_26__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_06_21__16_30__Default_Changelist_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_21,_15_57_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_21__15_57__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Carent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Carent.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/css/adminStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/css/adminStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/scripts/adminButtonToggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/scripts/adminButtonToggle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/error400.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/error400.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/error404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/error404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/error500.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/error500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/change.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/change.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/WEB-INF/classes/carent/model/RentBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/WEB-INF/classes/carent/model/RentBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/WEB-INF/classes/carent/model/RentModelDS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/WEB-INF/classes/carent/model/RentModelDS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/error400.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/error400.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/error404.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/error404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/error500.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/error500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/scripts/change.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/scripts/change.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/sql/carentnew.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/Carent-1.0-SNAPSHOT/sql/carentnew.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/carent/model/RentBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/carent/model/RentBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/carent/model/RentModelDS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/carent/model/RentModelDS.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +47,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Jsp File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -58,7 +82,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/scripts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/immagini" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -69,11 +94,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/immagini" />
       <recent name="$PROJECT_DIR$/src/main/webapp/scripts" />
       <recent name="$PROJECT_DIR$/src/main/webapp/css" />
       <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/src/main/java/carent/controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Dario\Desktop\CarentV2\src\main\webapp" />
@@ -81,26 +106,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
-      <option name="adminPort" value="8005" />
-      <option name="contextPath" value="/Carent" />
-      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions" />
-      <option name="passParentEnvironmentVariables" value="true" />
-      <option name="port" value="8080" />
-      <option name="tomcatInfo">
-        <TomcatInfo>
-          <option name="name" value="Apache Tomcat/9.0.43" />
-          <option name="number" value="0" />
-          <option name="path" value="/Applications/Tomcat" />
-          <option name="version" value="9.0.43.0" />
-        </TomcatInfo>
-      </option>
-      <option name="vmOptions" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -202,6 +207,26 @@
         </option>
       </method>
     </configuration>
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/Carent" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions" />
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.43" />
+          <option name="number" value="0" />
+          <option name="path" value="/Applications/Tomcat" />
+          <option name="version" value="9.0.43.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -222,6 +247,17 @@
       <workItem from="1623672396232" duration="5619000" />
       <workItem from="1623754522156" duration="21000" />
       <workItem from="1623754559042" duration="11899000" />
+      <workItem from="1623932660798" duration="1108000" />
+      <workItem from="1623933805399" duration="2300000" />
+      <workItem from="1624110855766" duration="194000" />
+      <workItem from="1624111105239" duration="10912000" />
+      <workItem from="1624174095058" duration="2370000" />
+      <workItem from="1624176670932" duration="1017000" />
+      <workItem from="1625496496865" duration="131000" />
+      <workItem from="1625565904725" duration="389000" />
+      <workItem from="1625834041032" duration="290000" />
+      <workItem from="1625835544439" duration="64000" />
+      <workItem from="1625835745331" duration="5017000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1623592832049</created>
@@ -314,7 +350,56 @@
       <option name="project" value="LOCAL" />
       <updated>1623767157796</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Checkout Page implementation">
+      <created>1623931913694</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1623931913694</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Checkout Page implementation">
+      <created>1623931947311</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1623931947311</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Payment page implementation, Search page major changes/improvements">
+      <created>1623935818184</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1623935818184</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Search page minor changes">
+      <created>1623936176739</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1623936176739</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Success checkout component update">
+      <created>1624111177357</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1624111177357</updated>
+    </task>
+    <task id="LOCAL-00019" summary="User/Admin page - Media query implementation">
+      <created>1624123035165</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1624123035165</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Ui/Ux minor improvements">
+      <created>1624177731431</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1624177731431</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +429,12 @@
     <MESSAGE value="Admin Page - Added cars table, users table and rentals table (with AJAX features on admin actions)" />
     <MESSAGE value="Security - Added JSP snippets, Servlet changes and Filter redirections to improve security" />
     <MESSAGE value="Admin Page - Ui/Ux improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin Page - Ui/Ux improvement" />
+    <MESSAGE value="Checkout Page implementation" />
+    <MESSAGE value="Payment page implementation, Search page major changes/improvements" />
+    <MESSAGE value="Search page minor changes" />
+    <MESSAGE value="Success checkout component update" />
+    <MESSAGE value="User/Admin page - Media query implementation" />
+    <MESSAGE value="Ui/Ux minor improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ui/Ux minor improvements" />
   </component>
 </project>

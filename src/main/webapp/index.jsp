@@ -24,7 +24,10 @@ if (pass==null) {
 		rel="stylesheet"
 		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 		crossorigin="anonymous">
-		<link rel="icon" href="<%=application.getContextPath()+"/immagini/favicon.svg"%>" type="image/x-icon" />
+	<link rel="icon" href="<%=application.getContextPath()+"/immagini/favicon.svg"%>" type="image/x-icon" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		  integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		  crossorigin="anonymous" referrerpolicy="no-referrer"/>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -261,23 +264,29 @@ if (pass==null) {
 						<h5 class="text-uppercase" style="color: #00bf85;">Carent -
 							Noleggio Veicoli</h5>
 
-						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-							Iste atque ea quis molestias. Fugiat pariatur maxime quis culpa
-							corporis vitae repudiandae aliquam voluptatem veniam, est atque
-							cumque eum delectus sint!</p>
+						<p id="footer-text">
+							Carent è una piattaforma per il noleggio di auto a breve e lungo termine.
+							Si propone come un sito web per il noleggio di autoveicoli dedicato a tutti.
+						</p>
 
 					</div>
 
 
-
 					<div class="col-lg-3 col-md-6 mb-4 mb-md-0" id="authors">
-						<h5 class="text-uppercase mb-0" style="color: #00bf85;">Autori
-							Sito</h5>
+						<h5 class="text-uppercase mb-0" style="color: #00bf85;">Autori Sito</h5>
 
 						<ul class="list-unstyled">
 							<li><a href="#!">Carmine Fabbri</a></li>
 							<li><a href="#!">Dario Trinchese</a></li>
 
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-6 mb-4 mb-md-0" id="link">
+						<h5 class="text-uppercase mb-0" style="color: #00bf85;">Link utili</h5>
+
+						<ul class="list-unstyled" id="link-list">
+							<li><a href="https://github.com/carminesh/Carent/commits/master"> <i style="font-size: 40px;" class="fab fa-github-square"></i> Github</a></li>
 						</ul>
 					</div>
 				</div>
