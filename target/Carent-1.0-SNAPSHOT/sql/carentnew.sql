@@ -52,7 +52,6 @@ INSERT INTO veicolo(targa,marca,modello,alimentazione,chilometraggio,potenza,ann
 ('EZ989AO','Alfa Romeo','MiTo','DIESEL',12000,70,2010,11);
 
 SET SQL_SAFE_UPDATES=0;
-delete from carrello;
 
 drop table if exists noleggio;
 create table noleggio (

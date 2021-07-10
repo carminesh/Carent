@@ -106,3 +106,34 @@ body {
     text-align: center;
     color: white;
 }
+
+
+@media screen and (max-width: 768px) {
+
+    #checkout-window {
+        background: #262a2e;
+        border: none;
+    }
+
+    #row1 {
+       margin-top: 700px;
+   }
+
+    .container h1 {
+        margin-bottom: 40px;
+    }
+
+    #card-section {
+        margin-left: 0px;
+    }
+
+    #img-section {
+        height: 0%;
+        width: 0%;
+    }
+
+    #img-section img {
+        display: none;
+    }
+
+}

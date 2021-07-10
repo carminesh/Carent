@@ -10,7 +10,6 @@ $(document).ready(
 						url: "action",
 						type: "POST",
 						data: {
-							changetype: "email",
 							newemail: $("#newemail").val(),
 							oldemail: $("#currentemail").text()
 						},

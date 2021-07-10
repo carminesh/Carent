@@ -18,7 +18,7 @@
 <div data-targa="<%=bean.getTarga()%>" class="card mb-3" style="width: 800px;">
     <div class="row g-0">
         <div class="col-md-4">
-            <img class="img-car" src="<%=application.getContextPath()+"/immagini/"+bean.getTarga()+".jpg"%>" alt="...">
+            <img class="img-car" src="<%=application.getContextPath()+"/immagini/"+bean.getTarga()+".svg"%>" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">

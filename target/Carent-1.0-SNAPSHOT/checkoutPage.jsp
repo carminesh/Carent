@@ -152,6 +152,7 @@
                         <img src="<%=application.getContextPath()+"/immagini/payIcon.svg"%>" alt="Payment icon" width="300" height="300">
                     </div>
                 </div>
+
             </div>
     </div>
 

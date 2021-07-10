@@ -18,6 +18,7 @@ body {
 
 #logout-button {
 	margin-top: 65px;
+	margin-left: 30px;
 	width: 60px;
 	height: 60px;
 	background: #596A7A !important;
@@ -214,7 +215,7 @@ input {
 	}
 
 	#logout-button {
-		margin-left: 10px;
+		margin-left: 20px;
 		margin-bottom: 20px;
 	}
 

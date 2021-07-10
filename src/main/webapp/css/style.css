@@ -177,6 +177,10 @@ body {
 
 @media screen and (max-width: 376px) {
 
+    #login-butt {
+        margin-left: -8px;
+    }
+
     #search-button {
         width: 100%;
     }

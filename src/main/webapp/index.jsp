@@ -62,13 +62,13 @@ if (pass==null) {
 					if (user == null) {
 					%>
 						<a href="<%=application.getContextPath()+"/access"%>">
-						<button type="button" class="btn btn-success">Login</button> <%
+						<button id="login-butt" type="button" class="btn btn-success">Login</button> <%
  					} else if (user.getRole().equals("userrole")){
  					%> <a href="<%=application.getContextPath()+"/user/page"%>">
-						<button type="button" class="btn btn-success"><%=user.getName()%></button>
+						<button id="login-butt" type="button" class="btn btn-success"><%=user.getName()%></button>
 					<%} else { %>
 						<a href="<%=application.getContextPath()+"/admin/page"%>">
-						<button type="button" class="btn btn-success"><%=user.getName()%></button>
+						<button id="login-butt" type="button" class="btn btn-success"><%=user.getName()%></button>
 					<%
 					}
 					%>
