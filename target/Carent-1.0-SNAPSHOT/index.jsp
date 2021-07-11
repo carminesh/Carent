@@ -105,17 +105,6 @@ if (pass==null) {
 	<div class="container" id="container1">
 		<div class="row text-center" id="row1">
 			<h2>Effettua la ricerca e verifica la disponibilità</h2>
-			<div id="search-error">
-				<%
-					String error = (String) request.getAttribute("error");
-					if (error!=null) {
-				%>
-					Periodo non valido
-				<%
-					}
-				%>
-			</div>
-
 		</div>
 		<form class="search-bar" method="POST" action="<%=application.getContextPath()+"/search"%>" onsubmit="checkFields()">
 			<div class="row justify-content-center" id="row2">
@@ -143,11 +132,19 @@ if (pass==null) {
 				<div class="col-md-3">
 					<input type="submit" value="CERCA AUTO" id="search-button">
 				</div>
-
+				<div id="search-error">
+					<%
+						String error = (String) request.getAttribute("error");
+						if (error!=null) {
+					%>
+					<h5 id="data-label">Periodo non valido</h5>
+					<%
+						}
+					%>
+				</div>
 			</div>
 		</form>
-		<label style="color: white; padding-left: 5px;">*Si consiglia
-			di prenotare la vettura 48h prima</label>
+		<label style="color: white; padding-left: 5px;">*Si consiglia di prenotare la vettura 48h prima</label>
 	</div>
 
 	<!--Card-carousel-->

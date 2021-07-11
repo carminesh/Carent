@@ -57,8 +57,8 @@
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="<%=application.getContextPath()+"/home"%>">Home</a> <a class="nav-link" href="#">Veicoli</a>
-                <a class="nav-link" href="#">Contatti</a>
+                <a class="nav-link" href="<%=application.getContextPath()+"/home"%>">Home</a> <a class="nav-link" href="<%=application.getContextPath()+"/search"%>" >Veicoli</a>
+                <a class="nav-link" href="<%=application.getContextPath()+"/index.jsp#authors"%>">Contatti</a>
                 <form action="<%=application.getContextPath()+"/logout"%>" method="GET">
                     <input id="logout-button" type="submit" value="Logout" class="btn btn-success">
                 </form>
@@ -159,9 +159,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+
     </div>
-
-
 </div>
 
 

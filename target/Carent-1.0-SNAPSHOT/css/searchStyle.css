@@ -131,12 +131,11 @@ body {
     border-radius: 5px;
     border-style: none;
     color: white;
-    background: #BF2900 !important;
-    border-color: #982200  !important;
+    background: #00bf85;
 }
 
 .buy-button:hover {
-    background: #982200 !important;
+    background: #015c40 !important;
 }
 
 #cart-label {
@@ -157,12 +156,12 @@ body {
     border-radius: 5px;
     border-style: none;
     color: white;
-    background: #BF2900 !important;
-    border-color: #982200  !important;
+    background:#C7B491 !important;
+    border-color: #7A6A4D !important;
 }
 
 #checkout-button:hover {
-    background: #982200 !important;
+    background: #7A6A4D !important;
 }
 
 .card {
@@ -170,10 +169,27 @@ body {
     width: 800px;
 }
 
+.delete-from-cart button {
+    background: #BF2900 !important;
+    border-color: #982200  !important;
+    border-radius: 5px;
+    color: white;
+    border-style: none;
+    height: 35px;
+}
+
+.delete-from-cart button:hover {
+    background: #982200 !important;
+}
+
 @media screen and (max-width: 375px) {
 
     #right-section {
         margin-top: 60px;
+    }
+
+    .buy-button {
+        width: 180px;
     }
 
     .img-car {
@@ -193,6 +209,11 @@ body {
     #navbarNavAltMarkup > div > a:nth-child(4) {
         margin-left: -20px;
     }
+
+    .buy-button {
+        width: 180px;
+    }
+
 }
 
 @media screen and (min-width: 376px) and (max-width: 768px) {

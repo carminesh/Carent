@@ -10,9 +10,8 @@ body {
     padding-top: 10px;
 }
 
-#navbarNavAltMarkup > div > a:nth-child(n) {
-    padding: 5px 20px;
-    /* color: #00bf85*/
+#navbarNavAltMarkup > div > a:nth-child(2) {
+    padding: 8px 20px;
 }
 
 .btn-success {
@@ -20,7 +19,6 @@ body {
     background: #00bf85 !important;
     border-color: #00bf85 !important;
     margin-left: 10px;
-
 }
 
 .btn-success a{
@@ -97,6 +95,12 @@ body {
     background: #015c40 !important;
     border-color: #00bf85;
 }
+
+#data-label {
+    color: #00bf85;
+    margin-top: 15px;
+}
+
 
 /*Card-carousel*/
 
@@ -177,6 +181,10 @@ body {
 
 @media screen and (max-width: 376px) {
 
+    #navbarNavAltMarkup > div > a:nth-child(n) {
+        padding: 5px 20px;
+    }
+
     #login-butt {
         margin-left: -8px;
     }
@@ -199,6 +207,7 @@ body {
         margin-left: 40px;
     }
 }
+
 
 
 
@@ -259,12 +268,6 @@ body {
         width: 50px;
     }
 
-    #footer {
-        height: 300px;
-        margin-top: 40px;
-        background: url(../../resources/immagini/footer2-md.svg) !important;
-        background-size: 100% 100%;
-    }
 
 }
 
