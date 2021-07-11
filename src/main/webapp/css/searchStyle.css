@@ -13,9 +13,8 @@ body {
     padding-top: 10px;
 }
 
-#navbarNavAltMarkup > div > a:nth-child(n) {
-    padding: 5px 20px;
-    /* color: #00bf85*/
+#navbarNavAltMarkup > div > a:nth-child(2) {
+    padding: 8px 20px;
 }
 
 .btn-success {
@@ -126,16 +125,16 @@ body {
 
 .buy-button {
     margin-top: 10px;
-    width: 150px;
+    width: 160px;
     height: 40px;
     border-radius: 5px;
     border-style: none;
     color: white;
-    background: #00bf85;
+    background: #037d57;
 }
 
 .buy-button:hover {
-    background: #015c40 !important;
+    background: #00bf85 !important;
 }
 
 #cart-label {
@@ -183,6 +182,11 @@ body {
 }
 
 @media screen and (max-width: 375px) {
+
+    #navbarNavAltMarkup > div > a:nth-child(n) {
+        padding: 5px 20px;
+        /* color: #00bf85*/
+    }
 
     #right-section {
         margin-top: 60px;
