@@ -51,10 +51,6 @@
     () => {
         $(".buy-button").click (
             function () {
-                alert($(this).attr("data-targa"));
-                alert($(this).attr("data-start"));
-                alert($(this).attr("data-finish"));
-                alert($(this).attr("data-luogo"));
                 $.ajax (
                     {
                         url: "user/action",
@@ -67,7 +63,6 @@
                             place: $(this).attr("data-luogo")
                         },
                         success: function (data) {
-                            alert("Servlet addToCart terminata con successo");
                             $("#shop-section").html(data);
                         },
                         error: function (xhr,ajaxOptions, thrownError) {

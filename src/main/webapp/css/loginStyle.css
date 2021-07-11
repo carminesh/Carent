@@ -95,4 +95,9 @@ body {
     #text-for-login {
         margin-right: 90px !important;
     }
+
+    .login-window {
+        margin-top: -20px;
+        margin-bottom: 20px;
+    }
 }

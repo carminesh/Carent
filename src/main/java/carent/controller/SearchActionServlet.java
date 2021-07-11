@@ -91,7 +91,7 @@ public class SearchActionServlet extends HttpServlet {
                         }
                     } else {
                         request.setAttribute("error","Periodo non valido");
-                        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
+                        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/home");
                         dispatcher.forward(request,response);
                         return;
                     }

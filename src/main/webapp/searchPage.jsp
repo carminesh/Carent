@@ -71,8 +71,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="<%=application.getContextPath()+"/home"%>">Home</a>
-                <a class="nav-link" href="#">Contatti</a> <a class="nav-link"
-                                                             href="#">Aiuto</a>
+                <a class="nav-link" href="<%=application.getContextPath()+"/index.jsp#authors"%>">Contatti</a>
 
 
                 <% if (utente == null) { %>

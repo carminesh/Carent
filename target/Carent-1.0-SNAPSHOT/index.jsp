@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.*,carent.model.*"%>
+<%@ page import="carent.utils.Utility" %>
 <!DOCTYPE html>
 
 <%
@@ -54,8 +55,7 @@ if (pass==null) {
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<a class="nav-link" href="<%=application.getContextPath()+"/search"%>">Veicoli</a>
-					<a class="nav-link" href="#authors">Contatti</a> <a class="nav-link"
-						href="#">Aiuto</a>
+					<a class="nav-link" href="#authors">Contatti</a>
 
 
 					<%
@@ -105,6 +105,17 @@ if (pass==null) {
 	<div class="container" id="container1">
 		<div class="row text-center" id="row1">
 			<h2>Effettua la ricerca e verifica la disponibilità</h2>
+			<div id="search-error">
+				<%
+					String error = (String) request.getAttribute("error");
+					if (error!=null) {
+				%>
+					Periodo non valido
+				<%
+					}
+				%>
+			</div>
+
 		</div>
 		<form class="search-bar" method="POST" action="<%=application.getContextPath()+"/search"%>" onsubmit="checkFields()">
 			<div class="row justify-content-center" id="row2">
