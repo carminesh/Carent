@@ -35,6 +35,7 @@ public class UserActionServlet extends HttpServlet {
 		HttpSession session;
 		CartBean cartbean;
 		RequestDispatcher dispatcher;
+
 		switch (changetype) {
 		case "email":
 			String newemail = (String) request.getParameter("newemail");
@@ -163,8 +164,8 @@ public class UserActionServlet extends HttpServlet {
 										dispatcher.forward(request,response);
 										return;
 									} else {
-										Utility.print("Impossibile aggiungere al carrello");
-										response.getWriter().print("Impossibile aggiungere al carrello");
+										Utility.print("Massimo tre elementi nel carrello");
+										response.getWriter().print("Massimo tre elementi nel carrello");
 										response.setStatus(400);
 									}
 								} else {

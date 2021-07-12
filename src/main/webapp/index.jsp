@@ -284,8 +284,8 @@ if (pass==null) {
 						<h5 class="text-uppercase mb-0" style="color: #00bf85;">Autori Sito</h5>
 
 						<ul class="list-unstyled">
-							<li><a href="#!">Carmine Fabbri</a></li>
-							<li><a href="#!">Dario Trinchese</a></li>
+							<li><a href="https://www.instagram.com/carmine.fa/">Carmine Fabbri</a></li>
+							<li><a href="https://www.instagram.com/dariotrollo/">Dario Trinchese</a></li>
 
 						</ul>
 					</div>
