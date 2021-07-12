@@ -65,8 +65,7 @@ public class LoginServletDBAccess extends HttpServlet {
 			getServletContext().getRequestDispatcher("/loginPage.jsp").forward(request, response);
 			return;
 		} catch (SQLException e) {
-			Utility.print(e);
-			request.setAttribute("error",e.getMessage());
+			response.setStatus(500);
 		}
 	}
 

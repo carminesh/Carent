@@ -48,7 +48,7 @@ public class ImageUploadServlet extends HttpServlet {
         } catch(IOException e) {
             e.printStackTrace();
 
-            request.setAttribute("errpr", "Non &egrave; stato possibile aggiungere la foto del veicolo.");
+            request.setAttribute("error", "Non &egrave; stato possibile aggiungere la foto del veicolo.");
             request.getRequestDispatcher("/adminPage.jsp").forward(request, response);
             response.setStatus(400);
 
