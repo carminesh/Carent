@@ -21,3 +21,9 @@ The platform can be accessed via `http: // localhost: 8080/Carent`.
 
 `For the regular user, just create a new account from the Sign Up page`
 `Admin page - Login: admin@carent.it, password: admin [SHA256]`
+
+## Preview
+
+![Preview](https://i.gyazo.com/aecc1e1b0e52c5b4b0a32b075f191c54.png)
+
+![Preview](https://i.gyazo.com/16511d4655ccf93d4894d12b0853f68a.png)
