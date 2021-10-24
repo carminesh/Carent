@@ -19,19 +19,21 @@ import java.sql.SQLException;
 @WebServlet("/admin/page")
 public class AdminPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public AdminPageServlet() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Utility.print("Sono entrato nella servlet AdminPage");
-		request.setAttribute("pass","enabled");
+	public AdminPageServlet() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Utility.print("Sono entrato nella servlet AdminPage");
+		request.setAttribute("pass", "enabled");
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/adminPage.jsp");
 		dispatcher.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

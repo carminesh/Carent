@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(urlPatterns= { "/admin/*"})
+@WebFilter(urlPatterns = { "/admin/*" })
 public class AuthenticationFilterForAdmin implements Filter {
 
 	@Override
@@ -22,27 +22,31 @@ public class AuthenticationFilterForAdmin implements Filter {
 		String uri = hrequest.getRequestURI();
 		if (uri.contains("/admin/")) {
 			HttpSession session = hrequest.getSession(false);
-			if (session!=null) {
+			if (session != null) {
 				UserBean user = (UserBean) session.getAttribute("utente");
-				if (user==null) {
+				if (user == null) {
 					Utility.print("Non hai eseguito il login");
-					hresponse.sendRedirect(hrequest.getContextPath()+"/loginPage.jsp");
+					hresponse.sendRedirect(hrequest.getContextPath() + "/loginPage.jsp");
 					return;
 				}
 				if (user.getRole().equals("adminrole")) {
 					Utility.print("Sei davvero un admin");
-					chain.doFilter(request,response);
+					chain.doFilter(request, response);
 				} else {
 					Utility.print("Non sei un admin...");
-					hresponse.sendRedirect(hrequest.getContextPath()+"/loginPage.jsp");
+					hresponse.sendRedirect(hrequest.getContextPath() + "/loginPage.jsp");
 					return;
 				}
 			} else {
 				Utility.print("Non hai eseguito il login...");
-				hresponse.sendRedirect(hrequest.getContextPath()+"/loginPage.jsp");
+				hresponse.sendRedirect(hrequest.getContextPath() + "/loginPage.jsp");
 				return;
 			}
 		}
+	}
+
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {
 	}
 
 }
